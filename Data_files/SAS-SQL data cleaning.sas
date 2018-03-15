@@ -1,5 +1,4 @@
-/*Libname data "\\laph.local\dph\profiles\e614951\Desktop\test\Data";*/
-libname data "C:\Users\e614951\Desktop\testdata";
+libname data "C:\Users\Desktop\testdata";
 /* Import full dataset*/
 
 /*PROC IMPORT OUT= data.check */
