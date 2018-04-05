@@ -9,11 +9,44 @@
   </head>
   <body>
     <h1>Air Pollution</h1>
-    <div class="meta">BY CELIA LUDWINSKI, SHELLY HSU, ADITYA NAKAI</div>
-    <div class="meta">W209 SECTION 3  /  SPRING 2018  /  MIDS, UC BERKELEY</div>
+    <div class="buttons">
+        <button type="button" class="pollutant_button" id="pollutant1">
+            <div class="button_h1">Carbon Monoxide</div>
+            <div class="button_text">
+                Chemical formula: CO
+                <br />
+                Harm: Breathing carbon monoxide reduces the
+                amount of oxygen transported to critical organs like
+                the heart and brain.
+            </div>
+        </button>
+        <button type="button" class="pollutant_button" id="pollutant2">
+            <div class="button_h1">Sulfer Dioxide</div>
+            <div class="button_text">
+                Chemical formula: S02
+                <br />
+                SomeTextheere bla bla
+            </div>
+        </button>
+        <button type="button" class="pollutant_button" id="pollutant3">
+            <div class="button_h1">Nitrogen Dioxide</div>
+            <div class="button_text">
+                Chemical formula: N02
+                <br />
+                SomeTextheere bla bla
+            </div>
+        </button>
+        <button type="button" class="pollutant_button" id="pollutant4">
+            <div class="button_h1">Ozone</div>
+            <div class="button_text">
+                Chemical formula: O3
+                <br />
+                SomeTextheere bla bla
+            </div>
+        </button>
+    </div>
 
     <div class="main">
-
         <div class="double_map">
             <svg id="map1" class="map_graph"></svg>
             <svg id="map2" class="map_graph"></svg>
@@ -22,43 +55,6 @@
         <div class="line_graphs">
             <svg id="linegraph1" class="line_graph"></svg>
             <svg id="linegraph2" class="line_graph"></svg>
-        </div>
-
-        <div class="buttons">
-            <button type="button" class="pollutant_button" id="pollutant1">
-                <div class="button_h1">Carbon Monoxide</div>
-                <div class="button_text">
-                    Chemical formula: CO
-                    <br />
-                    Harm: Breathing carbon monoxide reduces the
-                    amount of oxygen transported to critical organs like
-                    the heart and brain.
-                </div>
-            </button>
-            <button type="button" class="pollutant_button" id="pollutant2">
-                <div class="button_h1">Sulfer Dioxide</div>
-                <div class="button_text">
-                    Chemical formula: S02
-                    <br />
-                    SomeTextheere bla bla
-                </div>
-            </button>
-            <button type="button" class="pollutant_button" id="pollutant3">
-                <div class="button_h1">Nitrogen Dioxide</div>
-                <div class="button_text">
-                    Chemical formula: N02
-                    <br />
-                    SomeTextheere bla bla
-                </div>
-            </button>
-            <button type="button" class="pollutant_button" id="pollutant4">
-                <div class="button_h1">Ozone</div>
-                <div class="button_text">
-                    Chemical formula: O3
-                    <br />
-                    SomeTextheere bla bla
-                </div>
-            </button>
         </div>
     </div>
 
@@ -70,6 +66,9 @@
         <h2>POLLUTION AND MORTALITY</h2>
         <p>Some details about the assumption that pollution and mortality are linked.</p>
     </div>
+
+    <div class="meta">BY CELIA LUDWINSKI, SHELLY HSU, ADITYA NAKAI</div>
+    <div class="meta">W209 SECTION 3  /  SPRING 2018  /  MIDS, UC BERKELEY</div>
 
     <!-- page content -->
     <script src="js/jquery-1.11.0.min.js"></script>

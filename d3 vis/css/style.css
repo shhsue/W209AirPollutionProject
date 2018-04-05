@@ -33,11 +33,11 @@ h1 {
 h2, .pollutant_button .button_h1 {
     font-family: din-condensed, sans-serif;
     margin-bottom: 3px;
-    text-align:left;
 }
 h2 {
     margin-top: 1.5em;
     font-size: 30px;
+    text-align:left;
 }
 svg {
 }
@@ -60,26 +60,28 @@ svg {
 
 /* filtering & button elements */
 .buttons {
-    display:inline-block;
+    display:block;
     /*width:100px;*/
 }
 .pollutant_button {
-    background-color: Transparent;
+    background-color: #cccccc;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
     overflow: hidden;
     outline:none;
     text-align:left;
-    display:block;
-    width:200px;
+    display:inline-block;
+    width:250px;
     line-height: 1.4
 }
 .pollutant_button .button_h1{
     font-size: 20px;
+    text-align:center ;
 }
 .pollutant_button .button_text{
     font-size: 10px;
+    text-align:center;
 }
 
 /* graphing container elements*/
@@ -105,7 +107,7 @@ svg {
 .line_graph{
     margin:5px;
     background-color:white;
-    width:240px;
-    height:190px;
+    width:340px;
+    height:200px;
     display:block;
 }
