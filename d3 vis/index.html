@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>W209 Air Pollution Final Project</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="https://use.typekit.net/xrt3cra.css">
+  </head>
+  <body>
+    <h1>Air Pollution</h1>
+    <div class="meta">BY CELIA LUDWINSKI, SHELLY HSU, ADITYA NAKAI</div>
+    <div class="meta">W209 SECTION 3  /  SPRING 2018  /  MIDS, UC BERKELEY</div>
+
+    <div class="double_map">
+        <svg id="map1" class="map_graph"></svg>
+        <svg id="map2" class="map_graph"></svg>
+    </div>
+
+    <div class="line_graphs">
+        <svg id="linegraph1" class="line_graph"></svg>
+        <svg id="linegraph2" class="line_graph"></svg>
+    </div>
+
+    <div class="buttons">
+        <button type="button" class="pollutant_button" id="pollutant1">
+            <div class="button_h1">Carbon Monoxide</div>
+            <div class="button_text">
+                Chemical formula: CO
+                <br />
+                Harm: Breathing carbon monoxide reduces the
+                amount of oxygen transported to critical organs like
+                the heart and brain.
+            </div>
+        </button>
+        <button type="button" class="pollutant_button" id="pollutant2">
+            <div class="button_h1">Sulfer Dioxide</div>
+            <div class="button_text">
+                Chemical formula: S02
+                <br />
+                SomeTextheere bla bla
+            </div>
+        </button>
+        <button type="button" class="pollutant_button" id="pollutant3">
+            <div class="button_h1">Nitrogen Dioxide</div>
+            <div class="button_text">
+                Chemical formula: N02
+                <br />
+                SomeTextheere bla bla
+            </div>
+        </button>
+        <button type="button" class="pollutant_button" id="pollutant4">
+            <div class="button_h1">Ozone</div>
+            <div class="button_text">
+                Chemical formula: O3
+                <br />
+                SomeTextheere bla bla
+            </div>
+        </button>
+    </div>
+
+    <div class="body_text">
+        <h2>POLLUTION</h2>
+        <p>Some details about source of pollution data.</p>
+        <h2>MORTALITY</h2>
+        <p>Some details about source of mortality data.</p>
+        <h2>POLLUTION AND MORTALITY</h2>
+        <p>Some details about the assumption that pollution and mortality are linked.</p>
+    </div>
+
+    <!-- page content -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/d3.v4.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/linegraph.js"></script>
+
+  </body>
+</html>
