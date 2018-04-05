@@ -9,52 +9,42 @@
   </head>
   <body>
     <h1>Air Pollution</h1>
-    <div class="buttons">
-        <button type="button" class="pollutant_button" id="pollutant1">
-            <div class="button_h1">Carbon Monoxide</div>
-            <div class="button_text">
-                Chemical formula: CO
-                <br />
-                Harm: Breathing carbon monoxide reduces the
-                amount of oxygen transported to critical organs like
-                the heart and brain.
-            </div>
-        </button>
-        <button type="button" class="pollutant_button" id="pollutant2">
-            <div class="button_h1">Sulfer Dioxide</div>
-            <div class="button_text">
-                Chemical formula: S02
-                <br />
-                SomeTextheere bla bla
-            </div>
-        </button>
-        <button type="button" class="pollutant_button" id="pollutant3">
-            <div class="button_h1">Nitrogen Dioxide</div>
-            <div class="button_text">
-                Chemical formula: N02
-                <br />
-                SomeTextheere bla bla
-            </div>
-        </button>
-        <button type="button" class="pollutant_button" id="pollutant4">
-            <div class="button_h1">Ozone</div>
-            <div class="button_text">
-                Chemical formula: O3
-                <br />
-                SomeTextheere bla bla
-            </div>
-        </button>
-    </div>
-
     <div class="main">
-        <div class="double_map">
-            <svg id="map1" class="map_graph"></svg>
-            <svg id="map2" class="map_graph"></svg>
+        <div class="filters">
+            <div class="buttons">
+                <button type="button" class="pollutant_button" id="pollutant1">
+                    <img src="assets/icon-01.png" alt="CO">
+                    <div class="button_text">CO</div>
+                </button>
+                <button type="button" class="pollutant_button" id="pollutant1">
+                    <img src="assets/icon-02.png" alt="SO2">
+                    <div class="button_text">SO2</div>
+                </button>
+                <button type="button" class="pollutant_button" id="pollutant1">
+                    <img src="assets/icon-03.png" alt="NO2">
+                    <div class="button_text">NO2</div>
+                </button>
+                <button type="button" class="pollutant_button" id="pollutant1">
+                    <img src="assets/icon-04.png" alt="O3">
+                    <div class="button_text">O3</div>
+                </button>
+            </div>
+            <div class="pollutant_descr">
+                <h2>POLLUTANT NAME</h2>
+                <p>The description of the pollutant will go here including
+                    some of the harmful effects what the calc means. </p> 
+            </div>
         </div>
+        <div class="graphs">
+            <div class="double_map">
+                <svg id="map1" class="map_graph"></svg>
+                <svg id="map2" class="map_graph"></svg>
+            </div>
 
-        <div class="line_graphs">
-            <svg id="linegraph1" class="line_graph"></svg>
-            <svg id="linegraph2" class="line_graph"></svg>
+            <div class="line_graphs">
+                <svg id="linegraph1" class="line_graph"></svg>
+                <svg id="linegraph2" class="line_graph"></svg>
+            </div>
         </div>
     </div>
 

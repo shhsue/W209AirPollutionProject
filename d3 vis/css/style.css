@@ -7,9 +7,14 @@ body {
 	line-height: 1.88889;
 	color: #555753;
 	padding: 0;
-    margin:40px;
-    /*min-width:1000px;*/
+    width:100vw;
+    display:block;
 	}
+.main {
+    margin: auto;
+    display:block;
+    width:70%;
+}
 p {
 	text-align: justify;
     min-width:400px;
@@ -59,12 +64,43 @@ svg {
 }
 
 /* filtering & button elements */
-.buttons {
+.filters {
+    width:100%;
+    height:100px;
     display:block;
-    /*width:100px;*/
+}
+.buttons, .pollutant_descr{
+    display:inline-block;
+    vertical-align: top;
+    float: left;
+}
+.buttons {
+    width:10%;
+}
+.button_text{
+    font-family: din-condensed, sans-serif;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+
+    /*center the text within the container (on top of the img icon)*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.pollutant_descr{
+    margin-left:20px;
+    width:auto;
+}
+.pollutant_descr > h2 {
+    margin-top: 0em;
+}
+.pollutant_button:hover {
+    background-color: #dddddd;
 }
 .pollutant_button {
-    background-color: #cccccc;
+    background-color: #eeeeee;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
@@ -72,8 +108,18 @@ svg {
     outline:none;
     text-align:left;
     display:inline-block;
-    width:250px;
-    line-height: 1.4
+    width:45%;
+    position:relative; /* necessary for hovering text over center of button*/
+    /*height:auto;*/
+    /*width:250px;*/
+    /*line-height: 1.4*/
+    /*padding:5px;*/
+    padding:0;
+    margin:1%;
+}
+.pollutant_button > img {
+    width:100%;
+    height:auto;
 }
 .pollutant_button .button_h1{
     font-size: 20px;
@@ -85,6 +131,10 @@ svg {
 }
 
 /* graphing container elements*/
+.graphs {
+    width:100%;
+    display:block;
+}
 .double_map, .line_graphs{ /* containers for graphs */
     background-color:#bbbbbb;
     display:inline-block;
