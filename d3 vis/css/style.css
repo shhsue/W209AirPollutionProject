@@ -8,7 +8,7 @@ body {
 	color: #555753;
 	padding: 0;
     margin:40px;
-    min-width:1000px;
+    /*min-width:1000px;*/
 	}
 p {
 	text-align: justify;
@@ -91,21 +91,21 @@ svg {
 .double_map {
 }
 .line_graphs{
-    width:200px;
+    /*  width:200px;*/
 }
 
 /* individual graph type styles */
 .map_graph{
     margin:5px;
     background-color:white;
-    width:190px;
+    width:240px;
     height:400px;
     display:inline-block;
 }
 .line_graph{
     margin:5px;
     background-color:white;
-    width:190px;
+    width:240px;
     height:190px;
-    display:inline-block;
+    display:block;
 }
