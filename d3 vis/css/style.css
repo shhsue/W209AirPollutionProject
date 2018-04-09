@@ -91,7 +91,7 @@ svg {
 }
 .pollutant_descr{
     margin-left:20px;
-    width:auto;
+    width:85%;
 }
 .pollutant_descr > h2 {
     margin-top: 0em;

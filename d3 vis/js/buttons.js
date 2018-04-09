@@ -9,20 +9,20 @@ $(function() {
         // TODO: change from series of if statements to dictionary
         // determine what text to set
         if (pollutant == 1) {
-            title = "Carbon Monoxide";
-            description = "some descr here";
+            title = "Carbon Monoxide (CO)";
+            description = "CO prevents normal transport of oxygen by the blood and can lead to sginficiant reduction in the supply of oxygen and impact those with heart disease.";
         }
         else if (pollutant == 2) {
-            title = "Sulfur Dioxide";
-            description = "a";
+            title = "Sulphur Dioxide (SO2)";
+            description = "SO2 even in moderate concentrations may result in decrease in lung function.";
         }
         else if (pollutant == 3) {
-            title = "Nitrogen Dioxide";
-            description = "a";
+            title = "Nitrogen Dioxide (NO2)";
+            description = "NO2 can irritate the lungs and lower resistance to respiratory infections and diseases.";
         }
         else if (pollutant == 4) {
-            title = "Ozone";
-            description = "a";
+            title = "Ground level or ambient ozone (O3)";
+            description = "Ground level O3 can irritate the airways of the lungs, and increase symtpoms of those suffering from respiratory diseases.";
         }
         else { // return to blank, ready state
             // TODO: should include everything selected in series? multi select?
