@@ -96,6 +96,11 @@ svg {
 .pollutant_descr > h2 {
     margin-top: 0em;
 }
+.pollutant_descr > p {
+    margin-top: 0em;
+    line-height: 1.2em;
+    font-size: 12px;
+}
 .pollutant_button:hover {
     background-color: #bbbbbb;
 }
