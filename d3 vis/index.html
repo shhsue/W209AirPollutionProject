@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/xrt3cra.css">
   </head>
   <body>
-    <h1>Air Pollution</h1>
+    <h1>Air Pollution and Mortality in California</h1>
     <div class="main">
         <div class="filters">
             <div class="buttons">
@@ -30,9 +30,23 @@
                 </button>
             </div>
             <div class="pollutant_descr">
-                <h2>POLLUTANT NAME</h2>
-                <p>The description of the pollutant will go here including
-                    some of the harmful effects what the calc means. </p>
+                <h2>Ground level or ambient ozone (O3)</h2>
+                <p>Health Effects: Ground level O3 can irritate the airways of the lungs, and increase symtpoms of those suffering from respiratory diseases.</p>
+                <p>Background: Ground level O3 is not emitted directly into the air, but created by chemical reactions between oxides of nitrogen and volatile organic compounds
+                in the presence of sunlight. Emissions from industrial facilities and electric utilities, motor vehicle exhust, gasoline vapors, and chemical solvents
+                are some of the major sources of the sources of O3.</p>
+                <h2>Nitrogen Dioxide (NO2)</h2>
+                <p>Health Effects: NO2 can irritate the lungs and lower resistance to respiratory infections and diseases.</p>
+                <p>Background: NO2 is part of a group of highly reactive cases and primarily gets into the air from the burning of fuel. NO2 forms from the emission of
+                  cars, trucks, buses, powerpants, and off-road equiptment.</p>
+                <h2>Sulphur Dioxide (SO2)</h2>
+                <p>Health Effects: SO2 even in moderate concentrations may result in decrease in lung function.</p>
+                <p>Background: The largest source of SO2 in the atmosphere is the burning of fossil fuels by power plants
+                  and other industrial facilities. Smaller sources of SO2 emissions include industrial processes
+                  such as extracting metal from ore and locomotives, ships, and other vehicles and heavy equiptment that burn fuel with a high sulfur content.</p>
+                <h2>Carbon Monoxide (CO)</h2>
+                <p>Health Effects: CO prevents normal transport of oxygen by the blood and can lead to sginficiant reduction in the supply of oxygen and impact those with heart disease.</p>
+                <p>Background: CO is a colorless and odorless gas that is harmful when inhaled in large amounts. The greatest sources of CO are cars, trucks, and other vehicle or machinery that burn fossil fuels. </p>
             </div>
         </div>
         <div class="graphs">
@@ -42,19 +56,26 @@
             </div>
 
             <div class="line_graphs">
-                <svg id="linegraph1" class="line_graph"></svg>
-                <svg id="linegraph2" class="line_graph"></svg>
+                <!-- <svg id="linegraph1" class="line_graph1"></svg>
+                <svg id="linegraph2" class="line_graph2"></svg> -->
+                <img src="airpollution.png" width=600 height=400</img src>
+                <img src="mortality.png" width=600 height=400</img src>
+
             </div>
         </div>
     </div>
 
     <div class="body_text">
         <h2>POLLUTION</h2>
-        <p>Some details about source of pollution data.</p>
+        <p>Data was obtained from the EPA which collects data about various pollutants through the use of air monitors placed in a variety of locations.</p>
         <h2>MORTALITY</h2>
-        <p>Some details about source of mortality data.</p>
+        <p>Data about mortality was obtained through the California Department of Public Health.
+          Chronic lower respiratory disease, heart disease, stroke, and cancer were examined in this visualization
+          to determine if there is a relation between air quality measurements and mortality per 100,000 people in various locations in California. </p>
         <h2>POLLUTION AND MORTALITY</h2>
-        <p>Some details about the assumption that pollution and mortality are linked.</p>
+        <p>O3 is more prevalent when there is more sunlight so the summer months will have higher levels of O3.
+          The other pollutants NO2, SO2, and CO more prevalent with more humidity so they are more prevalent in the winter months.
+          Most of the pollutants affect respiratory diseases due to lung irritation. CO will affect the heart as wells ince it interferes with oxygen availability in the blood. </p>
     </div>
 
     <div class="meta">BY CELIA LUDWINSKI, SHELLY HSU, ADITYA NAKAI</div>
@@ -65,7 +86,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/d3.v4.js"></script>
     <script src="js/map.js"></script>
-    <script src="js/linegraph.js"></script>
+    <script src="js/linegraph1.js"></script>
+    <script src="js/linegraph2.js"></script>
     <script src="js/buttons.js"></script>
 
   </body>
