@@ -9,29 +9,6 @@ $(function() {
         // determine what text to set
         title = data.pollutantDetails[pollutant].title
         description = (data.pollutantDetails[pollutant].healthEffects + " " + data.pollutantDetails[pollutant].background)
-        // if (pollutant == 1) {
-        //     // title =
-        //     // console.log(data)
-        //     title = "Carbon Monoxide (CO)";
-        //     description = "CO prevents normal transport of oxygen by the blood and can lead to sginficiant reduction in the supply of oxygen and impact those with heart disease.";
-        // }
-        // else if (pollutant == 2) {
-        //     title = "Sulphur Dioxide (SO2)";
-        //     description = "SO2 even in moderate concentrations may result in decrease in lung function.";
-        // }
-        // else if (pollutant == 3) {
-        //     title = "Nitrogen Dioxide (NO2)";
-        //     description = "NO2 can irritate the lungs and lower resistance to respiratory infections and diseases.";
-        // }
-        // else if (pollutant == 4) {
-        //     title = "Ground level or ambient ozone (O3)";
-        //     description = "Ground level O3 can irritate the airways of the lungs, and increase symtpoms of those suffering from respiratory diseases.";
-        // }
-        // else { // return to blank, ready state
-        //     // TODO: should include everything selected in series? multi select?
-        //     title = "a";
-        //     description = "a";
-        // }
 
         // change the text on the page
         pollutant_descr = d3.select(".pollutant_descr")

@@ -137,7 +137,7 @@ svg {
     display:block;
 }
 .double_map, .line_graphs{ /* containers for graphs */
-    background-color:#bbbbbb;
+    /*background-color:#bbbbbb;*/
     display:inline-block;
     vertical-align: top;
 }
