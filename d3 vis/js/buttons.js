@@ -3,7 +3,7 @@ $(function() {
         // indicate which buttons haven't been selected
         d3.selectAll(".pollutant_button").style("background-color", "#eeeeee")
         // indicate which button has been selected
-        d3.select(me).style("background-color", "#dddddd");
+        d3.select(me).style("background-color", "#bbbbbb");
     }
     var updatePollutantText = function(pollutant) {
         // TODO: change from series of if statements to dictionary
@@ -25,7 +25,7 @@ $(function() {
             description = "a";
         }
         else { // return to blank, ready state
-            // TODO: should include everything selected in series? multi select? 
+            // TODO: should include everything selected in series? multi select?
             title = "a";
             description = "a";
         }
