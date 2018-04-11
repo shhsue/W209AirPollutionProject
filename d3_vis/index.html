@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>W209 Air Pollution Final Project</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="https://use.typekit.net/xrt3cra.css">
+  </head>
+  <body>
+    <h1>Air Pollution and Mortality in California</h1>
+    <div class="main">
+        <div class="filters">
+            <div class="buttons">
+                <button type="button" class="pollutant_button" id="pollutant1">
+                    <img src="assets/icon-01.png" alt="CO">
+                    <div class="button_text">CO</div>
+                </button>
+                <button type="button" class="pollutant_button" id="pollutant2">
+                    <img src="assets/icon-02.png" alt="SO2">
+                    <div class="button_text">SO2</div>
+                </button>
+                <button type="button" class="pollutant_button" id="pollutant3">
+                    <img src="assets/icon-03.png" alt="NO2">
+                    <div class="button_text">NO2</div>
+                </button>
+                <button type="button" class="pollutant_button" id="pollutant4">
+                    <img src="assets/icon-04.png" alt="O3">
+                    <div class="button_text">O3</div>
+                </button>
+            </div>
+            <div class="pollutant_descr">
+                <h2></h2> <!-- leave this blank as placeholder for button interaction js -->
+                <p></p> <!-- leave this blank as placeholder for button interaction js -->
+            </div>
+        </div>
+        <div class="graphs">
+            <div class="double_map">
+                <!-- <svg id="map1" class="map_graph"></svg>
+                <svg id="map2" class="map_graph"></svg> -->
+                <img src="assets/map__pollutants.png" width=600 height=400 class="map_graph"></img src>
+                <img src="assets/map__mortality.png" width=600 height=400 class="map_graph"></img src>
+            </div>
+
+            <div class="line_graphs">
+                <!-- <svg id="linegraph1" class="line_graph"></svg>
+                <svg id="linegraph2" class="line_graph"></svg> -->
+                <a href="http://people.ischool.berkeley.edu/~shsu/AirPollution/"><img src="assets/linegraph_pollutants.png" width=600 height=400 class="line_graph"></img src></a>
+                <a href="http://people.ischool.berkeley.edu/~shsu/Mortality/"><img src="assets/linegraph_mortality.png" width=600 height=400 class="line_graph"></img src></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="body_text">
+        <h2>POLLUTION</h2>
+        <p>Data was obtained from the EPA which collects data about various pollutants through the use of air monitors placed in a variety of locations.</p>
+        <img src="assets/aqi.png" width=300 height=300</img src>
+        <h2>MORTALITY</h2>
+        <p>Data about mortality was obtained through the California Department of Public Health.
+          Chronic lower respiratory disease, heart disease, stroke, and cancer were examined in this visualization
+          to determine if there is a relation between air quality measurements and mortality per 100,000 people in various locations in California. </p>
+        <h2>POLLUTION AND MORTALITY</h2>
+        <p>O3 is more prevalent when there is more sunlight so the summer months will have higher levels of O3.
+          The other pollutants NO2, SO2, and CO more prevalent with more humidity so they are more prevalent in the winter months.
+          Most of the pollutants affect respiratory diseases due to lung irritation. CO will affect the heart as wells ince it interferes with oxygen availability in the blood. </p>
+    </div>
+
+    <div class="meta">BY CELIA LUDWINSKI, SHELLY HSU, ADITYA NAKAI</div>
+    <div class="meta">W209 SECTION 3  /  SPRING 2018  /  MIDS, UC BERKELEY</div>
+
+    <!-- page content -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/d3.v4.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/linegraph.js"></script>
+    <script src="js/buttons.js"></script>
+
+  </body>
+</html>
