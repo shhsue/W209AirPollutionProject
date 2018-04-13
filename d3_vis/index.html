@@ -9,51 +9,81 @@
   </head>
   <body>
     <h1>Air Pollution and Mortality in California</h1>
-    <div class="main">
-        <div class="filters">
-            <div class="buttons">
-                <button type="button" class="pollutant_button" id="pollutant1">
-                    <img src="assets/icon-01.png" alt="CO">
-                    <div class="button_text">CO</div>
-                </button>
-                <button type="button" class="pollutant_button" id="pollutant2">
-                    <img src="assets/icon-02.png" alt="SO2">
-                    <div class="button_text">SO2</div>
-                </button>
-                <button type="button" class="pollutant_button" id="pollutant3">
-                    <img src="assets/icon-03.png" alt="NO2">
-                    <div class="button_text">NO2</div>
-                </button>
-                <button type="button" class="pollutant_button" id="pollutant4">
-                    <img src="assets/icon-04.png" alt="O3">
-                    <div class="button_text">O3</div>
-                </button>
-            </div>
-            <div class="pollutant_descr">
-                <h2></h2> <!-- leave this blank as placeholder for button interaction js -->
-                <p></p> <!-- leave this blank as placeholder for button interaction js -->
-            </div>
-        </div>
-        <div class="graphs">
-            <div class="double_map">
-                <!-- <svg id="map1" class="map_graph"></svg>
-                <svg id="map2" class="map_graph"></svg> -->
-                <img src="assets/map__pollutants.png" width=600 height=400 class="map_graph"></img src>
-                <img src="assets/map__mortality.png" width=600 height=400 class="map_graph"></img src>
-            </div>
+    <!-- TODO: MAKE INTRO PARAGRAPH CENTERED, FULL SCREEN ON PAGE -->
+    <div class="intro_paragraph">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies magna lectus, et malesuada elit imperdiet nec. Proin vel maximus leo, ac tincidunt lectus. Vestibulum non elit sem. Vestibulum eu accumsan dolor, at gravida velit. Proin molestie nisi pretium ante ullamcorper, eu ullamcorper erat malesuada. Maecenas eget congue nisi, vitae vestibulum nulla. Aliquam diam ligula, consectetur quis consectetur non, efficitur ut lectus. Sed ut ullamcorper lectus, at porttitor massa. Nam non laoreet arcu. Nullam sed est nec mi vulputate facilisis vehicula ac est. Proin pellentesque enim at odio mattis, eu egestas neque sodales.
 
-            <div class="line_graphs">
-                <!-- <svg id="linegraph1" class="line_graph"></svg>
-                <svg id="linegraph2" class="line_graph"></svg> -->
-                <a href="http://people.ischool.berkeley.edu/~shsu/AirPollution/"><img src="assets/linegraph_pollutants.png" width=600 height=400 class="line_graph"></img src></a>
-                <a href="http://people.ischool.berkeley.edu/~shsu/Mortality/"><img src="assets/linegraph_mortality.png" width=600 height=400 class="line_graph"></img src></a>
-            </div>
+        Ut in sapien lectus. Cras porttitor ultrices ipsum a finibus. In tincidunt pharetra imperdiet. Duis luctus velit purus, sed porta odio tincidunt eget. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas diam turpis, bibendum sit amet leo eu, malesuada iaculis nulla. Pellentesque ultricies tempus erat, sit amet blandit libero. Vivamus a gravida ligula. Donec sit amet ante leo.
+    </div>
+    <!-- TODO: MAKE GRAPHS AND FILTERS ONE FULL PAGE "SLIDE"  -->
+    <div class="graphs">
+        <div class="double_map">
+            <!-- <svg id="map1" class="map_graph"></svg>
+            <svg id="map2" class="map_graph"></svg> -->
+            <img src="assets/map__pollutants.png" width=600 height=400 class="map_graph"></img src>
+            <img src="assets/map__mortality.png" width=600 height=400 class="map_graph"></img src>
+        </div>
+
+        <div class="line_graphs">
+            <!-- <svg id="linegraph1" class="line_graph"></svg>
+            <svg id="linegraph2" class="line_graph"></svg> -->
+            <a href="http://people.ischool.berkeley.edu/~shsu/AirPollution/"><img src="assets/linegraph_pollutants.png" width=600 height=400 class="line_graph"></img src></a>
+            <a href="http://people.ischool.berkeley.edu/~shsu/Mortality/"><img src="assets/linegraph_mortality.png" width=600 height=400 class="line_graph"></img src></a>
+        </div>
+    </div>
+
+    <div class="filters">
+        <h1>FILTERS</h1>
+        <h2>Pollutants</h2>
+        <div class="buttons">
+            <button type="button" class="pollutant_button" id="pollutant1">
+                <img src="assets/icon-01.png" alt="CO">
+                <div class="button_text">CO</div>
+            </button>
+            <button type="button" class="pollutant_button" id="pollutant2">
+                <img src="assets/icon-02.png" alt="SO2">
+                <div class="button_text">SO2</div>
+            </button>
+            <button type="button" class="pollutant_button" id="pollutant3">
+                <img src="assets/icon-03.png" alt="NO2">
+                <div class="button_text">NO2</div>
+            </button>
+            <button type="button" class="pollutant_button" id="pollutant4">
+                <img src="assets/icon-04.png" alt="O3">
+                <div class="button_text">O3</div>
+            </button>
+        </div>
+        <div class="pollutant_descr">
+            <h2></h2> <!-- leave this blank as placeholder for button interaction js -->
+            <p></p> <!-- leave this blank as placeholder for button interaction js -->
+        </div>
+
+        <h2>AQI</h2>
+        <div class="buttons">
+            <button type="button" class="aqi_button" id="aqi1">
+                <div class="button_text">good</div>
+            </button>
+            <button type="button" class="aqi_button" id="aqi2">
+                <div class="button_text">moderate</div>
+            </button>
+            <button type="button" class="aqi_button" id="aqi3">
+                <div class="button_text">s. unhealthy</div>
+            </button>
+            <button type="button" class="aqi_button" id="aqi4">
+                <div class="button_text">unhealthy</div>
+            </button>
+            <button type="button" class="aqi_button" id="aqi5">
+                <div class="button_text">v. unhealthy</div>
+            </button>
+            <button type="button" class="aqi_button" id="aqi6">
+                <div class="button_text">hazardous</div>
+            </button>
         </div>
     </div>
 
     <div class="body_text">
         <h2>POLLUTION</h2>
-        <p>Data was obtained from the EPA which collects data about various pollutants through the use of air monitors placed in a variety of locations. 
+        <p>Data was obtained from the EPA which collects data about various pollutants through the use of air monitors placed in a variety of locations.
           Pollutant measures are expressed in terms of Air Quality Index (AQI). The values of AQI correspond to specific health effects defined in the table below.</p>
         <img src="assets/aqi.png" width=300 height=300</img src>
         <h2>MORTALITY</h2>
