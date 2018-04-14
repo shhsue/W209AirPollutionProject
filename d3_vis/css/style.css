@@ -58,7 +58,9 @@ svg {
     padding: 10px;
 }
 
-/* filtering & button elements */
+
+
+/* sidebar filter styling */
 .filters {
     width:10%;
     height:400px;
@@ -67,11 +69,6 @@ svg {
     margin: auto 0 auto auto;
     min-width: 150px;
 }
-.buttons, .pollutant_descr{
-    display:inline-block;
-    vertical-align: top;
-    /*float: left;*/
-}
 .filters h1{
     margin-top: 1em;
     margin-bottom: 1em;
@@ -79,40 +76,85 @@ svg {
     line-height: 16px;
 }
 .filters h2{
-    margin-top: 0.5em;
+    margin-top: 1em;
     margin-bottom: 0.5em;
     font-size:13px;
     text-align: center;
+    display:block;
+    width:100%;
     /*min-width: null;*/
 }
-.buttons {
-    /*width:10%;*/
+
+/* styling of tooltip for buttons within filter sidebar */
+.tooltip{
+    /*display:inline-block;*/
+    vertical-align: top;
+    /*width:22%;*/
+    min-width: 50px;
+    opacity:1;
+    margin: 2px auto 0px auto;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    position:relative;
+}
+.tooltiptext {
+    /*visibility: hidden;*/
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    right: 60px;
+}
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+
+.pollutant_tooltip{
+    margin-left:20px;
+    width:85%;
+}
+.pollutant_tooltip > h2 {
+    margin-top: 0em;
+}
+.pollutant_tooltip > p {
+    margin-top: 0em;
+    line-height: 1.2em;
+    font-size: 12px;
+}
+
+/*generic styling for all filtering buttons*/
+.buttons{
+    display:block;
+    vertical-align: top;
+    /*float: left;*/
+    width: 130px;
+    /*position:relative;*/
+    margin:auto;
 }
 .button_text{
     font-family: din-condensed, sans-serif;
     color: white;
     text-transform: uppercase;
     margin: 0;
-
     /*center the text within the container (on top of the img icon)*/
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.pollutant_descr{
-    margin-left:20px;
-    width:85%;
-}
-.pollutant_descr > h2 {
-    margin-top: 0em;
-}
-.pollutant_descr > p {
-    margin-top: 0em;
-    line-height: 1.2em;
-    font-size: 12px;
-}
-/*generic styling for all filtering buttons*/
 .pollutant_button, .aqi_button {
     background-color: #eeeeee;
     background-repeat:no-repeat;
@@ -123,10 +165,12 @@ svg {
     position:relative; /* necessary for hovering text over center of button*/
     padding:0;
     border-radius:5px;
+    display:inline-block;
 }
 .pollutant_button:hover, .aqi_button:hover {
     background-color: #bbbbbb;
 }
+
 /*styling that only applies for pollutant buttons*/
 .pollutant_button{
     margin:1%;
@@ -142,6 +186,7 @@ svg {
     font-size: 10px;
     text-align:center;
 }
+
 /*styling that only applies for aqi buttons*/
 .aqi_button{
     margin:2px auto 0px auto;
@@ -153,6 +198,9 @@ svg {
     color:#444444;
     font-size:12px;
 }
+
+
+
 /* graphing container elements*/
 .graphs {
     width:80%;

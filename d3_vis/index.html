@@ -36,26 +36,38 @@
         <h1>FILTERS</h1>
         <h2>Pollutants</h2>
         <div class="buttons">
-            <button type="button" class="pollutant_button" id="pollutant1">
-                <img src="assets/icon-01.png" alt="CO">
-                <div class="button_text">CO</div>
-            </button>
-            <button type="button" class="pollutant_button" id="pollutant2">
-                <img src="assets/icon-02.png" alt="SO2">
-                <div class="button_text">SO2</div>
-            </button>
-            <button type="button" class="pollutant_button" id="pollutant3">
-                <img src="assets/icon-03.png" alt="NO2">
-                <div class="button_text">NO2</div>
-            </button>
-            <button type="button" class="pollutant_button" id="pollutant4">
-                <img src="assets/icon-04.png" alt="O3">
-                <div class="button_text">O3</div>
-            </button>
-        </div>
-        <div class="pollutant_descr">
-            <h2></h2> <!-- leave this blank as placeholder for button interaction js -->
-            <p></p> <!-- leave this blank as placeholder for button interaction js -->
+            <div class="tooltip">
+                <button type="button" class="pollutant_button" id="pollutant1">
+                    <img src="assets/icon-01.png" alt="CO">
+                    <div class="button_text">CO</div>
+                </button>
+                <span class="tooltiptext" id="tooltip_pollutant_1">
+                    Description of CO to go here</span>
+            </div>
+            <div class="tooltip">
+                <button type="button" class="pollutant_button" id="pollutant2">
+                    <img src="assets/icon-02.png" alt="SO2">
+                    <div class="button_text">SO2</div>
+                </button>
+                <span class="tooltiptext" id="tooltip_pollutant_2">
+                    Description of SO2 to go here</span>
+            </div>
+            <div class="tooltip">
+                <button type="button" class="pollutant_button" id="pollutant3">
+                    <img src="assets/icon-03.png" alt="NO2">
+                    <div class="button_text">NO2</div>
+                </button>
+                <span class="tooltiptext" id="tooltip_pollutant_3">
+                    Description of NO2 to go here</span>
+            </div>
+            <div class="tooltip">
+                <button type="button" class="pollutant_button" id="pollutant4">
+                    <img src="assets/icon-04.png" alt="O3">
+                    <div class="button_text">O3</div>
+                </button>
+                <span class="tooltiptext" id="tooltip_pollutant_4">
+                    Description of O3 to go here</span><!-- leave this blank as placeholder for button interaction js -->
+            </div>
         </div>
 
         <h2>AQI</h2>
