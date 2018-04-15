@@ -3,6 +3,7 @@
 <head>
 <!--Plotly.js-->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/alasql/0.2.3/alasql.min.js"></script>
 </head>
   <body>
 
@@ -17,6 +18,8 @@
     </select>
     <p>Air Quality Index Table</p>
     <img src="aqi.png" width=600 height=300</img src>
+    <p>Mortality Rate for California State</p>
+    <img src="ca_mortality.png" width=350 height=300</img src>
   </div>
 </div>
 </div>
@@ -40,6 +43,7 @@ var allCityNames = unpack(rows, 'city'),
     all03 = unpack(rows, 'o3_aqi_level'),
     allNO2 = unpack(rows, 'no2_aqi_level'),
     allSO2 = unpack(rows, 'so2_aqi_level'),
+
     allYear = unpack(rows, 'year'),
     allHTD = unpack(rows,'HTD'),
     allCAN = unpack(rows,'CAN'),
@@ -197,7 +201,7 @@ function setBubblePlot(chosenCity) {
         },
       yaxis: {
         title: "Air Quality Index",
-        range: [0,500],
+        // range: [0,500],
         type:'linear',
         domain: [0,0.45]
         },
