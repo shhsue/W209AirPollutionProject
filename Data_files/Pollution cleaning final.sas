@@ -47,7 +47,8 @@ select county, city, date_local,
 		avg(SO2_AQI) as so2_aqi_level,
 		year(date_local) as year
 from data.pollutionca
-where city not in ('Not in a city');
+where city not in ('Not in a city')
+group by county,city, date_local;
 quit;
 
 proc print data=data.clean (obs=10) noobs;
