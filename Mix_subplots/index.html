@@ -36,18 +36,18 @@
 
 // var formatYear = d3.timeFormat('%Y');
 
-Plotly.d3.csv('data/merged.csv',
+Plotly.d3.csv('data/merged_final.csv',
   function(err, rows){
     function unpack(rows, key) {
         return rows.map(function(row) { return row[key]; });
     }
 
 
-var mort = alasql('SELECT city, year, HTD, CAN, STD, CLD, PNF FROM ?', [rows])
-var pol = alasql('SELECT city, Date_Local, co_aqi_level, o3_aqi_level, no2_aqi_level, so2_aqi_level FROM ?', [rows])
+var mort = alasql('SELECT city, year, HTD, CAN, STK, CLD FROM ?', [rows])
+var pol = alasql('SELECT city, date, co_aqi_level, o3_aqi_level, no2_aqi_level, so2_aqi_level FROM ?', [rows])
 
 var allCityNames = unpack(pol, 'city'),
-    allDate = unpack(pol, 'Date_Local'),
+    allDate = unpack(pol, 'date'),
     allCO = unpack(pol, 'co_aqi_level'),
     all03 = unpack(pol, 'o3_aqi_level'),
     allNO2 = unpack(pol, 'no2_aqi_level'),
@@ -235,7 +235,7 @@ function setBubblePlot(chosenCity) {
       yaxis2: {
         title: 'Mortality Rate<br>(per 100,000 People)',
         anchor: 'x2',
-        range: [0,600],
+        // range: [0,600],
         type: 'linear',
         domain: [0.55,1],
       },
