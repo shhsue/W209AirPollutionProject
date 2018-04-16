@@ -18,8 +18,6 @@ $(function() {
     * @return n/a
     */
     var onPollutantButtonHover = function(pollutant) {
-        console.log(pollutant)
-        console.log(d3.select("#tooltip_pollutant_" + pollutant))
         d3.select("#tooltip_pollutant_" + pollutant).style("visibility","visible")
         // d3.selectAll(".tooltiptext").style("visibility","visible")
     }
@@ -42,7 +40,7 @@ $(function() {
     * @return n/a
     */
     var updatePollutantText = function(pollutant, data) {
-        console.log("update fxn called")
+        console.log("update fxn called: ")
         // determine what text to set
         title = data.pollutantDetails[pollutant].title
         description = (data.pollutantDetails[pollutant].healthEffects + " " + data.pollutantDetails[pollutant].background)
@@ -60,25 +58,56 @@ $(function() {
     */
     d3.json("text-content/pollutant-details.json", function(error, data) {
         var i = 0;
-        for (i = 1; i < 5; i++) { // we have 4 pollutants, numbered 1-4
-            pollutant_num = i
-            // assign txt from json data to each tooltip
-            updatePollutantText(1, data);         // informative text for users
+        // assign txt from json data to each tooltip
+        updatePollutantText(1, data);         // informative text for users
 
-            // assign interaction elements to DOM
-            d3.select("#pollutant" + i)
-                // update maps, line graphs, and button appearance on click
-                .on("click", function() {
-                    // TODO: update the maps for the selected pollutant
-                    // TODO: update the line graphs for the selected pollutant
-                    // change button color based on click (on/off) status
-                    onPollutantButtonClick(this);
-                })
-                // update the hover effects (darken upon hover, lighten @ leave)
-                .on("mouseout", function(){offPollutantButtonHover();})
-                .on("mouseover", function() {
-                    d3.select("#tooltip_pollutant_" + pollutant_num).style("visibility","visible");})
-        }
     })
 
+    d3.select("#pollutant1")
+        // update maps, line graphs, and button appearance on click
+        .on("click", function() {
+            // TODO: update the maps for the selected pollutant
+            // TODO: update the line graphs for the selected pollutant
+            // change button color based on click (on/off) status
+            onPollutantButtonClick(this);
+        })
+        // update the hover effects (darken upon hover, lighten @ leave)
+        .on("mouseout", function(){ offPollutantButtonHover();})
+        .on("mouseover", function() { onPollutantButtonHover(1);})
+
+    d3.select("#pollutant2")
+        // update maps, line graphs, and button appearance on click
+        .on("click", function() {
+            // TODO: update the maps for the selected pollutant
+            // TODO: update the line graphs for the selected pollutant
+            // change button color based on click (on/off) status
+            onPollutantButtonClick(this);
+        })
+        // update the hover effects (darken upon hover, lighten @ leave)
+        .on("mouseout", function(){ offPollutantButtonHover();})
+        .on("mouseover", function() { onPollutantButtonHover(2);})
+
+    d3.select("#pollutant3")
+        // update maps, line graphs, and button appearance on click
+        .on("click", function() {
+            // TODO: update the maps for the selected pollutant
+            // TODO: update the line graphs for the selected pollutant
+            // change button color based on click (on/off) status
+            onPollutantButtonClick(this);
+        })
+        // update the hover effects (darken upon hover, lighten @ leave)
+        .on("mouseout", function(){ offPollutantButtonHover();})
+        .on("mouseover", function() { onPollutantButtonHover(3);})
+
+    d3.select("#pollutant4")
+        // update maps, line graphs, and button appearance on click
+        .on("click", function() {
+            // TODO: update the maps for the selected pollutant
+            // TODO: update the line graphs for the selected pollutant
+            // change button color based on click (on/off) status
+            onPollutantButtonClick(this);
+        })
+        // update the hover effects (darken upon hover, lighten @ leave)
+        .on("mouseout", function(){ offPollutantButtonHover();})
+        .on("mouseover", function() { onPollutantButtonHover(4);})
 })
