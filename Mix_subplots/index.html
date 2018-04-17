@@ -215,7 +215,7 @@ function setBubblePlot(chosenCity) {
       height: 600,
       xaxis: {
         // range: ['2000, 2010'],
-        type: 'year',
+        type: 'date',
         // domain: [0,1],
         anchor: 'y1'
         },
@@ -228,8 +228,9 @@ function setBubblePlot(chosenCity) {
         },
       xaxis2:{
         // range:[2000,2010],
-        type: 'year',
-          domain: [0,1],
+        // type: 'date',
+        // tickformat: '%Y',
+        domain: [0,1],
         anchor: 'y2'
         },
       yaxis2: {
