@@ -36,36 +36,36 @@
         <h1>FILTERS</h1>
         <h2>Pollutants</h2>
         <div class="buttons">
-            <div class="tooltip">
+            <div class="pollutant_tooltip">
                 <button type="button" class="pollutant_button" id="pollutant1">
                     <img src="assets/icon-01.png" alt="CO">
                     <div class="button_text">CO</div>
                 </button>
-                <span class="tooltiptext" id="tooltip_pollutant_1">
+                <span class="poltooltiptext" id="tooltip_pollutant_1">
                     Description of CO to go here</span>
             </div>
-            <div class="tooltip">
+            <div class="pollutant_tooltip">
                 <button type="button" class="pollutant_button" id="pollutant2">
                     <img src="assets/icon-02.png" alt="SO2">
                     <div class="button_text">SO2</div>
                 </button>
-                <span class="tooltiptext" id="tooltip_pollutant_2">
+                <span class="poltooltiptext" id="tooltip_pollutant_2">
                     Description of SO2 to go here</span>
             </div>
-            <div class="tooltip">
+            <div class="pollutant_tooltip">
                 <button type="button" class="pollutant_button" id="pollutant3">
                     <img src="assets/icon-03.png" alt="NO2">
                     <div class="button_text">NO2</div>
                 </button>
-                <span class="tooltiptext" id="tooltip_pollutant_3">
+                <span class="poltooltiptext" id="tooltip_pollutant_3">
                     Description of NO2 to go here</span>
             </div>
-            <div class="tooltip">
+            <div class="pollutant_tooltip">
                 <button type="button" class="pollutant_button" id="pollutant4">
                     <img src="assets/icon-04.png" alt="O3">
                     <div class="button_text">O3</div>
                 </button>
-                <span class="tooltiptext" id="tooltip_pollutant_4">
+                <span class="poltooltiptext" id="tooltip_pollutant_4">
                     Description of O3 to go here</span><!-- leave this blank as placeholder for button interaction js -->
             </div>
         </div>
@@ -73,24 +73,54 @@
 
         <h2>AQI</h2>
         <div class="buttons">
-            <button type="button" class="aqi_button" id="aqi1">
-                <div class="button_text">good</div>
-            </button>
-            <button type="button" class="aqi_button" id="aqi2">
-                <div class="button_text">moderate</div>
-            </button>
-            <button type="button" class="aqi_button" id="aqi3">
-                <div class="button_text">s. unhealthy</div>
-            </button>
-            <button type="button" class="aqi_button" id="aqi4">
-                <div class="button_text">unhealthy</div>
-            </button>
-            <button type="button" class="aqi_button" id="aqi5">
-                <div class="button_text">v. unhealthy</div>
-            </button>
-            <button type="button" class="aqi_button" id="aqi6">
-                <div class="button_text">hazardous</div>
-            </button>
+            <div class="aqi_tooltip">
+                <button type="button" class="aqi_button" id="aqi1">
+                    <div class="button_text">good</div>
+                </button>
+                <span class="aqitooltiptext" id="tooltip_aqi1">
+                    Air quality index (AQI)<br>Good when valued 0 to 50</span>
+            </div>
+            <div class="aqi_tooltip">
+                <button type="button" class="aqi_button" id="aqi2">
+                    <div class="button_text">moderate</div>
+                </button>
+                <span class="aqitooltiptext" id="tooltip_aqi2">
+                    Air quality index (AQI)<br>Moderate when valued
+                    <br>51 to 100</span>
+            </div>
+            <div class="aqi_tooltip">
+                <button type="button" class="aqi_button" id="aqi3">
+                    <div class="button_text">s. unhealthy</div>
+                </button>
+                <span class="aqitooltiptext" id="tooltip_aqi3">
+                    Air quality index (AQI)<br>Somewhat unhealthy when
+                    <br>101 to 150</span>
+            </div>
+            <div class="aqi_tooltip">
+                <button type="button" class="aqi_button" id="aqi4">
+                    <div class="button_text">unhealthy</div>
+                </button>
+                <span class="aqitooltiptext" id="tooltip_aqi4">
+                    Air quality index (AQI)<br>Unhealthy when valued
+                    <br>151 to 200</span>
+            </div>
+            <div class="aqi_tooltip">
+                <button type="button" class="aqi_button" id="aqi5">
+                    <div class="button_text">v. unhealthy</div>
+                </button>
+                <span class="aqitooltiptext" id="tooltip_aqi5">
+                    Air quality index (AQI)<br>Very unhealth when valued
+                    <br>201 to 300</span>
+            </div>
+            <div class="aqi_tooltip">
+                <button type="button" class="aqi_button" id="aqi6">
+                    <div class="button_text">hazardous</div>
+                </button>
+                <span class="aqitooltiptext" id="tooltip_aqi6">
+                    Air quality index (AQI)<br>Hazardous when valued
+                    <br>301 to 500</span>
+            </div>
+
         </div>
     </div>
 

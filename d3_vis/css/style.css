@@ -86,30 +86,38 @@ svg {
 }
 
 /* styling of tooltip for buttons within filter sidebar */
-.tooltip{
+.pollutant_tooltip, .aqi_tooltip{
     vertical-align: top;
     opacity:1;
     margin: 2px auto 0px auto;
-    width: 50px;
-    height: 50px;
     display: inline-block;
     position:relative;
 }
-.tooltiptext {
+.pollutant_tooltip{
+    width: 50px;
+    height: 50px;
+}
+.poltooltiptext, .aqitooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: black;
     color: #fff;
     text-align: center;
-    border-radius: 6px;
+    border-radius:3px;
     padding: 5px 5px;
     position: absolute;
-    top: 0px;
-    right: 60px;
     font-size: 9px;
     z-index: 1;
+    right: 60px;
 }
-.tooltiptext::after {
+.poltooltiptext {
+    top: 0px;
+}
+.aqitooltiptext{
+    top:-12px;
+    right:140px;
+}
+.poltooltiptext::after, .aqitooltiptext::after {
     content: "";
     position: absolute;
     top: 25px;
@@ -119,20 +127,6 @@ svg {
     border-style: solid;
     border-color: transparent transparent transparent black;
 }
-
-.pollutant_tooltip{
-    margin-left:20px;
-    width:85%;
-}
-.pollutant_tooltip > h2 {
-    margin-top: 0em;
-}
-.pollutant_tooltip > p {
-    margin-top: 0em;
-    line-height: 1.2em;
-    font-size: 12px;
-}
-
 /*generic styling for all filtering buttons*/
 .buttons{
     display:block;

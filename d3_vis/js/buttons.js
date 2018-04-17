@@ -28,7 +28,7 @@ $(function() {
     * @return n/a
     */
     var offPollutantButtonHover = function() {
-        d3.selectAll(".tooltiptext").style("visibility","hidden");
+        d3.selectAll(".poltooltiptext").style("visibility","hidden");
     }
 
     /***************************************************************************
@@ -62,6 +62,9 @@ $(function() {
         tooltip = d3.select("#tooltip_pollutant_"+pollutant)
         tooltip.html("<strong>" + title + "</strong><br>" + description)
     }
+    var onAqiButtonHover = function(aqi) {
+        d3.select("#tooltip_aqi" + aqi).style("visibility","visible")
+    }
 
     d3.json("text-content/pollutant-details.json", function(error, data) {
         // assign txt from json data to each tooltip
@@ -69,6 +72,33 @@ $(function() {
         updatePollutantButtonAndTooltip(2, data);
         updatePollutantButtonAndTooltip(3, data);
         updatePollutantButtonAndTooltip(4, data);
+        d3.select("#aqi1").on("mousover", function(){
+            console.log("moused over aqi 1");
+            onAqiButtonHover(1);}
+        )
     })
-
+    $('#aqi1').mouseenter(function(){
+        $('#tooltip_aqi1').css("visibility", "visible"); });
+    $('#aqi1').mouseleave(function(){
+        $('#tooltip_aqi1').css("visibility", "hidden"); });
+    $('#aqi2').mouseenter(function(){
+        $('#tooltip_aqi2').css("visibility", "visible"); });
+    $('#aqi2').mouseleave(function(){
+        $('#tooltip_aqi2').css("visibility", "hidden"); });
+    $('#aqi3').mouseenter(function(){
+        $('#tooltip_aqi3').css("visibility", "visible"); });
+    $('#aqi3').mouseleave(function(){
+        $('#tooltip_aqi3').css("visibility", "hidden"); });
+    $('#aqi4').mouseenter(function(){
+        $('#tooltip_aqi4').css("visibility", "visible"); });
+    $('#aqi4').mouseleave(function(){
+        $('#tooltip_aqi4').css("visibility", "hidden"); });
+    $('#aqi5').mouseenter(function(){
+        $('#tooltip_aqi5').css("visibility", "visible"); });
+    $('#aqi5').mouseleave(function(){
+        $('#tooltip_aqi5').css("visibility", "hidden"); });
+    $('#aqi6').mouseenter(function(){
+        $('#tooltip_aqi6').css("visibility", "visible"); });
+    $('#aqi6').mouseleave(function(){
+        $('#tooltip_aqi6').css("visibility", "hidden"); });
 })
