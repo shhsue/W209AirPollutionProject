@@ -27,7 +27,8 @@ h1 {
     font-weight: 400;
     font-size: 48px;
     line-height: 45px;
-    margin-bottom: 11px;
+    margin-top:48px;
+    margin-bottom: 12px;
     text-transform: uppercase;
 }
 h2, .pollutant_button .button_h1 {
@@ -37,6 +38,9 @@ h2, .pollutant_button .button_h1 {
 h2 {
     margin-top: 1.5em;
     font-size: 30px;
+    text-align:left;
+}
+h3 {
     text-align:left;
 }
 svg {
@@ -56,6 +60,7 @@ svg {
     min-width:400px;
     width: 60%;
     padding: 10px;
+    margin-bottom: 12px;
 }
 
 
