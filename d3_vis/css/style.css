@@ -236,7 +236,18 @@ svg {
 
 /* line graph styling */
 .line1, .line2, .line3, .line4 {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 2px;
+    fill: none;
+    stroke-width: 2px;
+}
+.line1 {
+    stroke:#d63d08; /*#8B2300;*/
+}
+.line2{
+    stroke:#018f96; /*#00585C;*/
+}
+.line3{
+    stroke:#148e00; /*#0D5C00;*/
+}
+.line4{
+    stroke:#8e0050 /*#5C0034;*/
 }

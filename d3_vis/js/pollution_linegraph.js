@@ -1,11 +1,18 @@
 // Attempt at recreating line graphs in d3.
 $(function() {
-    var my_viz_lib = my_viz_lib || {};
+
 
     // parse the date / time
     var parseTime = d3.timeParse("%Y-%m");
 
+    // City selection listener & update method
+    var citySelector = "San Francisco";
+
+
+    var my_viz_lib = my_viz_lib || {};
     my_viz_lib.lineGraph = function() {
+        // initialize the data set
+        var data;
         // set the dimensions and margins of the graph
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
             width = 960 - margin.left - margin.right,
@@ -23,39 +30,18 @@ $(function() {
 
             }
             else if (i === 2) {
-                line.y(function(d) { return y(d.no2_aqi_level); });
+                line.y(function(d) { return y(d.so2_aqi_level); });
             }
             else if (i === 3) {
-                line.y(function(d) { return y(d.o3_aqi_level); });
+                line.y(function(d) { return y(d.no2_aqi_level); });
             }
             else if (i === 4) {
-                line.y(function(d) { return y(d.so2_aqi_level); });
+                line.y(function(d) { return y(d.o3_aqi_level); });
             }
             return line;
         }
-        // define the 1st line
-        // var valueline = d3.line()
-        //     .x(function(d) { return x(d.date); })
-        //     .y(function(d) { return y(d.co_aqi_level); });
 
-        // define the 2nd line
-        var valueline2 = d3.line()
-            .x(function(d) { return x(d.date); })
-            .y(function(d) { return y(d.no2_aqi_level); });
 
-        // define the 3rd line
-        var valueline3 = d3.line()
-            .x(function(d) { return x(d.date); })
-            .y(function(d) { return y(d.o3_aqi_level); });
-
-        // define the 4th line
-        var valueline4 = d3.line()
-            .x(function(d) { return x(d.date); })
-            .y(function(d) { return y(d.so2_aqi_level); });
-
-        // var CitySelector = document.querySelector('.Citydata');
-        // CitySelector.addEventListener('change', updateCity, false);
-        var citySelector = "San Francisco";
 
         // append the svg obgect to the body of the page
         // appends a 'group' element to 'svg'
@@ -67,21 +53,37 @@ $(function() {
             .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
 
+        function cityListener(){
+            var e = document.getElementById("CitySelection");
+            if(e.selectedIndex > 0){
+                citySelector = e.options[e.selectedIndex].value;
+                plot([1,2,3,4])
+            }
+        }
+        var initialize = function(initialized_data) {
+            document.getElementById("CitySelection")
+                .addEventListener("click",cityListener);
+            data = initialized_data;
+        }
 
-        var plot = function(data, pollutants_arr) {
+        var plot = function(pollutants_arr) {
 
             // Scale the range of the data
             x.domain(d3.extent(data, function(d) { return d.date; }));
             y.domain([0, d3.max(data, function(d) {
-                return Math.max(d.co_aqi_level, d.no2_aqi_level, d.o3_aqi_level, d.so2_aqi_level); })]);
+                return Math.max(d.co_aqi_level, d.no2_aqi_level, d.o3_aqi_level, d.so2_aqi_level);
+            })]);
 
             for(i=1; i<5; i++) {
                 if(pollutants_arr.indexOf(i) === -1) {
-                    console.log("pollutant 1 not passed");
+                    // console.log("pollutant " + i + " not passed");
+                    // exit function, remove the line
+                    svg.selectAll(".line"+i)
+                        .remove(); // NOTE: ghetto non-exit removal.
                 }
                 else {
-                    console.log(pollutants_arr.indexOf(i));
-                    // Add the valueline path.
+                    // console.log(pollutants_arr.indexOf(i));
+                    // enter function, add the line
                     svg.selectAll(".line"+i)
                         .data([data.filter(function(d){
                             return d.city == "San Francisco";})])
@@ -90,34 +92,17 @@ $(function() {
                         .append("path")
                         .attr("class", "line"+i)
                         .attr("d", valueline(i));
+
+                    // update function, update the line
+                    // svg.selectAll(".line"+i)
+                    //     .data([data.filter(function(d){
+                    //         return d.city == "San Francisco";})])
+                    //         // return d.city == CitySelector;})])
+                    //     .append("path")
+                    //     .attr("class", "line"+i)
+                    //     .attr("d", valueline(i));
                 }
             }
-            // // Add the valueline2 path.
-            // svg.selectAll(".line2")
-            //     .data([data])
-            //     .enter()
-            //     .append("path")
-            //     .attr("class", "line2")
-            //     .style("stroke", "red")
-            //     .attr("d", valueline2);
-            //
-            // // Add the valueline3 path.
-            // svg.selectAll(".line3")
-            //     .data([data])
-            //     .enter()
-            //     .append("path")
-            //     .attr("class", "line3")
-            //     .style("stroke", "green")
-            //     .attr("d", valueline3);
-            //
-            // // Add the valueline3 path.
-            // svg.selectAll(".line4")
-            //     .data([data])
-            //     .enter()
-            //     .append("path")
-            //     .attr("class", "line4")
-            //     .style("stroke", "black")
-            //     .attr("d", valueline4);
 
             // Add the X Axis
             svg.append("g")
@@ -129,6 +114,7 @@ $(function() {
                 .call(d3.axisLeft(y));
         }
         var public = {
+            "init": initialize,
             "plot": plot
             // "assignData": assignData
         };
@@ -154,7 +140,16 @@ $(function() {
             d.so2_aqi_level = +d.so2_aqi_level;
         });
 
+
+
         var myPlot =  my_viz_lib.lineGraph();
-        myPlot.plot(data, [1,2,3,4]); // plot all 4 pollutants to initialize
+        myPlot.init(data);
+
+        myPlot.plot([1,2]); // plot all 4 pollutants to initialize
+        myPlot.plot([1,3]);
+
+
+
     });
+
 })

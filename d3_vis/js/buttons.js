@@ -1,4 +1,8 @@
 $(function() {
+
+    var buttonsSelected = []
+
+
     /***************************************************************************
     * @description change the background color of self based on selection status
     * @param object $me - the object to be styled
@@ -49,6 +53,7 @@ $(function() {
         d3.select("#pollutant"+pollutant)
             // update maps, line graphs, and button appearance on click
             .on("click", function() {
+                // myPlot.plot(data, [1,2]);
                 // TODO: update the maps for the selected pollutant
                 // TODO: update the line graphs for the selected pollutant
                 // change button color based on click (on/off) status
