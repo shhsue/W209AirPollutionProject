@@ -180,6 +180,13 @@ $(function() {
                 var data = [co, o3, no2, so2, cld, htd, stk, can];
 
                 var layout = {
+                    margin: {
+                        l: 20,
+                        r: 20,
+                        b: 20,
+                        t: 20,
+                        pad: 5
+                    }, 
                 //   title: chosenCity,
                   autosize:false,
                   width:500,
