@@ -15,6 +15,13 @@ $(function() {
 
         //TODO: RE-INSTATE HOVER EFFECTS
     }
+    var offPollutantButtonClick = function(me) {
+        //TODO: CREATE THE "OFF" STATE FOR BUTTONS
+        // indicate which button has been selected
+        d3.select(me).style("background-color", "#eeeeee");
+
+        //TODO: RE-INSTATE HOVER EFFECTS
+    }
 
     /***************************************************************************
     * @description hides associated tooltip upon button hover
@@ -53,11 +60,27 @@ $(function() {
         d3.select("#pollutant"+pollutant)
             // update maps, line graphs, and button appearance on click
             .on("click", function() {
-                // myPlot.plot(data, [1,2]);
-                // TODO: update the maps for the selected pollutant
+                // update the tracking of selected buttons
+                if(buttonsSelected.indexOf(pollutant) === -1) {
+                    buttonsSelected.push(pollutant);
+                    // change status to now indicate button has been clicked
+                    onPollutantButtonClick(this);
+                } else { // button was previously selected, need to unselect
+                    var index = buttonsSelected.indexOf(pollutant);
+                    buttonsSelected.splice(index, 1);
+                    // change status to now indicate button has been unclicked
+                    offPollutantButtonClick(this);
+                }
+
+                // update the maps for the selected pollutant
                 // TODO: update the line graphs for the selected pollutant
-                // change button color based on click (on/off) status
-                onPollutantButtonClick(this);
+                if(buttonsSelected.length === 0){ // if 0 selected, plot all pollutants
+                    poll_line_plot.updatePollutants([1,2,3,4]);
+                } else { // plot only the selected buttons
+                    poll_line_plot.updatePollutants(buttonsSelected);
+                }
+
+
             })
             // update the hover effects (darken upon hover, lighten @ leave)
             .on("mouseout", function(){ offPollutantButtonHover();})

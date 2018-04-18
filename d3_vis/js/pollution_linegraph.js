@@ -1,18 +1,15 @@
 // Attempt at recreating line graphs in d3.
 $(function() {
 
-
     // parse the date / time
     var parseTime = d3.timeParse("%Y-%m");
-
-    // City selection listener & update method
-    var citySelector = "San Francisco";
-
 
     var my_viz_lib = my_viz_lib || {};
     my_viz_lib.lineGraph = function() {
         // initialize the data set
         var data;
+        var citySelector = "San Francisco";
+        var pollutants_arr = [1,2,3,4]
         // set the dimensions and margins of the graph
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
             width = 960 - margin.left - margin.right,
@@ -65,8 +62,12 @@ $(function() {
                 .addEventListener("click",cityListener);
             data = initialized_data;
         }
+        var updatePollutants = function(input_arr){
+            pollutants_arr = input_arr;
+            plot();
+        }
 
-        var plot = function(pollutants_arr) {
+        var plot = function() {
 
             // Scale the range of the data
             x.domain(d3.extent(data, function(d) { return d.date; }));
@@ -86,21 +87,20 @@ $(function() {
                     // enter function, add the line
                     svg.selectAll(".line"+i)
                         .data([data.filter(function(d){
-                            return d.city == "San Francisco";})])
-                            // return d.city == CitySelector;})])
+                            // return d.city == "San Francisco";})])
+                            return d.city == citySelector;})])
                         .enter()
                         .append("path")
                         .attr("class", "line"+i)
                         .attr("d", valueline(i));
 
                     // update function, update the line
-                    // svg.selectAll(".line"+i)
-                    //     .data([data.filter(function(d){
-                    //         return d.city == "San Francisco";})])
-                    //         // return d.city == CitySelector;})])
-                    //     .append("path")
-                    //     .attr("class", "line"+i)
-                    //     .attr("d", valueline(i));
+                    svg.selectAll(".line"+i)
+                        .data([data.filter(function(d){
+                            // return d.city == "San Francisco";})])
+                            return d.city == citySelector;})])
+                        .attr("class", "line"+i)
+                        .attr("d", valueline(i));
                 }
             }
 
@@ -115,6 +115,7 @@ $(function() {
         }
         var public = {
             "init": initialize,
+            "updatePollutants": updatePollutants,
             "plot": plot
             // "assignData": assignData
         };
@@ -140,16 +141,9 @@ $(function() {
             d.so2_aqi_level = +d.so2_aqi_level;
         });
 
-
-
-        var myPlot =  my_viz_lib.lineGraph();
-        myPlot.init(data);
-
-        myPlot.plot([1,2]); // plot all 4 pollutants to initialize
-        myPlot.plot([1,3]);
-
-
-
+        poll_line_plot =  my_viz_lib.lineGraph();
+        poll_line_plot.init(data);
+        poll_line_plot.plot();
     });
 
 })
