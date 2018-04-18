@@ -27,8 +27,11 @@
         <div class="line_graphs">
             <!-- <svg id="linegraph1" class="line_graph"></svg>
             <svg id="linegraph2" class="line_graph"></svg> -->
-            <a href="http://people.ischool.berkeley.edu/~shsu/AirPollution/"><img src="assets/linegraph_pollutants.png" width=600 height=400 class="line_graph"></img src></a>
-            <a href="http://people.ischool.berkeley.edu/~shsu/Mortality/"><img src="assets/linegraph_mortality.png" width=600 height=400 class="line_graph"></img src></a>
+            <div class="showcase__section" id="bubble">
+                <div class="bubbleplot" data-num="0">
+                    <div class="plot" id="plotdiv"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -127,11 +130,19 @@
                     <br>301 to 500</span>
             </div>
 
+
+            <div class="control-row">
+                City: <select class="Citydata"></select>
+            </div>
         </div>
     </div>
+    <!-- pollution map -->
+    <iframe width="480" height="400" frameborder="0" scrolling="no" src="//plot.ly/~anakai3/296.embed"></iframe>
+
+
 
     <div class="body_text">
-        <h2>LEARN MORE ABOUT IT</h2>
+        <h2>LEARN MORE ABOUT IT...</h2>
         <h3>Pollution</h3>
         <p>Data was obtained from the EPA which collects data about various
             pollutants through the use of air monitors placed in a variety of
@@ -162,6 +173,8 @@
     <script src="js/map.js"></script>
     <script src="js/linegraph.js"></script>
     <script src="js/buttons.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/alasql/0.2.3/alasql.min.js"></script>
 
   </body>
 </html>
