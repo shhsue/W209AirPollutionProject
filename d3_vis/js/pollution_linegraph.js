@@ -41,7 +41,7 @@ $(function() {
 
         function cityListener(){
             var e = document.getElementById("CitySelection");
-            if(e.selectedIndex > 0){
+            if(e.selectedIndex >= 0){
                 citySelector = e.options[e.selectedIndex].value;
                 plot([1,2,3,4])
             }
@@ -61,6 +61,15 @@ $(function() {
                 .attr("transform",
                     "translate(" + margin.left + "," + margin.top + ")");
 
+            // Add the X Axis
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .attr("class","x-axis")
+
+            // Add the Y Axis
+            svg.append("g")
+                .attr("class","y-axis")
+
             // add the title
             svg.append("text")
                 .attr("class","graphtitle")
@@ -72,9 +81,12 @@ $(function() {
 
         var plot = function() {
 
+            dataSubset = data.filter(function(d){
+                return d.city == citySelector;})
+
             // Scale the range of the data
-            x.domain(d3.extent(data, function(d) { return d.date; }));
-            y.domain([0, d3.max(data, function(d) {
+            x.domain(d3.extent(dataSubset, function(d) { return d.date; }));
+            y.domain([0, d3.max(dataSubset, function(d) {
                 return Math.max(d.co_aqi_level, d.no2_aqi_level, d.o3_aqi_level, d.so2_aqi_level);
             })]);
 
@@ -107,13 +119,10 @@ $(function() {
                 }
             }
 
-            // Add the X Axis
-            svg.append("g")
-                .attr("transform", "translate(0," + height + ")")
+            d3.select(".x-axis")
                 .call(d3.axisBottom(x));
 
-            // Add the Y Axis
-            svg.append("g")
+            d3.select(".y-axis")
                 .call(d3.axisLeft(y));
 
             // update the title
