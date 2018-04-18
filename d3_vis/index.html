@@ -11,19 +11,28 @@
     <h1>Air Pollution and Mortality in California</h1>
     <!-- TODO: MAKE INTRO PARAGRAPH CENTERED, FULL SCREEN ON PAGE -->
     <div class="body_text">
-        The average adult at rest inhales and exhales about 7 or 8 liters of air
-        per minute (about 0.25 cubic feet) and 11,000 liters of air (388 cubic
-        feet) in a day. Given the large volume of air we breathe daily it is no
-        surprise that air quality will impact the quality of health. In the
-        following visualization we will be focusing on four major air
-        pollutants nitrogen dioxide (NO2), sulphur dioxide (SO2), carbon
-        monoxide (CO) and ground level ozone (O3) and four diseases
-        Respiratory disease, heart disease, stroke and cancer, that are
-        scientifically known to be associated with bad air quality. The
-        concentrations of air pollutants in the air are often influenced by
-        seasonal changes so these measures have been aggregated by month and
-        year to capture these differences, while the mortality rates per
-        100,000 people are reported on a yearly basis.
+        The average adult at rest inhales and exhales about 7 or 8 liters of
+        air per minute (about 0.25 cubic feet) and 11,000 liters of air
+        (388 cubic feet) in a day. Given the large volume of air we breathe
+        daily it is no surprise that air quality will impact the quality of
+        health. In the following visualization we will be focusing on four
+        major air pollutants nitrogen dioxide (NO2), sulphur dioxide (SO2),
+        carbon monoxide (CO) and ground level ozone (O3) and four diseases
+        respiratory disease, heart disease, stroke and cancer, that are
+        scientifically known to be associated with bad air quality.
+        The concentrations of air pollutants in the air are often influenced
+        by seasonal changes so these measures have been aggregated by month
+        and year to capture these differences. O3 is more prevalent when there
+        is more sunlight so the summer months will have higher levels of O3.
+        The other pollutants NO2, SO2, and CO are more prevalent with higher
+        humidity levels so they are more prevalent in the winter months. Most
+        of the pollutants NO2, SO2, and O3 affect respiratory diseases due to
+        lung irritation. CO affects the ability of oxygen to bind to hemoglobin
+        in blood cells which is vital to carrying oxygen throughout the body
+        and negatively impacts both respiratory and cardiovascular systems of
+        the body. Yearly mortality rates were derived from the number of deaths
+        normalized by the population counts by city and are expressed
+        per 100,000 people by yearly basis.
     </div>
     <!-- TODO: MAKE GRAPHS AND FILTERS ONE FULL PAGE "SLIDE"  -->
     <div class="graphs">
@@ -156,23 +165,32 @@
     <div class="body_text">
         <h2>LEARN MORE ABOUT IT...</h2>
         <h3>Pollution</h3>
-        <p>Data was obtained from the EPA which collects data about various
-            pollutants through the use of air monitors placed in a variety of
-            locations. Pollutant measures are expressed in terms of
-            Air Quality Index (AQI).</p>
+        <p> Data was obtained from the Environmental Protection Agency which
+            collects data about various pollutants through the use of air
+            monitors placed in a variety of locations. Pollutant measures are
+            expressed in terms of Air Quality Index (AQI), which are directly
+            related to health outcomes. The original data used
+             <a href="https://www.kaggle.com/sogun3/uspollution/data"> click here</a>.
+            For more information about air pollutants
+            <a href=" https://www.epa.gov/criteria-air-pollutants "> click here</a>.
+            For more information about AQI measures
+            <a href=" https://airnow.gov/index.cfm?action=aqibasics.aqi ">click here</a>.
+        </p>
         <h3>Mortality</h3>
-        <p>Data about mortality was obtained through the California Department
-            of Public Health. Chronic lower respiratory disease, heart disease,
-            stroke, and cancer were examined in this visualization to determine
-            if there is a relation between air quality measurements and
-            mortality per 100,000 people in various locations in California.</p>
-        <h3>Pollution and Mortality</h3>
-        <p>O3 is more prevalent when there is more sunlight so the summer months
-            will have higher levels of O3. The other pollutants NO2, SO2, and
-            CO more prevalent with more humidity so they are more prevalent in
-            the winter months. Most of the pollutants affect respiratory
-            diseases due to lung irritation. CO will affect the heart as
-            well since it interferes with oxygen availability in the blood.</p>
+        <p> Data about mortality rates was obtained through the California Department
+            of Public Health <a href="https://data.chhs.ca.gov/dataset/leading-causes-of-death-by-zip-code-1999-current">
+            leading causes of death dataset</a>.
+            Mortality rates were derived by using population denominators for
+            various years derived from <a href="https://factfinder.census.gov/faces/nav/jsf/pages/community_facts.xhtml">.
+            the American Community Survey and Census data</a>.
+        </p>
+        <h3>Location Data</h3>
+        <p> In order to collapse down the cities from zip codes we used an
+            additional <a href=" https://www.aggdata.com/node/86"> data source</a>
+            to obtain the city location by zip code and latitude and
+            longitude information to aggregate zip codes into cities and map the data.
+        </p>
+
     </div>
 
     <div class="meta">BY CELIA LUDWINSKI, SHELLY HSU, ADITYA NAKAI</div>
