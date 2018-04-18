@@ -11,9 +11,19 @@
     <h1>Air Pollution and Mortality in California</h1>
     <!-- TODO: MAKE INTRO PARAGRAPH CENTERED, FULL SCREEN ON PAGE -->
     <div class="body_text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies magna lectus, et malesuada elit imperdiet nec. Proin vel maximus leo, ac tincidunt lectus. Vestibulum non elit sem. Vestibulum eu accumsan dolor, at gravida velit. Proin molestie nisi pretium ante ullamcorper, eu ullamcorper erat malesuada. Maecenas eget congue nisi, vitae vestibulum nulla. Aliquam diam ligula, consectetur quis consectetur non, efficitur ut lectus. Sed ut ullamcorper lectus, at porttitor massa. Nam non laoreet arcu. Nullam sed est nec mi vulputate facilisis vehicula ac est. Proin pellentesque enim at odio mattis, eu egestas neque sodales.
-
-        Ut in sapien lectus. Cras porttitor ultrices ipsum a finibus. In tincidunt pharetra imperdiet. Duis luctus velit purus, sed porta odio tincidunt eget. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas diam turpis, bibendum sit amet leo eu, malesuada iaculis nulla. Pellentesque ultricies tempus erat, sit amet blandit libero. Vivamus a gravida ligula. Donec sit amet ante leo.
+        The average adult at rest inhales and exhales about 7 or 8 liters of air
+        per minute (about 0.25 cubic feet) and 11,000 liters of air (388 cubic
+        feet) in a day. Given the large volume of air we breathe daily it is no
+        surprise that air quality will impact the quality of health. In the
+        following visualization we will be focusing on four major air
+        pollutants nitrogen dioxide (NO2), sulphur dioxide (SO2), carbon
+        monoxide (CO) and ground level ozone (O3) and four diseases.
+        Respiratory disease, heart disease, stroke and cancer, that are
+        scientifically known to be associated with bad air quality. The
+        concentrations of air pollutants in the air are often influenced by
+        seasonal changes so these measures have been aggregated by month and
+        year to capture these differences, while the mortality rates per
+        100,000 people are reported on a yearly basis.
     </div>
     <!-- TODO: MAKE GRAPHS AND FILTERS ONE FULL PAGE "SLIDE"  -->
     <div class="graphs">
@@ -45,7 +55,7 @@
                     <div class="button_text">CO</div>
                 </button>
                 <span class="poltooltiptext" id="tooltip_pollutant_1">
-                    Description of CO to go here</span>
+                    Description of CO to go here</span><!-- leave this blank as placeholder for button interaction js -->
             </div>
             <div class="pollutant_tooltip">
                 <button type="button" class="pollutant_button" id="pollutant2">
@@ -53,7 +63,7 @@
                     <div class="button_text">SO2</div>
                 </button>
                 <span class="poltooltiptext" id="tooltip_pollutant_2">
-                    Description of SO2 to go here</span>
+                    Description of SO2 to go here</span><!-- leave this blank as placeholder for button interaction js -->
             </div>
             <div class="pollutant_tooltip">
                 <button type="button" class="pollutant_button" id="pollutant3">
@@ -61,7 +71,7 @@
                     <div class="button_text">NO2</div>
                 </button>
                 <span class="poltooltiptext" id="tooltip_pollutant_3">
-                    Description of NO2 to go here</span>
+                    Description of NO2 to go here</span><!-- leave this blank as placeholder for button interaction js -->
             </div>
             <div class="pollutant_tooltip">
                 <button type="button" class="pollutant_button" id="pollutant4">
@@ -130,15 +140,16 @@
                     <br>301 to 500</span>
             </div>
 
-
+            <h2>City</h2>
             <div class="control-row">
-                City: <select class="Citydata"></select>
+                <select class="Citydata"></select>
             </div>
         </div>
     </div>
     <!-- pollution map -->
     <iframe width="480" height="400" frameborder="0" scrolling="no" src="//plot.ly/~anakai3/296.embed"></iframe>
 
+    <div class="test_poll"></div>
 
 
     <div class="body_text">
@@ -173,6 +184,7 @@
     <script src="js/map.js"></script>
     <script src="js/linegraph.js"></script>
     <script src="js/buttons.js"></script>
+    <script src="js/pollution_linegraph.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/alasql/0.2.3/alasql.min.js"></script>
 
