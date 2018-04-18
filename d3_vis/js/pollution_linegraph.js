@@ -7,13 +7,14 @@ $(function() {
     var my_viz_lib = my_viz_lib || {};
     my_viz_lib.lineGraph = function() {
         // initialize the data set
-        var data;
+        var data, svg;
         var citySelector = "San Francisco";
         var pollutants_arr = [1,2,3,4]
+
         // set the dimensions and margins of the graph
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
-            width = 960 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
+            width = 340,
+            height = 200;
 
         // set the ranges
         var x = d3.scaleTime().range([0, width]);
@@ -38,18 +39,6 @@ $(function() {
             return line;
         }
 
-
-
-        // append the svg obgect to the body of the page
-        // appends a 'group' element to 'svg'
-        // moves the 'group' element to the top left margin
-        var svg = d3.select(".test_poll").append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")");
-
         function cityListener(){
             var e = document.getElementById("CitySelection");
             if(e.selectedIndex > 0){
@@ -61,6 +50,20 @@ $(function() {
             document.getElementById("CitySelection")
                 .addEventListener("click",cityListener);
             data = initialized_data;
+
+            // append the svg obgect to the body of the page
+            // appends a 'group' element to 'svg'
+            // moves the 'group' element to the top left margin
+            svg = d3.select(".test_poll").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform",
+                    "translate(" + margin.left + "," + margin.top + ")");
+
+            // add the title
+            svg.append("text")
+                .attr("class","graphtitle")
         }
         var updatePollutants = function(input_arr){
             pollutants_arr = input_arr;
@@ -112,6 +115,13 @@ $(function() {
             // Add the Y Axis
             svg.append("g")
                 .call(d3.axisLeft(y));
+
+            // update the title
+            d3.select(".graphtitle")
+                .attr("x", (width / 2))
+                .attr("y", 12)
+                .attr("text-anchor", "middle")
+                .text("Pollution for " + citySelector);
         }
         var public = {
             "init": initialize,

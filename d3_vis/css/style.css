@@ -83,7 +83,8 @@ svg {
     font-size:16px;
     line-height: 16px;
 }
-.filters h2{
+.filters h2, .graphtitle{
+    font-family: din-condensed, sans-serif;
     margin-top: 1em;
     margin-bottom: 0.5em;
     font-size:13px;
