@@ -1,16 +1,16 @@
 {
     "pollutantDetails": {
         "4": {"title": "Ground level or ambient ozone (O3)",
-            "healthEffects": "Ground level O3 can irritate the airways of the lungs, and increase symtpoms of those suffering from respiratory diseases.",
-            "background": "Ground level O3 is not emitted directly into the air, but created by chemical reactions between oxides of nitrogen and volatile organic compounds in the presence of sunlight. Emissions from industrial facilities and electric utilities, motor vehicle exhust, gasoline vapors, and chemical solvents are some of the major sources of the sources of O3."},
+            "healthEffects": "Ground level O3 can irritate the airways of the lungs and increase symptoms of those suffering from respiratory diseases.",
+            "background": "Ground level O3 is not emitted directly into the air but created by chemical reactions between oxides of nitrogen and volatile organic compounds in the presence of sunlight. Emissions from industrial facilities and electric utilities, motor vehicle exhaust, gasoline vapors, and chemical solvents are some of the major sources of the sources of O3."},
         "3": {"title": "Nitrogen Dioxide (NO2)",
             "healthEffects": "NO2 can irritate the lungs and lower resistance to respiratory infections and diseases.",
-            "background": "NO2 is part of a group of highly reactive cases and primarily gets into the air from the burning of fuel. NO2 forms from the emission of cars, trucks, buses, powerpants, and off-road equiptment."},
+            "background": "NO2 is part of a group of highly reactive cases and primarily gets into the air from the burning of fuel. NO2 forms from the emission of cars, trucks, buses, power plants, and off-road equipment."},
         "2": {"title": "Sulphur Dioxide (SO2)",
             "healthEffects": "SO2 even in moderate concentrations may result in decrease in lung function.",
-            "background": "The largest source of SO2 in the atmosphere is the burning of fossil fuels by power plants and other industrial facilities. Smaller sources of SO2 emissions include industrial processes such as extracting metal from ore and locomotives, ships, and other vehicles and heavy equiptment that burn fuel with a high sulfur content."},
+            "background": "The largest source of SO2 in the atmosphere is the burning of fossil fuels by power plants and other industrial facilities. Smaller sources of SO2 emissions include industrial processes such as extracting metal from ore and locomotives, ships, and other vehicles and heavy equipment that burn fuel with a high sulfur content."},
         "1": {"title": "Carbon Monoxide (CO)",
-            "healthEffects": "CO prevents normal transport of oxygen by the blood and can lead to sginficiant reduction in the supply of oxygen and impact those with heart disease.",
+            "healthEffects": "CO prevents normal transport of oxygen by the blood and can lead to significant reduction in the supply of oxygen and impact those with heart disease.",
             "background": "CO is a colorless and odorless gas that is harmful when inhaled in large amounts. The greatest sources of CO are cars, trucks, and other vehicle or machinery that burn fossil fuels."}
     }
 }
