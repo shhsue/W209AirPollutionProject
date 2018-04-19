@@ -75,9 +75,9 @@ $(function() {
                 // update the maps for the selected pollutant
                 // TODO: update the line graphs for the selected pollutant
                 if(buttonsSelected.length === 0){ // if 0 selected, plot all pollutants
-                    poll_line_plot.updatePollutants([1,2,3,4]);
+                    poll_line_plot.updateSelections([1,2,3,4]);
                 } else { // plot only the selected buttons
-                    poll_line_plot.updatePollutants(buttonsSelected);
+                    poll_line_plot.updateSelections(buttonsSelected);
                 }
 
 

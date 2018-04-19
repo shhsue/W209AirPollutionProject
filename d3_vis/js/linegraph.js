@@ -76,7 +76,7 @@ $(function() {
             };
 
             // Default City Data
-            setBubblePlot('Bakersfield');
+            setBubblePlot('San Francisco');
 
             function setBubblePlot(chosenCity) {
                 getCityData(chosenCity);
@@ -186,7 +186,7 @@ $(function() {
                         b: 20,
                         t: 20,
                         pad: 5
-                    }, 
+                    },
                 //   title: chosenCity,
                   autosize:false,
                   width:500,
