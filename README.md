@@ -6,11 +6,11 @@ Data Files: Contains the SAS SQL cleaning code and the initial air pollution and
 
 D3_vis: The final files needed for a working website visualization.\
 				Contains the following subfolders:\
-				- assets: graphic images\
-				- css\
-				- data: final cleaned data files used for visualization\
-				- js\
-				- text-content: tool tip descriptions
+				* assets: graphic images\
+				* css\
+				* data: final cleaned data files used for visualization\
+				* js\
+				* text-content: tool tip descriptions
 
 
 Mixed_subplots: The draft versions of the html and javascript codes used to make line graphs using plotly.js
