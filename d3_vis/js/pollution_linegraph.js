@@ -82,10 +82,6 @@ $(function() {
                 ylab = "Mortality, rate of death (per 100,000)"; }
 
             // Add the y axis label
-            var ylab = "";
-            if(graph_type == "Pollution"){ ylab = "Air Quality Index (AQI)";}
-            else if (graph_type == "Mortality") {
-                ylab = "Mortality, # of deaths (per 100,000 people)"; }
             svg.append("text")
                 .attr("class","graphlabel")
                 .attr("id",graph_type+"_graphlabel")
@@ -99,7 +95,7 @@ $(function() {
             // add the title
             svg.append("text")
                 .attr("class","graphtitle")
-                .attr("id",graph_type+"_graphtitle");
+                .attr("id",graph_type+"_graphtitle")
         }
         var updateSelections = function(input_arr){
             options_selected_arr = input_arr;
@@ -115,10 +111,8 @@ $(function() {
             x.domain(d3.extent(dataSubset, function(d) { return d.date; }));
             y.domain([0, d3.max(dataSubset, function(d) {
                 return Math.max(d.var_1, d.var_3, d.var_4, d.var_2);
-                })
-            ]);
+            })]);
             var getvalue = function(d, index) {
-                console.log(d, index)
                 var result;
                 if(index === 1) {
                     result = d.var_1;
@@ -132,7 +126,6 @@ $(function() {
                 else if (index === 4) {
                     result = d.var_4;
                 }
-                console.log(d.var_1)
                 return result;
             }
 
@@ -140,12 +133,12 @@ $(function() {
             for(index=1; index<5; index++) {
                 if(options_selected_arr.indexOf(index) === -1) {
                     // exit function, remove the line
-                    svg.selectAll("."+graph_type.toLowerCase()+"_line"+index)
+                    svg.selectAll(".line"+index)
                         .remove(); // NOTE: ghetto non-exit removal.
                 }
                 else {
                     // enter function, add the line
-                    var line_i = svg.selectAll("."+graph_type.toLowerCase()+"_line"+index)
+                    var line_i = svg.selectAll(".line"+index)
                         .data([data.filter(function(d){
                             return d.city == citySelector;})])
                         .enter()
@@ -154,37 +147,8 @@ $(function() {
                         .attr("id",graph_type+"_line"+index)
                         .attr("d", valueline(index));
 
-                    //
-                    // focus.append("circle")
-                    //     .attr("r", 4.5);
-                    //
-                    // focus.append("text")
-                    //     .attr("x", 9)
-                    //     .attr("dy", ".35em");
-                    //
-                    // svg.append("rect")
-                    //     .attr("class", "overlay")
-                    //     .attr("width", width)
-                    //     .attr("height", height)
-                    //     .on("mouseover", function() { focus.style("display", null); })
-                    //     .on("mouseout", function() { focus.style("display", "none"); })
-                    //     .on("mousemove", mousemove);
-                    //
-                    // var bisectDate = d3.bisector(function(d) { return d.date; }).left;
-                    //
-                    // function mousemove() {
-                    //     var x0 = x.invert(d3.mouse(this)[0]),
-                    //         i = bisectDate(data, x0, 1),
-                    //         d0 = data[i - 1],
-                    //         d1 = data[i],
-                    //         d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-                    //     focus.attr("transform", "translate(" + (x(d.date)) + "," + (y(d.var_1)) + ")");
-                    //     // focus.select("text").text(formatCurrency(getvalue(d,i)));
-                    //     focus.select("text").text("CO");
-                    // }
-
                     // update function, update the line
-                    svg.selectAll(graph_type.toLowerCase()+"_line"+index)
+                    svg.selectAll(".line"+index)
                         .data([data.filter(function(d){
                             // return d.city == "San Francisco";})])
                             return d.city == citySelector;})])
