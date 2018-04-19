@@ -11,6 +11,7 @@ $(function() {
         var data, svg;
         var citySelector = "San Francisco";
         var options_selected_arr = [1,2,3,4]
+        var graph_type = ""; // Pollution or Mortality
 
         // set the dimensions and margins of the graph
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
@@ -47,15 +48,17 @@ $(function() {
                 plot([1,2,3,4])
             }
         }
-        var initialize = function(initialized_data) {
+        var init = function(initialized_data, graph_type_input) {
             document.getElementById("CitySelection")
                 .addEventListener("click",cityListener);
             data = initialized_data;
+            graph_type = graph_type_input;
 
             // append the svg obgect to the body of the page
             // appends a 'group' element to 'svg'
             // moves the 'group' element to the top left margin
-            svg = d3.select(".pollution_line_graph").append("svg")
+            svg = d3.select("."+graph_type.toLowerCase()+"_line_graph")
+                .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
@@ -66,14 +69,17 @@ $(function() {
             svg.append("g")
                 .attr("transform", "translate(0," + height + ")")
                 .attr("class","x-axis")
+                .attr("id",graph_type+"_x-axis")
 
             // Add the Y Axis
             svg.append("g")
                 .attr("class","y-axis")
+                .attr("id",graph_type+"_y-axis")
 
             // Add the y axis label
             svg.append("text")
                 .attr("class","graphlabel")
+                .attr("id",graph_type+"_graphlabel")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 0 - margin.left)
                 .attr("x",0 - (height / 2))
@@ -84,6 +90,7 @@ $(function() {
             // add the title
             svg.append("text")
                 .attr("class","graphtitle")
+                .attr("id",graph_type+"_graphtitle")
         }
         var updateSelections = function(input_arr){
             options_selected_arr = input_arr;
@@ -133,78 +140,6 @@ $(function() {
                         .append("path")
                         .attr("class", "line"+index)
                         .attr("d", valueline(index));
-                    //
-                    // // enter function, add mouseover effects
-                    // var data_pt = svg.selectAll(".points")
-                    //     .data(data.filter(function(d){
-                    //         return d.city == citySelector;}))
-                    //     .enter()
-                    //     .append("g")
-                    //     .attr("class","points")
-                    //     .append("text")
-                    //     .datum(function(d) {
-                    //         return d;
-                    //     })
-                    //     .attr("transform", function(d) {
-                    //         return "translate(" + x(d.date) + "," + y(getvalue(d,index)) + ")";
-                    //     })
-                    //     .attr("x", 3)
-                    //     .attr("dy", ".35em")
-                    //     // .text(function(d) {
-                    //     //     return getvalue(d, index);
-                    //     // });
-                    //
-                    // var mouseG = svg.append("g")
-                    //     .attr("class", "mouse-over-effects");
-                    //
-                    // mouseG.append("path") // this is the black vertical line to follow mouse
-                    //     .attr("class", "mouse-line")
-                    //     .style("stroke", "black")
-                    //     .style("stroke-width", "1px")
-                    //     .style("opacity", "0");
-                    //
-                    // var mousePerLine = mouseG.selectAll('.mouse-per-line')
-                    //     .data(data)
-                    //     .enter()
-                    //     .append("g")
-                    //     .attr("class", "mouse-per-line");
-                    // mousePerLine.append("circle")
-                    //     .attr("r", 7)
-                    //     .style("stroke", "black")
-                    //     .style("fill", "none")
-                    //     .style("stroke-width", "1px")
-                    //     .style("opacity", "0");
-                    //
-                    // mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
-                    //     .attr('width', width) // can't catch mouse events on a g element
-                    //     .attr('height', height)
-                    //     .attr('fill', 'none')
-                    //     .attr('pointer-events', 'all')
-                    //     .on('mouseout', function() { // on mouse out hide line, circles and text
-                    //         d3.select(".mouse-line")
-                    //             .style("opacity", "0");
-                    //         d3.selectAll(".mouse-per-line circle")
-                    //             .style("opacity", "0");
-                    //         d3.selectAll(".mouse-per-line text")
-                    //             .style("opacity", "0");
-                    //     })
-                    //     .on('mouseover', function() { // on mouse in show line, circles and text
-                    //         d3.select(".mouse-line")
-                    //             .style("opacity", "1");
-                    //         d3.selectAll(".mouse-per-line circle")
-                    //             .style("opacity", "1");
-                    //         d3.selectAll(".mouse-per-line text")
-                    //             .style("opacity", "1");
-                    //     })
-                    //     .on('mousemove', function() { // mouse moving over canvas
-                    //         var mouse = d3.mouse(this);
-                    //         d3.select(".mouse-line")
-                    //             .attr("d", function() {
-                    //                 var d = "M" + mouse[0] + "," + height;
-                    //                 d += " " + mouse[0] + "," + 0;
-                    //                 return d;
-                    //             });
-                    //     });
 
                     // update function, update the line
                     svg.selectAll(".line"+index)
@@ -216,19 +151,19 @@ $(function() {
                 }
             }
 
-            // update axes and title
-            d3.select(".x-axis")
+            // update axes, title, and labels
+            d3.select("#"+graph_type+"_x-axis")
                 .call(d3.axisBottom(x));
-            d3.select(".y-axis")
+            d3.select("#"+graph_type+"_y-axis")
                 .call(d3.axisLeft(y));
-            d3.select(".graphtitle")
+            d3.select("#"+graph_type+"_graphtitle")
                 .attr("x", (width / 2))
                 .attr("y", 0)
                 .attr("text-anchor", "middle")
-                .text("Pollution for " + citySelector);
+                .text(graph_type+" for " + citySelector);
         }
         var public = {
-            "init": initialize,
+            "init": init,
             "updateSelections": updateSelections,
             "plot": plot
             // "assignData": assignData
@@ -240,9 +175,8 @@ $(function() {
     d3.csv("data/merged_final.csv", function(error, data) {
         if (error) throw error;
 
-        var pollutant_data = data;
-        // format the data
-        pollutant_data.forEach(function(d) {
+        // format the pollutant data
+        data.forEach(function(d,i) {
             // date data
             d.date = parseTime(d.date);
 
@@ -266,9 +200,58 @@ $(function() {
             d.var_2 = +d.so2_aqi_level;
         });
 
+        // plot the pollutant data
         poll_line_plot =  my_viz_lib.lineGraph();
-        poll_line_plot.init(pollutant_data);
+        poll_line_plot.init(data, "Pollution");
         poll_line_plot.plot();
+
+        // format the pollutant data
+        data.forEach(function(d,i) {
+            // mortality data
+            d.var_1 = +d.HTD;
+            d.var_3 = +d.CAN;
+            d.var_4 = +d.STK;
+            d.var_2 = +d.PNF;
+        });
+
+        // plot the mortality data
+        mort_line_plot =  my_viz_lib.lineGraph();
+        mort_line_plot.init(data, "Mortality");
+        mort_line_plot.plot();
     });
 
+
+    d3.csv("data/merged_final.csv", function(error, data) {
+        if (error) throw error;
+
+        // format the mortality data
+        data.forEach(function(d,i) {
+            // date data
+            d.date = parseTime(d.date);
+
+            // filtering based on location selected
+            d.city = d.city;
+
+            // create a unique list of cities & insert into dropdown
+            var select = document.getElementById("CitySelection");
+            if(uniqueCities.indexOf(d.city) === -1){
+                uniqueCities.push(d.city)
+                var city_dropdown_element = document.createElement("option");
+                city_dropdown_element.textContent = d.city;
+                city_dropdown_element.value = d.city;
+                select.appendChild(city_dropdown_element);
+            }
+
+            // mortality data
+            d.var_1 = +d.HTD;
+            d.var_3 = +d.CAN;
+            d.var_4 = +d.STK;
+            d.var_2 = +d.PNF;
+        });
+
+        // plot the mortality data
+        mort_line_plot =  my_viz_lib.lineGraph();
+        mort_line_plot.init(data, "Mortality");
+        mort_line_plot.plot();
+    });
 })

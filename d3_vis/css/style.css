@@ -233,6 +233,7 @@ svg {
     width:400px;
     height:190px;
     display:block;
+    margin-bottom:40px;
 }
 
 /* line graph styling */
