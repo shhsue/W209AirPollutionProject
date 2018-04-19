@@ -16,7 +16,7 @@ $(function() {
         // set the dimensions and margins of the graph
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
             width = 400,
-            height = 190;
+            height = 180;
 
         // set the ranges
         var x = d3.scaleTime().range([0, width]);
@@ -204,20 +204,6 @@ $(function() {
         poll_line_plot =  my_viz_lib.lineGraph();
         poll_line_plot.init(data, "Pollution");
         poll_line_plot.plot();
-
-        // format the pollutant data
-        data.forEach(function(d,i) {
-            // mortality data
-            d.var_1 = +d.HTD;
-            d.var_3 = +d.CAN;
-            d.var_4 = +d.STK;
-            d.var_2 = +d.PNF;
-        });
-
-        // plot the mortality data
-        mort_line_plot =  my_viz_lib.lineGraph();
-        mort_line_plot.init(data, "Mortality");
-        mort_line_plot.plot();
     });
 
 
