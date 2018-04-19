@@ -71,7 +71,7 @@ svg {
 /* sidebar filter styling */
 .filters {
     width:10%;
-    height:450px;
+    height:600px;
     display:inline-block;
     background-color:#dddddd;
     margin: auto 0 auto auto;
@@ -95,18 +95,18 @@ svg {
 }
 
 /* styling of tooltip for buttons within filter sidebar */
-.pollutant_tooltip, .aqi_tooltip{
+.pollutant_tooltip, .aqi_tooltip, .mortality_tooltip{
     vertical-align: top;
     opacity:1;
     margin: 2px auto 0px auto;
     display: inline-block;
     position:relative;
 }
-.pollutant_tooltip{
+.pollutant_tooltip, .mortality_tooltip{
     width: 50px;
     height: 50px;
 }
-.poltooltiptext, .aqitooltiptext {
+.poltooltiptext, .aqitooltiptext, .morttooltiptext{
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -119,14 +119,14 @@ svg {
     z-index: 1;
     right: 60px;
 }
-.poltooltiptext {
+.poltooltiptext, .morttooltiptext {
     top: 0px;
 }
 .aqitooltiptext{
     top:-12px;
     right:140px;
 }
-.poltooltiptext::after, .aqitooltiptext::after {
+.poltooltiptext::after, .aqitooltiptext::after, .morttooltiptext::after{
     content: "";
     position: absolute;
     top: 25px;
@@ -156,7 +156,7 @@ svg {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.pollutant_button, .aqi_button {
+.pollutant_button, .aqi_button, .mortality_button {
     background-color: #eeeeee;
     background-repeat:no-repeat;
     border: none;
@@ -168,22 +168,22 @@ svg {
     border-radius:5px;
     display:inline-block;
 }
-.pollutant_button:hover, .aqi_button:hover {
+.pollutant_button:hover, .aqi_button:hover, .mortality_button:hover {
     background-color: #bbbbbb;
 }
 
 /*styling that only applies for pollutant buttons*/
-.pollutant_button{
+.pollutant_button, .mortality_button{
     margin:1%;
     display:inline-block;
     width:22%;
     min-width: 50px;
 }
-.pollutant_button > img {
+.pollutant_button > img, .mortality_button > img{
     width:100%;
     height:auto;
 }
-.pollutant_button .button_text{
+.pollutant_button .button_text, .mortality_button .button_text{
     font-size: 10px;
     text-align:center;
 }
