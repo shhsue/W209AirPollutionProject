@@ -237,19 +237,46 @@ svg {
 }
 
 /* line graph styling */
-.line1, .line2, .line3, .line4 {
+.pollution_line1, .pollution_line2, .pollution_line3, .pollution_line4 {
     fill: none;
     stroke-width: 2px;
 }
-.line1 {
+.pollution_line1 {
     stroke:#d63d08; /*#8B2300;*/
 }
-.line2{
+.pollution_line2{
     stroke:#018f96; /*#00585C;*/
 }
-.line3{
+.pollution_line3{
     stroke:#148e00; /*#0D5C00;*/
 }
-.line4{
-    stroke:#8e0050 /*#5C0034;*/
+.pollution_line4{
+    stroke:#8e0050; /*#5C0034;*/
+}
+
+.mortality_line1, .mortality_line2, .mortality_line3, .mortality_line4 {
+    fill: none;
+    stroke-width: 2px;
+}
+.mortality_line1 {
+    stroke:#CA9158;
+}
+.mortality_line2{
+    stroke:#f7d48c;
+}
+.mortality_line3{
+    stroke:#ffa91e;
+}
+.mortality_line4{
+    stroke:#A87D49;
+}
+
+
+.focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+.overlay {
+  fill: none;
+  pointer-events: all;
 }
