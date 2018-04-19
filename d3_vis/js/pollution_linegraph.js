@@ -10,7 +10,7 @@ $(function() {
         // initialize the data set
         var data, svg;
         var citySelector = "San Francisco";
-        var pollutants_arr = [1,2,3,4]
+        var options_selected_arr = [1,2,3,4]
 
         // set the dimensions and margins of the graph
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
@@ -25,17 +25,17 @@ $(function() {
             var line = d3.line()
                 .x(function(d) { return x(d.date); })
             if(i === 1) {
-                line.y(function(d) { return y(d.co_aqi_level); });
+                line.y(function(d) { return y(d.var_1); });
 
             }
             else if (i === 2) {
-                line.y(function(d) { return y(d.so2_aqi_level); });
+                line.y(function(d) { return y(d.var_2); });
             }
             else if (i === 3) {
-                line.y(function(d) { return y(d.no2_aqi_level); });
+                line.y(function(d) { return y(d.var_3); });
             }
             else if (i === 4) {
-                line.y(function(d) { return y(d.o3_aqi_level); });
+                line.y(function(d) { return y(d.var_4); });
             }
             return line;
         }
@@ -86,7 +86,7 @@ $(function() {
                 .attr("class","graphtitle")
         }
         var updateSelections = function(input_arr){
-            pollutants_arr = input_arr;
+            options_selected_arr = input_arr;
             plot();
         }
 
@@ -98,34 +98,33 @@ $(function() {
             // Scale the range of the data
             x.domain(d3.extent(dataSubset, function(d) { return d.date; }));
             y.domain([0, d3.max(dataSubset, function(d) {
-                return Math.max(d.co_aqi_level, d.no2_aqi_level, d.o3_aqi_level, d.so2_aqi_level);
+                return Math.max(d.var_1, d.var_3, d.var_4, d.var_2);
             })]);
             var getvalue = function(d, index) {
                 var result;
                 if(index === 1) {
-                    result = d.co_aqi_level;
+                    result = d.var_1;
                 }
                 else if (index === 2) {
-                    result = d.so2_aqi_level;
+                    result = d.var_2;
                 }
                 else if (index === 3) {
-                    result = d.no2_aqi_level;
+                    result = d.var_3;
                 }
                 else if (index === 4) {
-                    result = d.o3_aqi_level;
+                    result = d.var_4;
                 }
                 return result;
             }
 
+            // plot a line for each of the options selected
             for(index=1; index<5; index++) {
-                if(pollutants_arr.indexOf(index) === -1) {
-                    // console.log("pollutant " + i + " not passed");
+                if(options_selected_arr.indexOf(index) === -1) {
                     // exit function, remove the line
                     svg.selectAll(".line"+index)
                         .remove(); // NOTE: ghetto non-exit removal.
                 }
                 else {
-                    // console.log(pollutants_arr.indexOf(i));
                     // enter function, add the line
                     var line_i = svg.selectAll(".line"+index)
                         .data([data.filter(function(d){
@@ -241,8 +240,9 @@ $(function() {
     d3.csv("data/merged_final.csv", function(error, data) {
         if (error) throw error;
 
+        var pollutant_data = data;
         // format the data
-        data.forEach(function(d) {
+        pollutant_data.forEach(function(d) {
             // date data
             d.date = parseTime(d.date);
 
@@ -260,14 +260,14 @@ $(function() {
             }
 
             // pollutant data
-            d.co_aqi_level = +d.co_aqi_level;
-            d.no2_aqi_level = +d.no2_aqi_level;
-            d.o3_aqi_level = +d.o3_aqi_level;
-            d.so2_aqi_level = +d.so2_aqi_level;
+            d.var_1 = +d.co_aqi_level;
+            d.var_3 = +d.no2_aqi_level;
+            d.var_4 = +d.o3_aqi_level;
+            d.var_2 = +d.so2_aqi_level;
         });
 
         poll_line_plot =  my_viz_lib.lineGraph();
-        poll_line_plot.init(data);
+        poll_line_plot.init(pollutant_data);
         poll_line_plot.plot();
     });
 
