@@ -45,7 +45,7 @@ $(function() {
             var e = document.getElementById("CitySelection");
             if(e.selectedIndex >= 0){
                 citySelector = e.options[e.selectedIndex].value;
-                plot([1,2,3,4])
+                plot()
             }
         }
         var init = function(initialized_data, graph_type_input) {
@@ -76,6 +76,11 @@ $(function() {
                 .attr("class","y-axis")
                 .attr("id",graph_type+"_y-axis")
 
+            ylab = ""
+            if(graph_type=="Pollution"){ ylab = "Air Quality Index (AQI)"; }
+            else if (graph_type == "Mortality") {
+                ylab = "Mortality, rate of death (per 100,000)"; }
+
             // Add the y axis label
             svg.append("text")
                 .attr("class","graphlabel")
@@ -85,7 +90,7 @@ $(function() {
                 .attr("x",0 - (height / 2))
                 .attr("dy", "1.5em")
                 .style("text-anchor", "middle")
-                .text("Air Quality Index (AQI)");
+                .text(ylab);
 
             // add the title
             svg.append("text")
