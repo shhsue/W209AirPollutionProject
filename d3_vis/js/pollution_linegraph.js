@@ -3,6 +3,7 @@ $(function() {
 
     // parse the date / time
     var parseTime = d3.timeParse("%Y-%m");
+    var uniqueCities = [];
 
     var my_viz_lib = my_viz_lib || {};
     my_viz_lib.lineGraph = function() {
@@ -247,6 +248,16 @@ $(function() {
 
             // filtering based on location selected
             d.city = d.city;
+
+            // create a unique list of cities & insert into dropdown
+            var select = document.getElementById("CitySelection");
+            if(uniqueCities.indexOf(d.city) === -1){
+                uniqueCities.push(d.city)
+                var city_dropdown_element = document.createElement("option");
+                city_dropdown_element.textContent = d.city;
+                city_dropdown_element.value = d.city;
+                select.appendChild(city_dropdown_element);
+            }
 
             // pollutant data
             d.co_aqi_level = +d.co_aqi_level;
