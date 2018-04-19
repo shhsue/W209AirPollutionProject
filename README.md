@@ -1,5 +1,5 @@
-# Final Project
-## W209 Air Pollution Project
+# W209 Final Project
+## California Air Pollution and Mortality Project
 
 
 Data Files: Contains the SAS SQL cleaning code and the initial air pollution and mortality datasets used for the project
