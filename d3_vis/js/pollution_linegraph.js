@@ -45,7 +45,8 @@ $(function() {
             var e = document.getElementById("CitySelection");
             if(e.selectedIndex >= 0){
                 citySelector = e.options[e.selectedIndex].value;
-                plot([1,2,3,4])
+                poll_line_plot.plot();
+                mort_line_plot.plot();
             }
         }
         var init = function(initialized_data, graph_type_input) {
@@ -77,6 +78,10 @@ $(function() {
                 .attr("id",graph_type+"_y-axis")
 
             // Add the y axis label
+            var ylab = "";
+            if(graph_type == "Pollution"){ ylab = "Air Quality Index (AQI)";}
+            else if (graph_type == "Mortality") {
+                ylab = "Mortality, # of deaths (per 100,000 people)"; }
             svg.append("text")
                 .attr("class","graphlabel")
                 .attr("id",graph_type+"_graphlabel")
@@ -85,7 +90,7 @@ $(function() {
                 .attr("x",0 - (height / 2))
                 .attr("dy", "1.5em")
                 .style("text-anchor", "middle")
-                .text("Air Quality Index (AQI)");
+                .text(ylab);
 
             // add the title
             svg.append("text")
@@ -174,11 +179,11 @@ $(function() {
                     // }
 
                     // update function, update the line
-                    svg.selectAll(".line"+index)
+                    svg.selectAll(graph_type.toLowerCase()+"_line"+index)
                         .data([data.filter(function(d){
                             // return d.city == "San Francisco";})])
                             return d.city == citySelector;})])
-                        .attr("class", "line"+index)
+                        .attr("class", graph_type.toLowerCase()+"_line"+index)
                         .attr("d", valueline(index));
                 }
             }
