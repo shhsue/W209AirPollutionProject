@@ -126,12 +126,22 @@ svg {
     top:-12px;
     right:140px;
 }
-.poltooltiptext::after, .aqitooltiptext::after, .morttooltiptext::after{
+.poltooltiptext::after, .aqitooltiptext::after{
     content: "";
     position: absolute;
     top: 25px;
     left: 100%;
     margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent black;
+}
+.morttooltiptext::after{
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 100%;
+    margin-top: -15px;
     border-width: 5px;
     border-style: solid;
     border-color: transparent transparent transparent black;

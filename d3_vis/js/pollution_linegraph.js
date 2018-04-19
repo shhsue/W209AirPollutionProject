@@ -249,7 +249,7 @@ $(function() {
             d.var_1 = +d.HTD;
             d.var_3 = +d.CAN;
             d.var_4 = +d.STK;
-            d.var_2 = +d.PNF;
+            d.var_2 = +d.CLD;
         });
 
         // plot the mortality data

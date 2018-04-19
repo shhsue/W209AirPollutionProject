@@ -1,6 +1,7 @@
 $(function() {
 
-    var buttonsSelected = []
+    var buttonsSelected = [];
+    var mortalitySelected = [];
 
 
     /***************************************************************************
@@ -8,14 +9,14 @@ $(function() {
     * @param object $me - the object to be styled
     * @return n/a
     */
-    var onPollutantButtonClick = function(me) {
+    var onGraphingButtonClick = function(me) {
         //TODO: CREATE THE "OFF" STATE FOR BUTTONS
         // indicate which button has been selected
         d3.select(me).style("background-color", "#bbbbbb");
 
         //TODO: RE-INSTATE HOVER EFFECTS
     }
-    var offPollutantButtonClick = function(me) {
+    var offGraphingButtonClick = function(me) {
         //TODO: CREATE THE "OFF" STATE FOR BUTTONS
         // indicate which button has been selected
         d3.select(me).style("background-color", "#eeeeee");
@@ -38,8 +39,26 @@ $(function() {
     * @param n/a
     * @return n/a
     */
+
+    /***************************************************************************
+    * @description hides associated tooltip upon button hover
+    * @param n/a
+    * @return n/a
+    */
     var offPollutantButtonHover = function() {
         d3.selectAll(".poltooltiptext").style("visibility","hidden");
+    }
+    var offMortalityButtonHover = function() {
+        d3.selectAll(".morttooltiptext").style("visibility","hidden");
+    }
+    /***************************************************************************
+    * @description hides associated tooltip upon button hover
+    * @param n/a
+    * @return n/a
+    */
+    var onMortalityButtonHover = function(mortality) {
+        d3.select("#tooltip_mortality_" + mortality).style("visibility","visible")
+        // d3.selectAll(".tooltiptext").style("visibility","visible")
     }
 
     /***************************************************************************
@@ -64,16 +83,16 @@ $(function() {
                 if(buttonsSelected.indexOf(pollutant) === -1) {
                     buttonsSelected.push(pollutant);
                     // change status to now indicate button has been clicked
-                    onPollutantButtonClick(this);
+                    onGraphingButtonClick(this);
                 } else { // button was previously selected, need to unselect
                     var index = buttonsSelected.indexOf(pollutant);
                     buttonsSelected.splice(index, 1);
                     // change status to now indicate button has been unclicked
-                    offPollutantButtonClick(this);
+                    offGraphingButtonClick(this);
                 }
 
-                // update the maps for the selected pollutant
-                // TODO: update the line graphs for the selected pollutant
+                // update the line graphs for the selected pollutant
+                // TODO: update the maps for the selected pollutant
                 if(buttonsSelected.length === 0){ // if 0 selected, plot all pollutants
                     poll_line_plot.updateSelections([1,2,3,4]);
                 } else { // plot only the selected buttons
@@ -90,6 +109,37 @@ $(function() {
         tooltip = d3.select("#tooltip_pollutant_"+pollutant)
         tooltip.html("<strong>" + title + "</strong><br>" + description)
     }
+
+    var updateMortalityButtonAndTooltip = function(mortality) {
+        // update hover effects
+        d3.select("#mortality"+mortality)
+            // update maps, line graphs, and button appearance on click
+            .on("click", function() {
+                // update the tracking of selected buttons
+                if(mortalitySelected.indexOf(mortality) === -1) {
+                    mortalitySelected.push(mortality);
+                    // change status to now indicate button has been clicked
+                    onGraphingButtonClick(this);
+                } else { // button was previously selected, need to unselect
+                    var index = mortalitySelected.indexOf(mortality);
+                    mortalitySelected.splice(index, 1);
+                    // change status to now indicate button has been unclicked
+                    offGraphingButtonClick(this);
+                }
+
+                // update the line graphs for the selected mortality
+                // TODO: update the maps for the selected pollutant
+                if(mortalitySelected.length === 0){ // if 0 selected, plot all pollutants
+                    mort_line_plot.updateSelections([1,2,3,4]);
+                } else { // plot only the selected buttons
+                    mort_line_plot.updateSelections(mortalitySelected);
+                }
+            })
+            // update the hover effects (darken upon hover, lighten @ leave)
+            .on("mouseout", function(){ offMortalityButtonHover();})
+            .on("mouseover", function() { onMortalityButtonHover(mortality);})
+    }
+
     var onAqiButtonHover = function(aqi) {
         d3.select("#tooltip_aqi" + aqi).style("visibility","visible")
     }
@@ -100,11 +150,16 @@ $(function() {
         updatePollutantButtonAndTooltip(2, data);
         updatePollutantButtonAndTooltip(3, data);
         updatePollutantButtonAndTooltip(4, data);
+
         d3.select("#aqi1").on("mousover", function(){
             console.log("moused over aqi 1");
             onAqiButtonHover(1);}
         )
     })
+    updateMortalityButtonAndTooltip(1);
+    updateMortalityButtonAndTooltip(2);
+    updateMortalityButtonAndTooltip(3);
+    updateMortalityButtonAndTooltip(4);
     $('#aqi1').mouseenter(function(){
         $('#tooltip_aqi1').css("visibility", "visible"); });
     $('#aqi1').mouseleave(function(){
