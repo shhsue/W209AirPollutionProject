@@ -1,9 +1,17 @@
-# W209AirPollutionProject
+# Final Project
+## W209 Air Pollution Project
 
-Data Files
 
-	ca_airpollution_2000-2016: Contains the air pollution data by city for NO2, SO2, CO, and O3 for 2000-2016
+Data Files: Contains the SAS SQL cleaning code and the initial air pollution and mortality datasets used for the project
 
-	datadictionaryformdeathszipcause: Data dictionary for the disease labels
+D3_vis: The final files needed for a working website visualization.
+				Contains the following subfolders:
+				- assets: graphic images
+				- css
+				- data: final cleaned data files used for visualization
+				- js
+				- text-content: tool tip descriptions
+				
+Mixed_subplots: The draft versions of the html and javascript codes used to make line graphs using plotly.js
 
-	mortalityrates.csv: mortality data by city per disease type from 2000-2015
+Python_files: Python files used for plotly python map visualization
