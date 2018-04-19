@@ -216,6 +216,8 @@ $(function() {
 
     d3.csv("data/merged_final.csv", function(error, data) {
         if (error) throw error;
+        var unique=[];
+        var uniquecombos = [];
 
         // format the mortality data
         data.forEach(function(d,i) {
@@ -224,6 +226,14 @@ $(function() {
 
             // filtering based on location selected
             d.city = d.city;
+            d.year = +d.year;
+
+            // create a subset of mortality based only on unique rows (city & year)
+            var combo = d.city + " " +  d.year;
+            if(uniquecombos.indexOf(combo) === -1){
+                uniquecombos.push(combo);
+                unique.push(d);
+            }
 
             // create a unique list of cities & insert into dropdown
             var select = document.getElementById("CitySelection");
@@ -244,7 +254,7 @@ $(function() {
 
         // plot the mortality data
         mort_line_plot =  my_viz_lib.lineGraph();
-        mort_line_plot.init(data, "Mortality");
+        mort_line_plot.init(unique, "Mortality");
         mort_line_plot.plot();
     });
 })

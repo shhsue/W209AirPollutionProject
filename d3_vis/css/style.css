@@ -61,7 +61,7 @@ svg {
     min-width:400px;
     width: 60%;
     padding: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 30px;
     text-align: justify;
     text-justify: inter-word;
 }
@@ -204,9 +204,10 @@ svg {
 
 /* graphing container elements*/
 .graphs {
-    width:80%;
+    width:75%;
     display:inline-block;
     vertical-align: top;
+    margin-right:30px;
 }
 .double_map, .line_graphs{ /* subcontainers for graphs */
     /*background-color:#bbbbbb;*/
