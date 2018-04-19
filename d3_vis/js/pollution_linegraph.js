@@ -144,6 +144,7 @@ $(function() {
                         .enter()
                         .append("path")
                         .attr("class", "line"+index)
+                        .attr("id",graph_type+"_line"+index)
                         .attr("d", valueline(index));
 
                     // update function, update the line
@@ -152,6 +153,7 @@ $(function() {
                             // return d.city == "San Francisco";})])
                             return d.city == citySelector;})])
                         .attr("class", "line"+index)
+                        .attr("id",graph_type+"_line"+index)
                         .attr("d", valueline(index));
                 }
             }

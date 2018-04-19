@@ -241,15 +241,11 @@ svg {
     fill: none;
     stroke-width: 2px;
 }
-.line1 {
-    stroke:#d63d08; /*#8B2300;*/
-}
-.line2{
-    stroke:#018f96; /*#00585C;*/
-}
-.line3{
-    stroke:#148e00; /*#0D5C00;*/
-}
-.line4{
-    stroke:#8e0050 /*#5C0034;*/
-}
+#Pollution_line1{ stroke:#d63d08; /*#8B2300;*/ }
+#Pollution_line2{ stroke:#018f96; /*#00585C;*/ }
+#Pollution_line3{ stroke:#148e00; /*#0D5C00;*/ }
+#Pollution_line4{ stroke:#8e0050; /*#5C0034;*/ }
+#Mortality_line1{ stroke:#CA9158; }
+#Mortality_line2{ stroke:#E8C06E; }
+#Mortality_line3{ stroke:#E4C899; }
+#Mortality_line4{ stroke:#A87D49; }
