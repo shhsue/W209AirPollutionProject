@@ -5,6 +5,7 @@
         <title>W209 Air Pollution Final Project</title>
         <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/city_bargraph.css" type="text/css" media="screen">
         <link rel="stylesheet" href="https://use.typekit.net/xrt3cra.css">
     </head>
     <body>
@@ -44,23 +45,163 @@
             </div>
         </div>
         <div class="section" id="learning-curve">
+            <h2>THE BASICS ABOUT POLLUTANTS</h2>
+            <div class="pollutant_info">
+                <div class="circle-icon">
+                    <img src="assets/icons_pollutant1.png" alt="CO">
+                    <div class="button_text">CO</div>
+                </div>
+                <h3>CARBON MONOXIDE</h3>
+                <div class="body_text">lorem ipsum hello world this is I..."</div>
+            </div>
+            <div class="pollutant_info">
+                <div class="circle-icon">
+                    <img src="assets/icons_pollutant2.png" alt="SO2">
+                    <div class="button_text">SO2</div>
+                </div>
+                <h3>SULFER DIOXIDE</h3>
+                <div class="body_text">lorem ipsum hello world this is I..."</div>
+            </div>
+            <div class="pollutant_info">
+                <div class="circle-icon">
+                    <img src="assets/icons_pollutant3.png" alt="NO2">
+                    <div class="button_text">NO2</div>
+                </div>
+                <h3>NITROGEN DIOXIDE</h3>
+                <div class="body_text">lorem ipsum hello world this is I..."</div>
+            </div>
+            <div class="pollutant_info">
+                <div class="circle-icon">
+                    <img src="assets/icons_pollutant4.png" alt="O3">
+                    <div class="button_text">O3</div>
+                </div>
+                <h3>OZONE</h3>
+                <div class="body_text">lorem ipsum hello world this is I..."</div>
+            </div>
         </div>
+
+
         <div class="section" id="high-low-examples">
+            <div class="city-insights-subsection">
+                <h2>THE WELL-KNOWN CITIES</h2>
+                <div class="city-insights-callout">
+                    <h3>LOS ANGELES</h3>
+                    <div class="info-line">
+                        <div class="circle-icon">
+                            <div class="solid-circle">
+                                <div class="button_text">#6</div>
+                            </div>
+                        </div>
+                        <div class="body_text">
+                            on the pollution list. Not the top!
+                        </div>
+                    </div>
+                    <div class="info-line">
+                        <div class="circle-icon">
+                            <div class="solid-circle">
+                                <div class="button_text">#6</div>
+                            </div>
+                        </div>
+                        <div class="body_text">
+                            some text here
+                        </div>
+                    </div>
+                    <button type="button" class="city-explorer-button" id="explore-los-angeles">
+                        SEE LOS ANGELES'S DATA
+                    </button>
+                </div>
+                <div class="city-insights-callout">
+                    <h3>SAN FRANCISCO</h3>
+                    <div class="info-line">
+                        <div class="circle-icon">
+                            <div class="solid-circle">
+                                <div class="button_text">#15</div>
+                            </div>
+                        </div>
+                        <div class="body_text">
+                            on the polluted city list. A big city with quite low pollutant levels.
+                        </div>
+                    </div>
+                    <div class="info-line">
+                        <div class="circle-icon">
+                            <div class="solid-circle">
+                                <div class="button_text">#15</div>
+                            </div>
+                        </div>
+                        <div class="body_text">
+                            some text here
+                        </div>
+                    </div>
+                    <button type="button" class="city-explorer-button" id="explore-san-francisco">
+                        SEE SAN FRANCISCO'S DATA
+                    </button>
+                </div>
+            </div>
+            <div class="city-insights-subsection">
+                <h2>THE LESSER-KNOWN CITIES</h2>
+                <div class="city-insights-callout">
+                    <h3>BAKERSFIELD</h3>
+                    <div class="info-line">
+                        <div class="circle-icon">
+                            <div class="solid-circle">
+                                <div class="button_text">#1</div>
+                            </div>
+                        </div>
+                        <div class="body_text">
+                            most polluted city in California. Surprised?
+                        </div>
+                    </div>
+                    <div class="info-line">
+                        <div class="circle-icon">
+                            <div class="solid-circle">
+                                <div class="button_text">#6</div>
+                            </div>
+                        </div>
+                        <div class="body_text">
+                            some text here
+                        </div>
+                    </div>
+                    <button type="button" class="city-explorer-button" id="explore-bakersfield">
+                        SEE BAKERSFIELD'S DATA
+                    </button>
+                </div>
+                <div class="city-insights-callout">
+                    <h3>EUREKA</h3>
+                    <div class="info-line">
+                        <div class="circle-icon">
+                            <div class="solid-circle">
+                                <div class="button_text">#24</div>
+                            </div>
+                        </div>
+                        <div class="body_text">
+                            The lowest pollution levels. Get some of that clean sweet air.
+                        </div>
+                    </div>
+                    <div class="info-line">
+                        <div class="circle-icon">
+                            <div class="solid-circle">
+                                <div class="button_text">#6</div>
+                            </div>
+                        </div>
+                        <div class="body_text">
+                            some text here
+                        </div>
+                    </div>
+                    <button type="button" class="city-explorer-button" id="explore-eureka">
+                        SEE EUREKA'S DATA
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="section" id="dashboard">
             <div class="graphs">
+                <div class="bargraph" id="city_bargraph"></div>
+                <label><input type="checkbox"> Sort values</label>
                 <div class="double_map">
-                    <!-- aggregate aqi map -->
-                    <!-- <div>
-                      <a href="https://plot.ly/~anakai3/1171/?share_key=Ft0yw8vVOBDAYeGGwv12iL" target="_blank" title="chart_filename1524172670.1199691" style="display: block; text-align: center;">
-                        <img src="https://plot.ly/~anakai3/1171.png?share_key=Ft0yw8vVOBDAYeGGwv12iL" alt="chart_filename1524172670.1199691" style="max-width: 100%;width: 550px;"  width="550" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-                      <script data-plotly="anakai3:1171" sharekey-plotly="Ft0yw8vVOBDAYeGGwv12iL" src="https://plot.ly/embed.js" async></script>
-                    </div> -->
                 </div>
 
+
                 <div class="line_graphs">
-                    <!-- <svg id="linegraph1" class="line_graph"></svg>
-                    <svg id="linegraph2" class="line_graph"></svg> -->
                     <div class="line_graph">
                         <div class="pollution_line_graph"></div>
                     </div>
@@ -80,7 +221,7 @@
                             <div class="button_text">CO</div>
                         </button>
                         <span class="poltooltiptext" id="tooltip_pollutant_1">
-                            Description of CO to go here</span><!-- leave this blank as placeholder for button interaction js -->
+                            Description of CO to go here</span>
                     </div>
                     <div class="pollutant_tooltip">
                         <button type="button" class="pollutant_button" id="pollutant2">
@@ -88,7 +229,7 @@
                             <div class="button_text">SO2</div>
                         </button>
                         <span class="poltooltiptext" id="tooltip_pollutant_2">
-                            Description of SO2 to go here</span><!-- leave this blank as placeholder for button interaction js -->
+                            Description of SO2 to go here</span>
                     </div>
                     <div class="pollutant_tooltip">
                         <button type="button" class="pollutant_button" id="pollutant3">
@@ -96,7 +237,7 @@
                             <div class="button_text">NO2</div>
                         </button>
                         <span class="poltooltiptext" id="tooltip_pollutant_3">
-                            Description of NO2 to go here</span><!-- leave this blank as placeholder for button interaction js -->
+                            Description of NO2 to go here</span>
                     </div>
                     <div class="pollutant_tooltip">
                         <button type="button" class="pollutant_button" id="pollutant4">
@@ -104,7 +245,7 @@
                             <div class="button_text">O3</div>
                         </button>
                         <span class="poltooltiptext" id="tooltip_pollutant_4">
-                            Description of O3 to go here</span><!-- leave this blank as placeholder for button interaction js -->
+                            Description of O3 to go here</span>
                     </div>
                 </div>
                 <h2>Mortality types</h2>
@@ -261,18 +402,17 @@
         <!-- page content -->
         <script type='text/javascript' >
             // global variables for plot
+            var city_bar_graph;
             var poll_line_plot;
             var mort_line_plot;
         </script>
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/d3.v4.js"></script>
+        <!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
+        <script src="js/city_bargraph.js"></script>
         <script src="js/map.js"></script>
-        <!-- <script src="js/linegraph.js"></script> -->
         <script src="js/pollution_linegraph.js"></script>
         <script src="js/buttons.js"></script>
-        <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-        <!-- <script src="https://cdn.jsdelivr.net/alasql/0.2.3/alasql.min.js"></script> -->
-
     </body>
 </html>
