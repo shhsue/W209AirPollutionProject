@@ -48,9 +48,14 @@ $(function() {
                 plot()
             }
         }
+        var updateCity = function(cities){
+            citySelector = cities;
+            plot();
+        }
+
         var init = function(initialized_data, graph_type_input) {
             document.getElementById("CitySelection")
-                .addEventListener("click",cityListener);
+                .addEventListener("change",cityListener);
             data = initialized_data;
             graph_type = graph_type_input;
 
@@ -172,6 +177,7 @@ $(function() {
         var public = {
             "init": init,
             "updateSelections": updateSelections,
+            "updateCity": updateCity,
             "plot": plot
             // "assignData": assignData
         };

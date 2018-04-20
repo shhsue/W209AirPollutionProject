@@ -1,11 +1,17 @@
 $(function() {
     var my_viz_lib = my_viz_lib || {};
+    var noSpaces = function(str){
+        var result = str.replace(/\s/g,'');
+        return result;
+    }
 
     my_viz_lib.lineGraph = function() {
-        var svg, pol_city;
+        var highlightcolor = "rgb(19, 193, 182)";
+        var svg, pol_city, xAxis, yAxis,
+            options_selected_arr;
         var margin = {top: 20, right: 20, bottom: 30, left: 40},
-            width = 960 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
+            width = 1000 - margin.left - margin.right,
+            height = 150 - margin.top - margin.bottom;
 
         var x = d3.scaleBand()
             .range([0, width])
@@ -13,10 +19,20 @@ $(function() {
         var y = d3.scaleLinear()
             .range([height, 0]);
 
-        var xAxis = d3.axisBottom(x)
-        var yAxis = d3.axisLeft(y)
+        var xAxisScale = d3.axisBottom(x)
+        var yAxisScale = d3.axisLeft(y)
+
+        function cityListener(){
+            var e = document.getElementById("CitySelection");
+            if(e.selectedIndex >= 0){
+                citySelector = noSpaces(e.options[e.selectedIndex].value);
+                updateSelections([citySelector])
+            }
+        }
 
         var init = function(init_data){
+            document.getElementById("CitySelection")
+                .addEventListener("click",cityListener);
             pol_city = init_data;
 
             svg = d3.select("#city_bargraph").append("svg")
@@ -24,16 +40,31 @@ $(function() {
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            // x axis
+            xAxis = svg.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + height + ")")
+
+            yAxis = svg.append("g")
+                .attr("class", "y axis")
         }
+
+        var updateSelections = function(input_arr){
+            d3.selectAll(".bar").style("fill","#dddddd")
+            options_selected_arr = input_arr;
+            options_selected_arr.forEach(function(d,i) {
+                d3.select("#"+noSpaces(d)).style("fill",highlightcolor);
+            })
+        }
+
         var plot = function(){
             x.domain(pol_city.map(function(d) { return d.key; }))
             y.domain([0, d3.max(pol_city, function(d) {
                 return d.value; })]);
 
-            svg.append("g")
-                .attr("class", "x axis")
-                .attr("transform", "translate(0," + height + ")")
-                .call(xAxis)
+            // update x axis
+            xAxis.call(xAxisScale)
                 .selectAll("text")
                 .attr("y", 0)
                 .attr("x", 9)
@@ -41,9 +72,8 @@ $(function() {
                 .attr("transform", "rotate(-90)")
                 .style("text-anchor", "start");
 
-            svg.append("g")
-                .attr("class", "y axis")
-                .call(yAxis)
+            // y axis
+            yAxis.call(yAxisScale)
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
@@ -51,11 +81,20 @@ $(function() {
                 .style("text-anchor", "end")
                 .text("AQI");
 
-
+            // enter function
             svg.selectAll(".bar")
                 .data(pol_city)
                 .enter().append("rect")
                 .attr("class", "bar")
+                .attr("x", function(d) { return x(d.key); })
+                .attr("id", function(d) { return noSpaces(d.key); })
+                .attr("width", x.bandwidth())
+                .attr("y", function(d) { return y(d.value); })
+                .attr("height", function(d) { return height - y(d.value); });
+
+            // update function
+            svg.selectAll(".bar")
+                .data(pol_city)
                 .attr("x", function(d) { return x(d.key); })
                 .attr("width", x.bandwidth())
                 .attr("y", function(d) { return y(d.value); })
@@ -88,14 +127,14 @@ $(function() {
                     .attr("x", function(d) { return x0(d.key); });
 
                 transition.select(".x.axis")
-                    .call(xAxis)
+                    .call(xAxisScale)
                     .selectAll("g")
                     .delay(delay);
             }
         }
         var public = {
             "init": init,
-            // "updateSelections": updateSelections,
+            "updateSelections": updateSelections,
             "plot": plot
             // "assignData": assignData
         };
@@ -151,8 +190,9 @@ $(function() {
             }).entries(data);
 
         // plot the city aggregate pollution data
-        mort_line_plot =  my_viz_lib.lineGraph();
-        mort_line_plot.init(pol_city);
-        mort_line_plot.plot();
+        city_bar_graph =  my_viz_lib.lineGraph();
+        city_bar_graph.init(pol_city);
+        city_bar_graph.plot();
+        city_bar_graph.updateSelections(["Bakersfield"])
     });
 })
