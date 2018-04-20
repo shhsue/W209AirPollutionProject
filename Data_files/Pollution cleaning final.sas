@@ -29,9 +29,10 @@ PROC IMPORT OUT= data.pollutionca
 RUN;
 
 /*Check CA observations*/
-proc freq data=data.pollutionca;
-table city;
-run;
+/*proc freq data=data.pollutionca;*/
+/*table date_local;*/
+/*where city='Bakersfield';*/
+/*run;*/
 
 
 proc contents data=data.pollutionca position;
@@ -40,25 +41,39 @@ run;
 
 proc sql;
 create table data.clean as
-select county, city, date_local,
+select city, county, date_local,
 		avg(CO_AQI) as co_aqi_level,
 		avg(NO2_AQI) as no2_aqi_level,
 		avg(O3_AQI) as o3_aqi_level,
 		avg(SO2_AQI) as so2_aqi_level,
-		year(date_local) as year
+		year(date_local) as year,
+		put(month(date_local),z2.) as month
 from data.pollutionca
 where city not in ('Not in a city')
-group by county,city, date_local;
+group by county, city, date_local;
 quit;
 
 proc print data=data.clean (obs=10) noobs;
+run;
+
+proc freq data=data.clean;
+table year;
+where city='Bakersfield';
+run;
+
+data monthyear;
+	set data.clean;
+	date=catx('-',year,month);
+run;
+
+proc print data=monthyear (obs=10) noobs;
 run;
 
 
 proc sql;
 create table data.nodup as
 select distinct *
-from data.clean;
+from monthyear;
 quit;
 
 proc print data=data.nodup (obs=10) noobs;
@@ -68,13 +83,38 @@ proc freq data=data.nodup;
 table date_local city;
 run;
 
+/*ods csv file="C:\Users\Desktop\testdata\pollution_full.csv";*/
+/*proc print data=data.nodup noobs;*/
+/*run;*/
+/*ods csv close;*/
 
-ods csv file="C:\Users\Desktop\testdata\pollutiontest.csv";
-proc print data=data.nodup noobs;
+proc sql;
+create table data.poll_mon as
+select city, county, date, year,
+		avg(co_aqi_level) as co_aqi_level,
+		avg(no2_aqi_level) as no2_aqi_level,
+		avg(o3_aqi_level) as o3_aqi_level,
+		avg(so2_aqi_level) as so2_aqi_level
+from data.nodup
+group by city, county, date;
+quit;
+
+proc sql;
+create table data.poll_month as
+select distinct *
+from data.poll_mon
+group by city, county, date, year;
+quit;
+
+proc print data=data.poll_month (obs=20) noobs;
+run;
+
+ods csv file="C:\Users\Desktop\testdata\pollution_months.csv";
+proc print data=data.poll_month noobs;
 run;
 ods csv close;
 
-proc contents data=data.nodup;
+proc contents data=data.pollution_month;
 run;
 
 
@@ -399,13 +439,17 @@ proc freq data=data.mortrate_trans;
 table city county;
 run;
 
-ods csv file="C:\Users\Desktop\testdata\mortalityrates.csv";
+ods csv file="C:\Users\Desktop\testdata\mortalityrates_full.csv";
 proc print data=data.mortrate_trans noobs;
 run;
 ods csv close;
 
-proc sort data=data.nodup;
-by city date_local year;
+/*proc sort data=data.nodup;*/
+/*by city year;*/
+/*run;*/
+
+proc sort data=data.poll_month;
+by city year;
 run;
 
 proc sort data=data.mortrate_trans;
@@ -418,17 +462,57 @@ run;
 /*proc contents data=data.mortrate_trans;*/
 /*run;*/
 
-data data.merged;
+data data.merged_month;
 	length city $25. county $32;
-	merge data.nodup(in=x) data.mortrate_trans(in=y);
+	merge data.poll_month(in=x) data.mortrate_trans(in=y);
 	by city year;
 	if x=1 and y=1;
+	drop month;
+	format co_aqi_level so2_aqi_level no2_aqi_level o3_aqi_level 3.0 HTD CAN STK CLD PNF 4.1;
 run;
 
-proc print data= data.merged (obs=10) noobs;
+proc contents data= data.merged_month position;
 run;
 
-ods csv file="C:\Users\Desktop\testdata\merged.csv";
-proc print data= data.merged noobs;
+proc freq data= data.merged_month;
+table date;
+where city='Berkeley';
+run;
+
+
+proc print data= data.merged_month (obs=20) noobs;
+run;
+
+proc sql;
+create table data.merge_clean as
+select city, county, date, year, co_aqi_level, no2_aqi_level, o3_aqi_level, so2_aqi_level,
+	avg(Latitude) as latitude,
+	avg(Longitude) as longitude,
+	HTD,
+	CAN,
+	STK,
+	CLD
+from data.merged_month
+group by city, county;
+quit;
+
+
+proc print data= data.merge_clean (obs=20) noobs;
+run;
+
+proc sql;
+create table data.merge_final as
+select distinct *
+from data.merge_clean
+group by city, county, date;
+quit;
+
+
+proc print data= data.merge_final (obs=20) noobs;
+run;
+
+ods csv file="C:\Users\Desktop\testdata\merged_final.csv";
+proc print data= data.merge_final noobs;
+format co_aqi_level so2_aqi_level no2_aqi_level o3_aqi_level 3.0 HTD CAN STK CLD 4.1;
 run;
 ods csv close;
