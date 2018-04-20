@@ -5,6 +5,7 @@
         <title>W209 Air Pollution Final Project</title>
         <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/city_bargraph.css" type="text/css" media="screen">
         <link rel="stylesheet" href="https://use.typekit.net/xrt3cra.css">
     </head>
     <body>
@@ -194,8 +195,11 @@
         </div>
         <div class="section" id="dashboard">
             <div class="graphs">
+                <div class="bargraph" id="city_bargraph"></div>
+                <label><input type="checkbox"> Sort values</label>
                 <div class="double_map">
                 </div>
+
 
                 <div class="line_graphs">
                     <div class="line_graph">
@@ -398,18 +402,17 @@
         <!-- page content -->
         <script type='text/javascript' >
             // global variables for plot
+            var city_bar_graph;
             var poll_line_plot;
             var mort_line_plot;
         </script>
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/d3.v4.js"></script>
+        <!-- <script src="//d3js.org/d3.v3.min.js"></script> -->
+        <script src="js/city_bargraph.js"></script>
         <script src="js/map.js"></script>
-        <!-- <script src="js/linegraph.js"></script> -->
         <script src="js/pollution_linegraph.js"></script>
         <script src="js/buttons.js"></script>
-        <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-        <!-- <script src="https://cdn.jsdelivr.net/alasql/0.2.3/alasql.min.js"></script> -->
-
     </body>
 </html>
