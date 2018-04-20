@@ -7,8 +7,9 @@ body {
 	line-height: 1.88889;
 	color: #555753;
 	padding: 0;
-    width:100vw;
+    /*width:100vw;*/
     display:block;
+    margin:0;
 	}
 p {
 	text-align: justify;
@@ -38,11 +39,11 @@ h2, .pollutant_button .button_h1 {
 h2 {
     margin-top: 1.5em;
     font-size: 30px;
-    text-align:left;
+    /*text-align:left;*/
 }
 h3 {
     font-size:20px;
-    text-align:left;
+    /*text-align:left;*/
 }
 svg {
 }
@@ -58,7 +59,7 @@ svg {
 }
 .body_text {
     margin:auto;
-    min-width:400px;
+    /*min-width:400px;*/
     width: 60%;
     padding: 10px;
     margin-bottom: 30px;
@@ -69,12 +70,9 @@ svg {
     width:100%;
     display:block;
 }
+/*SECTION 1 -- INTRO VISUALIZATION*/
 #section1{
     height:550px
-}
-#section2{
-    height:500px;
-    background-color: #e3f2f1;
 }
 #section1 h1, #section1 h2{
     margin-top:30px;
@@ -99,7 +97,7 @@ svg {
     width:100%;
     height:700px;
     position: absolute;
-    margin-left: -51%;
+    margin-left: -50%;
     margin-top: -150px;
 
 }
@@ -115,6 +113,11 @@ svg {
     outline:none;
     color:#ffffff;
 }
+/*SECTION 2 -- ABOUT*/
+#section2{
+    height:500px;
+    background-color: #e3f2f1;
+}
 #section2 img{
     height:500px;
     width:auto;
@@ -128,6 +131,137 @@ svg {
     padding:20px;
     margin: 0;
 }
+/*SECTION 3 -- LEARNING CURVE*/
+#learning-curve{
+    background-color: #eeeeee;
+}
+.pollutant_info{
+    display:inline-block;
+    margin:50px 15px 50px 15px;
+    width:20%;
+}
+#learning-curve h2{
+    /*font-size:13px;*/
+    text-align: center;
+    display:block;
+    width:100%;
+    margin-top:0px;
+    padding-top:60px;
+}
+.pollutant_info h3{
+    /*font-size:13px;*/
+    text-align: center;
+    display:block;
+    width:100%;
+}
+.pollutant_info .body_text{
+    width:100%;
+    display:block;
+    text-align:center;
+    margin:0;
+}
+.circle-icon{
+    width:100%;
+    height:auto;
+    position:relative;
+}
+.circle-icon .button_text{
+    font-size: 20px;
+    text-align:center;
+    position: absolute;
+    top:50%;
+    width: 100%;
+}
+.circle-icon img{
+    border-radius: 50%;
+    width:50%;
+    height:auto;
+    border:solid;
+    background-color: #ffffff;
+}
+
+/*SECTION 4 -- CITIES INSIGHTS*/
+#high-low-examples{
+    background-color: white;
+    color:white;
+}
+/*#high-low-examples h2*/
+#high-low-examples h3, #high-low-examples .body_text{
+    color:white;
+}
+#high-low-examples h3{
+    padding-top:20px;
+}
+.city-insights-subsection{
+    width:40%;
+    display:inline-block;
+    margin:0 4% 0 4%;
+    padding:0 0 30px 0;
+
+}
+.city-insights-callout{
+    width:100%;
+    display:block;
+    height:200px;
+    /*background-color:rgb(255,255,255,0.4);*/
+    background-color:rgb(19, 193, 182);
+    border-radius:2px;
+
+}
+.info-line{
+    width:100%;
+    display:block;
+    height:50px;
+    padding:0px 30px 20px 30px;
+}
+.solid-circle{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    background-color:white;
+    position:relative;
+    float:left;
+}
+.solid-circle .button_text{
+    font-size: 20px;
+    text-align:center;
+    position: absolute;
+    top:50%;
+    width: 100%;
+    color:black;
+}
+.info-line .body_text{
+    padding:0 0 0 10px;
+    margin:0;
+    float:left;
+    width:80%;
+}
+.city-insights-callout button{
+    background-color: rgb(255, 255, 255, 0.5);
+    /*position:relative;*/
+    border-radius:2px;
+    /*padding:10px 40px 10px 40px;*/
+    padding:5px 20px 5px 20px;
+    border: solid;
+    border-color:white;
+    border-width:1px;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color:#444444;
+    float:right;
+    margin-right:15px;
+}
+
+
+
+
+
+/*SECTION 5 -- SOURCES*/
+#sources{
+    background-color:#e3f2f1;
+}
+
 
 
 
