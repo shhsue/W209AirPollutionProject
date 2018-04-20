@@ -65,6 +65,69 @@ svg {
     text-align: justify;
     text-justify: inter-word;
 }
+.section{
+    width:100%;
+    display:block;
+}
+#section1{
+    height:550px
+}
+#section2{
+    height:500px;
+    background-color: #e3f2f1;
+}
+#section1 h1, #section1 h2{
+    margin-top:30px;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+    text-align:center;
+    font-family: din-condensed, sans-serif;
+    font-style: normal;
+    font-size: 48px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+#section1 h1{
+    margin-top:150px;
+    font-size: 200px;
+}
+#section1 h2{
+    margin-top:60px;
+}
+#section1 img{
+    width:100%;
+    height:700px;
+    position: absolute;
+    margin-left: -51%;
+    margin-top: -150px;
+
+}
+#section1 button{
+    margin-top:150px;
+    background-color: rgb(19, 193, 182);
+    position:relative;
+    border-radius:2px;
+    padding:10px 40px 10px 40px;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color:#ffffff;
+}
+#section2 img{
+    height:500px;
+    width:auto;
+    float:left;
+    /*margin-left: -51%;
+    margin-top: -150px;*/
+}
+#section2 .body_text{
+    display:inline-block;
+    width:600px;
+    padding:20px;
+    margin: 0;
+}
 
 
 
@@ -252,11 +315,11 @@ svg {
     fill: none;
     stroke-width: 2px;
 }
-#Pollution_line1{ stroke:#d63d08; /*#8B2300;*/ }
-#Pollution_line2{ stroke:#018f96; /*#00585C;*/ }
-#Pollution_line3{ stroke:#148e00; /*#0D5C00;*/ }
-#Pollution_line4{ stroke:#8e0050; /*#5C0034;*/ }
-#Mortality_line1{ stroke:#CA9158; }
-#Mortality_line2{ stroke:#E8C06E; }
-#Mortality_line3{ stroke:#E4C899; }
-#Mortality_line4{ stroke:#A87D49; }
+#Pollution_line1{ stroke:#1D5287; /*#8B2300;*/ }
+#Pollution_line2{ stroke:#158A8C; /*#00585C;*/ }
+#Pollution_line3{ stroke:#2FBE87; /*#0D5C00;*/ }
+#Pollution_line4{ stroke:#9DDD52; /*#5C0034;*/ }
+#Mortality_line1{ stroke:#750020; }
+#Mortality_line2{ stroke:#AD1452; }
+#Mortality_line3{ stroke:#D6516B; }
+#Mortality_line4{ stroke:#FDC8AA; }

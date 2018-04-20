@@ -1,294 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>W209 Air Pollution Final Project</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css" media="screen">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="https://use.typekit.net/xrt3cra.css">
-  </head>
-  <body>
-    <h1>Air Pollution and Mortality in California</h1>
-    <!-- TODO: MAKE INTRO PARAGRAPH CENTERED, FULL SCREEN ON PAGE -->
-    <div class="body_text">
-        The average adult at rest inhales and exhales about 7 or 8 liters of
-        air per minute (about 0.25 cubic feet) and 11,000 liters of air
-        (388 cubic feet) in a day. Given the large volume of air we breathe
-        daily it is no surprise that air quality will impact the quality of
-        health. In the following visualization we will be focusing on four
-        major air pollutants nitrogen dioxide (NO2), sulphur dioxide (SO2),
-        carbon monoxide (CO) and ground level ozone (O3) and four diseases
-        respiratory disease, heart disease, stroke and cancer, that are
-        scientifically known to be associated with bad air quality.
-        The concentrations of air pollutants in the air are often influenced
-        by seasonal changes so these measures have been aggregated by month
-        and year to capture these differences. O3 is more prevalent when there
-        is more sunlight so the summer months will have higher levels of O3.
-        The other pollutants NO2, SO2, and CO are more prevalent with higher
-        humidity levels so they are more prevalent in the winter months. Most
-        of the pollutants NO2, SO2, and O3 affect respiratory diseases due to
-        lung irritation. CO affects the ability of oxygen to bind to hemoglobin
-        in blood cells which is vital to carrying oxygen throughout the body
-        and negatively impacts both respiratory and cardiovascular systems of
-        the body. Yearly mortality rates were derived from the number of deaths
-        normalized by the population counts by city and are expressed
-        per 100,000 people by yearly basis.
-    </div>
-    <!-- TODO: MAKE GRAPHS AND FILTERS ONE FULL PAGE "SLIDE"  -->
-    <div class="graphs">
-        <div class="double_map">
-            <!-- <svg id="map1" class="map_graph"></svg>
-            <svg id="map2" class="map_graph"></svg> -->
-
-
-            <!-- HTML Versions -->
-            <!-- aggregate aqi map -->
-            <div>
-              <a href="https://plot.ly/~anakai3/1171/?share_key=Ft0yw8vVOBDAYeGGwv12iL" target="_blank" title="chart_filename1524172670.1199691" style="display: block; text-align: center;">
-                <img src="https://plot.ly/~anakai3/1171.png?share_key=Ft0yw8vVOBDAYeGGwv12iL" alt="chart_filename1524172670.1199691" style="max-width: 100%;width: 550px;"  width="550" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-              <script data-plotly="anakai3:1171" sharekey-plotly="Ft0yw8vVOBDAYeGGwv12iL" src="https://plot.ly/embed.js" async></script>
-            </div>
-            <!-- so2 aqi -->
-            <!-- <div>
-              <a href="https://plot.ly/~anakai3/630/?share_key=unK0DGNEVYgexVSRzj2Jau" target="_blank" title="chart_filename1524156625.934117" style="display: block; text-align: center;">
-                <img src="https://plot.ly/~anakai3/630.png?share_key=unK0DGNEVYgexVSRzj2Jau" alt="chart_filename1524156625.934117" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-              <script data-plotly="anakai3:630" sharekey-plotly="unK0DGNEVYgexVSRzj2Jau" src="https://plot.ly/embed.js" async></script>
-            </div> -->
-            <!-- no2 aqi -->
-            <!-- <div>
-              <a href="https://plot.ly/~anakai3/752/?share_key=TRTpSbZehqgsM6ekcNGPEC" target="_blank" title="chart_filename1524157474.4337668" style="display: block; text-align: center;">
-                <img src="https://plot.ly/~anakai3/752.png?share_key=TRTpSbZehqgsM6ekcNGPEC" alt="chart_filename1524157474.4337668" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-              <script data-plotly="anakai3:752" sharekey-plotly="TRTpSbZehqgsM6ekcNGPEC" src="https://plot.ly/embed.js" async></script>
-            </div> -->
-            <!-- o3 aqi -->
-            <!-- <div>
-              <a href="https://plot.ly/~anakai3/874/?share_key=vLGXLmM6Qw3h8OhVzLC7NG" target="_blank" title="chart_filename1524157957.3669848" style="display: block; text-align: center;">
-                <img src="https://plot.ly/~anakai3/874.png?share_key=vLGXLmM6Qw3h8OhVzLC7NG" alt="chart_filename1524157957.3669848" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-              <script data-plotly="anakai3:874" sharekey-plotly="vLGXLmM6Qw3h8OhVzLC7NG" src="https://plot.ly/embed.js" async></script>
-            </div> -->
-            <!-- co aqi pending -->
-            <!-- <div>
-              <a href="https://plot.ly/~anakai3/988/?share_key=9cba8gmrMXtQwxc2iyW6Js" target="_blank" title="chart_filename1524161726.460315" style="display: block; text-align: center;"><img src="https://plot.ly/~anakai3/988.png?share_key=9cba8gmrMXtQwxc2iyW6Js" alt="chart_filename1524161726.460315" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-              <script data-plotly="anakai3:988" sharekey-plotly="9cba8gmrMXtQwxc2iyW6Js" src="https://plot.ly/embed.js" async></script>
-            </div> -->
-            <!-- mortality pending -->
-
-            <!-- <img src="assets/map__pollutants.png" width=600 height=400 class="map_graph"></img src>
-            <img src="assets/map__mortality.png" width=600 height=400 class="map_graph"></img src> -->
-
+    <head>
+        <meta charset="utf-8">
+        <title>W209 Air Pollution Final Project</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css" media="screen">
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="https://use.typekit.net/xrt3cra.css">
+    </head>
+    <body>
+        <div class="section" id="section1">
+            <img src="assets/Air-pollution-background-dark.png" alt="air-pollution-vector-image">
+            <h1>California</h1>
+            <h2>Air pollution and mortality</h2>
+            <button type="button" class="call-to-action">
+                EXPLORE YOUR CITY
+            </button>
         </div>
-
-        <div class="line_graphs">
-            <!-- <svg id="linegraph1" class="line_graph"></svg>
-            <svg id="linegraph2" class="line_graph"></svg> -->
-            <div class="line_graph">
-                <div class="pollution_line_graph"></div>
-            </div>
-            <div class="line_graph">
-                <div class="mortality_line_graph"></div>
+        <div class="section" id="section2">
+            <img src="assets/toycar.jpg" alt="car photo">
+            <div class="body_text">
+                The average adult at rest inhales and exhales about 7 or 8 liters of
+                air per minute (about 0.25 cubic feet) and 11,000 liters of air
+                (388 cubic feet) in a day. Given the large volume of air we breathe
+                daily it is no surprise that air quality will impact the quality of
+                health. In the following visualization we will be focusing on four
+                major air pollutants nitrogen dioxide (NO2), sulphur dioxide (SO2),
+                carbon monoxide (CO) and ground level ozone (O3) and four diseases
+                respiratory disease, heart disease, stroke and cancer, that are
+                scientifically known to be associated with bad air quality.
+                The concentrations of air pollutants in the air are often influenced
+                by seasonal changes so these measures have been aggregated by month
+                and year to capture these differences. O3 is more prevalent when there
+                is more sunlight so the summer months will have higher levels of O3.
+                The other pollutants NO2, SO2, and CO are more prevalent with higher
+                humidity levels so they are more prevalent in the winter months. Most
+                of the pollutants NO2, SO2, and O3 affect respiratory diseases due to
+                lung irritation. CO affects the ability of oxygen to bind to hemoglobin
+                in blood cells which is vital to carrying oxygen throughout the body
+                and negatively impacts both respiratory and cardiovascular systems of
+                the body. Yearly mortality rates were derived from the number of deaths
+                normalized by the population counts by city and are expressed
+                per 100,000 people by yearly basis.
             </div>
         </div>
-    </div>
+        <div class="section" id="learning-curve">
+        </div>
+        <div class="section" id="high-low-examples">
+        </div>
+        <div class="section" id="dashboard">
+            <div class="graphs">
+                <div class="double_map">
+                    <!-- aggregate aqi map -->
+                    <!-- <div>
+                      <a href="https://plot.ly/~anakai3/1171/?share_key=Ft0yw8vVOBDAYeGGwv12iL" target="_blank" title="chart_filename1524172670.1199691" style="display: block; text-align: center;">
+                        <img src="https://plot.ly/~anakai3/1171.png?share_key=Ft0yw8vVOBDAYeGGwv12iL" alt="chart_filename1524172670.1199691" style="max-width: 100%;width: 550px;"  width="550" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+                      <script data-plotly="anakai3:1171" sharekey-plotly="Ft0yw8vVOBDAYeGGwv12iL" src="https://plot.ly/embed.js" async></script>
+                    </div> -->
+                </div>
 
-    <div class="filters">
-        <h1>FILTERS</h1>
-        <h2>Pollutants</h2>
-        <div class="buttons">
-            <div class="pollutant_tooltip">
-                <button type="button" class="pollutant_button" id="pollutant1">
-                    <img src="assets/icon-01.png" alt="CO">
-                    <div class="button_text">CO</div>
-                </button>
-                <span class="poltooltiptext" id="tooltip_pollutant_1">
-                    Description of CO to go here</span><!-- leave this blank as placeholder for button interaction js -->
+                <div class="line_graphs">
+                    <!-- <svg id="linegraph1" class="line_graph"></svg>
+                    <svg id="linegraph2" class="line_graph"></svg> -->
+                    <div class="line_graph">
+                        <div class="pollution_line_graph"></div>
+                    </div>
+                    <div class="line_graph">
+                        <div class="mortality_line_graph"></div>
+                    </div>
+                </div>
             </div>
-            <div class="pollutant_tooltip">
-                <button type="button" class="pollutant_button" id="pollutant2">
-                    <img src="assets/icon-02.png" alt="SO2">
-                    <div class="button_text">SO2</div>
-                </button>
-                <span class="poltooltiptext" id="tooltip_pollutant_2">
-                    Description of SO2 to go here</span><!-- leave this blank as placeholder for button interaction js -->
-            </div>
-            <div class="pollutant_tooltip">
-                <button type="button" class="pollutant_button" id="pollutant3">
-                    <img src="assets/icon-03.png" alt="NO2">
-                    <div class="button_text">NO2</div>
-                </button>
-                <span class="poltooltiptext" id="tooltip_pollutant_3">
-                    Description of NO2 to go here</span><!-- leave this blank as placeholder for button interaction js -->
-            </div>
-            <div class="pollutant_tooltip">
-                <button type="button" class="pollutant_button" id="pollutant4">
-                    <img src="assets/icon-04.png" alt="O3">
-                    <div class="button_text">O3</div>
-                </button>
-                <span class="poltooltiptext" id="tooltip_pollutant_4">
-                    Description of O3 to go here</span><!-- leave this blank as placeholder for button interaction js -->
+
+            <div class="filters">
+                <h1>FILTERS</h1>
+                <h2>Pollutants</h2>
+                <div class="buttons">
+                    <div class="pollutant_tooltip">
+                        <button type="button" class="pollutant_button" id="pollutant1">
+                            <img src="assets/icons_pollutant1.png" alt="CO">
+                            <div class="button_text">CO</div>
+                        </button>
+                        <span class="poltooltiptext" id="tooltip_pollutant_1">
+                            Description of CO to go here</span><!-- leave this blank as placeholder for button interaction js -->
+                    </div>
+                    <div class="pollutant_tooltip">
+                        <button type="button" class="pollutant_button" id="pollutant2">
+                            <img src="assets/icons_pollutant2.png" alt="SO2">
+                            <div class="button_text">SO2</div>
+                        </button>
+                        <span class="poltooltiptext" id="tooltip_pollutant_2">
+                            Description of SO2 to go here</span><!-- leave this blank as placeholder for button interaction js -->
+                    </div>
+                    <div class="pollutant_tooltip">
+                        <button type="button" class="pollutant_button" id="pollutant3">
+                            <img src="assets/icons_pollutant3.png" alt="NO2">
+                            <div class="button_text">NO2</div>
+                        </button>
+                        <span class="poltooltiptext" id="tooltip_pollutant_3">
+                            Description of NO2 to go here</span><!-- leave this blank as placeholder for button interaction js -->
+                    </div>
+                    <div class="pollutant_tooltip">
+                        <button type="button" class="pollutant_button" id="pollutant4">
+                            <img src="assets/icons_pollutant4.png" alt="O3">
+                            <div class="button_text">O3</div>
+                        </button>
+                        <span class="poltooltiptext" id="tooltip_pollutant_4">
+                            Description of O3 to go here</span><!-- leave this blank as placeholder for button interaction js -->
+                    </div>
+                </div>
+                <h2>Mortality types</h2>
+                <div class="buttons">
+                    <div class="mortality_tooltip">
+                        <button type="button" class="mortality_button" id="mortality1">
+                            <img src="assets/icons_mortality1.png" alt="HTD">
+                            <div class="button_text">HTD</div>
+                        </button>
+                        <span class="morttooltiptext" id="tooltip_mortality_1">
+                            Heart Disease
+                        </span>
+                    </div>
+                    <div class="mortality_tooltip">
+                        <button type="button" class="mortality_button" id="mortality2">
+                            <img src="assets/icons_mortality2.png" alt="CAN">
+                            <div class="button_text">CAN</div>
+                        </button>
+                        <span class="morttooltiptext" id="tooltip_mortality_2">
+                            Cancer
+                        </span>
+                    </div>
+                    <div class="mortality_tooltip">
+                        <button type="button" class="mortality_button" id="mortality3">
+                            <img src="assets/icons_mortality3.png" alt="STK">
+                            <div class="button_text">STK</div>
+                        </button>
+                        <span class="morttooltiptext" id="tooltip_mortality_3">
+                            Stroke</span>
+                    </div>
+                    <div class="mortality_tooltip">
+                        <button type="button" class="mortality_button" id="mortality4">
+                            <img src="assets/icons_mortality4.png" alt="CLD">
+                            <div class="button_text">CLD</div>
+                        </button>
+                        <span class="morttooltiptext" id="tooltip_mortality_4">
+                            Chronic lower respiratory disease
+                        </span>
+                    </div>
+                </div>
+
+
+                <h2>AQI</h2>
+                <div class="buttons">
+                    <div class="aqi_tooltip">
+                        <button type="button" class="aqi_button" id="aqi1">
+                            <div class="button_text">good</div>
+                        </button>
+                        <span class="aqitooltiptext" id="tooltip_aqi1">
+                            Air quality index (AQI)
+                            <br>Good when valued 0 to 50</span>
+                    </div>
+                    <div class="aqi_tooltip">
+                        <button type="button" class="aqi_button" id="aqi2">
+                            <div class="button_text">moderate</div>
+                        </button>
+                        <span class="aqitooltiptext" id="tooltip_aqi2">
+                            Air quality index (AQI)
+                            <br>Moderate when valued
+                            <br>51 to 100</span>
+                    </div>
+                    <div class="aqi_tooltip">
+                        <button type="button" class="aqi_button" id="aqi3">
+                            <div class="button_text">s. unhealthy</div>
+                        </button>
+                        <span class="aqitooltiptext" id="tooltip_aqi3">
+                            Air quality index (AQI)
+                            <br>Somewhat unhealthy when
+                            <br>101 to 150</span>
+                    </div>
+                    <div class="aqi_tooltip">
+                        <button type="button" class="aqi_button" id="aqi4">
+                            <div class="button_text">unhealthy</div>
+                        </button>
+                        <span class="aqitooltiptext" id="tooltip_aqi4">
+                            Air quality index (AQI)
+                            <br>Unhealthy when valued
+                            <br>151 to 200</span>
+                    </div>
+                    <div class="aqi_tooltip">
+                        <button type="button" class="aqi_button" id="aqi5">
+                            <div class="button_text">v. unhealthy</div>
+                        </button>
+                        <span class="aqitooltiptext" id="tooltip_aqi5">
+                            Air quality index (AQI)
+                            <br>Very unhealth when valued
+                            <br>201 to 300</span>
+                    </div>
+                    <div class="aqi_tooltip">
+                        <button type="button" class="aqi_button" id="aqi6">
+                            <div class="button_text">hazardous</div>
+                        </button>
+                        <span class="aqitooltiptext" id="tooltip_aqi6">
+                            Air quality index (AQI)
+                            <br>Hazardous when valued
+                            <br>301 to 500</span>
+                    </div>
+
+                    <h2>City</h2>
+                    <div class="control-row">
+                        <select class="Citydata" id="CitySelection"></select>
+                    </div>
+                </div>
             </div>
         </div>
-        <h2>Mortality types</h2>
-        <div class="buttons">
-            <div class="mortality_tooltip">
-                <button type="button" class="mortality_button" id="mortality1">
-                    <img src="assets/icons_mortality1.png" alt="HTD">
-                    <div class="button_text">HTD</div>
-                </button>
-                <span class="morttooltiptext" id="tooltip_mortality_1">
-                    Heart Disease
-                </span>
+        <!-- pollution map -->
+        <!-- <iframe width="480" height="400" frameborder="0" scrolling="no" src="//plot.ly/~anakai3/296.embed"></iframe> -->
+
+        <!-- <div class="showcase__section" id="bubble">
+            <div class="bubbleplot" data-num="0">
+                <div class="plot" id="plotdiv"></div>
             </div>
-            <div class="mortality_tooltip">
-                <button type="button" class="mortality_button" id="mortality2">
-                    <img src="assets/icons_mortality2.png" alt="CAN">
-                    <div class="button_text">CAN</div>
-                </button>
-                <span class="morttooltiptext" id="tooltip_mortality_2">
-                    Cancer
-                </span>
-            </div>
-            <div class="mortality_tooltip">
-                <button type="button" class="mortality_button" id="mortality3">
-                    <img src="assets/icons_mortality3.png" alt="STK">
-                    <div class="button_text">STK</div>
-                </button>
-                <span class="morttooltiptext" id="tooltip_mortality_3">
-                    Stroke</span>
-            </div>
-            <div class="mortality_tooltip">
-                <button type="button" class="mortality_button" id="mortality4">
-                    <img src="assets/icons_mortality4.png" alt="CLD">
-                    <div class="button_text">CLD</div>
-                </button>
-                <span class="morttooltiptext" id="tooltip_mortality_4">
-                    Chronic lower respiratory disease
-                </span>
+        </div> -->
+        <div class="section" id="our-team">
+        </div>
+        <div class="section" id="sources">
+            <div class="body_text">
+                <h2>LEARN MORE ABOUT IT...</h2>
+                <h3>Pollution</h3>
+                <p> Data was obtained from the Environmental Protection Agency which
+                    collects data about various pollutants through the use of air
+                    monitors placed in a variety of locations. Pollutant measures are
+                    expressed in terms of Air Quality Index (AQI), which are directly
+                    related to health outcomes. The original data used
+                     <a href="https://www.kaggle.com/sogun3/uspollution/data"> click here</a>.
+                    For more information about air pollutants
+                    <a href=" https://www.epa.gov/criteria-air-pollutants "> click here</a>.
+                    For more information about AQI measures
+                    <a href=" https://airnow.gov/index.cfm?action=aqibasics.aqi ">click here</a>.
+                </p>
+                <h3>Mortality</h3>
+                <p> Data about mortality rates was obtained through the California Department
+                    of Public Health <a href="https://data.chhs.ca.gov/dataset/leading-causes-of-death-by-zip-code-1999-current">
+                    leading causes of death dataset</a>.
+                    Mortality rates were derived by using population denominators for
+                    various years derived from <a href="https://factfinder.census.gov/faces/nav/jsf/pages/community_facts.xhtml">
+                    the American Community Survey and Census data</a>. For more information about the average
+                    mortality rate for California state overall please refer to the table below.
+                </p>
+                <img src="assets/ca_mortality.png" width=350 height=300</img src>
+                <h3>Location Data</h3>
+                <p> In order to collapse down the cities from zip codes we used an
+                    additional <a href=" https://www.aggdata.com/node/86"> data source</a>
+                    to obtain the city location by zip code and latitude and
+                    longitude information to aggregate zip codes into cities and map the data.
+                </p>
+
             </div>
         </div>
 
+        <div class="meta">BY CELIA LUDWINSKI, SHELLY HSU, ADITYA NAKAI</div>
+        <div class="meta">W209 SECTION 3  /  SPRING 2018  /  MIDS, UC BERKELEY</div>
 
-        <h2>AQI</h2>
-        <div class="buttons">
-            <div class="aqi_tooltip">
-                <button type="button" class="aqi_button" id="aqi1">
-                    <div class="button_text">good</div>
-                </button>
-                <span class="aqitooltiptext" id="tooltip_aqi1">
-                    Air quality index (AQI)
-                    <br>Good when valued 0 to 50</span>
-            </div>
-            <div class="aqi_tooltip">
-                <button type="button" class="aqi_button" id="aqi2">
-                    <div class="button_text">moderate</div>
-                </button>
-                <span class="aqitooltiptext" id="tooltip_aqi2">
-                    Air quality index (AQI)
-                    <br>Moderate when valued
-                    <br>51 to 100</span>
-            </div>
-            <div class="aqi_tooltip">
-                <button type="button" class="aqi_button" id="aqi3">
-                    <div class="button_text">s. unhealthy</div>
-                </button>
-                <span class="aqitooltiptext" id="tooltip_aqi3">
-                    Air quality index (AQI)
-                    <br>Somewhat unhealthy when
-                    <br>101 to 150</span>
-            </div>
-            <div class="aqi_tooltip">
-                <button type="button" class="aqi_button" id="aqi4">
-                    <div class="button_text">unhealthy</div>
-                </button>
-                <span class="aqitooltiptext" id="tooltip_aqi4">
-                    Air quality index (AQI)
-                    <br>Unhealthy when valued
-                    <br>151 to 200</span>
-            </div>
-            <div class="aqi_tooltip">
-                <button type="button" class="aqi_button" id="aqi5">
-                    <div class="button_text">v. unhealthy</div>
-                </button>
-                <span class="aqitooltiptext" id="tooltip_aqi5">
-                    Air quality index (AQI)
-                    <br>Very unhealth when valued
-                    <br>201 to 300</span>
-            </div>
-            <div class="aqi_tooltip">
-                <button type="button" class="aqi_button" id="aqi6">
-                    <div class="button_text">hazardous</div>
-                </button>
-                <span class="aqitooltiptext" id="tooltip_aqi6">
-                    Air quality index (AQI)
-                    <br>Hazardous when valued
-                    <br>301 to 500</span>
-            </div>
+        <!-- page content -->
+        <script type='text/javascript' >
+            // global variables for plot
+            var poll_line_plot;
+            var mort_line_plot;
+        </script>
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/d3.v4.js"></script>
+        <script src="js/map.js"></script>
+        <!-- <script src="js/linegraph.js"></script> -->
+        <script src="js/pollution_linegraph.js"></script>
+        <script src="js/buttons.js"></script>
+        <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+        <!-- <script src="https://cdn.jsdelivr.net/alasql/0.2.3/alasql.min.js"></script> -->
 
-            <h2>City</h2>
-            <div class="control-row">
-                <select class="Citydata" id="CitySelection"></select>
-            </div>
-        </div>
-    </div>
-    <!-- pollution map -->
-    <!-- <iframe width="480" height="400" frameborder="0" scrolling="no" src="//plot.ly/~anakai3/296.embed"></iframe> -->
-
-    <!-- <div class="showcase__section" id="bubble">
-        <div class="bubbleplot" data-num="0">
-            <div class="plot" id="plotdiv"></div>
-        </div>
-    </div> -->
-
-    <div class="body_text">
-        <h2>LEARN MORE ABOUT IT...</h2>
-        <h3>Pollution</h3>
-        <p> Data was obtained from the Environmental Protection Agency which
-            collects data about various pollutants through the use of air
-            monitors placed in a variety of locations. Pollutant measures are
-            expressed in terms of Air Quality Index (AQI), which are directly
-            related to health outcomes. The original data used
-             <a href="https://www.kaggle.com/sogun3/uspollution/data"> click here</a>.
-            For more information about air pollutants
-            <a href=" https://www.epa.gov/criteria-air-pollutants "> click here</a>.
-            For more information about AQI measures
-            <a href=" https://airnow.gov/index.cfm?action=aqibasics.aqi ">click here</a>.
-        </p>
-        <h3>Mortality</h3>
-        <p> Data about mortality rates was obtained through the California Department
-            of Public Health <a href="https://data.chhs.ca.gov/dataset/leading-causes-of-death-by-zip-code-1999-current">
-            leading causes of death dataset</a>.
-            Mortality rates were derived by using population denominators for
-            various years derived from <a href="https://factfinder.census.gov/faces/nav/jsf/pages/community_facts.xhtml">
-            the American Community Survey and Census data</a>. For more information about the average
-            mortality rate for California state overall please refer to the table below.
-        </p>
-        <img src="assets/ca_mortality.png" width=350 height=300"</img src>
-        <h3>Location Data</h3>
-        <p> In order to collapse down the cities from zip codes we used an
-            additional <a href=" https://www.aggdata.com/node/86"> data source</a>
-            to obtain the city location by zip code and latitude and
-            longitude information to aggregate zip codes into cities and map the data.
-        </p>
-
-    </div>
-
-    <div class="meta">BY CELIA LUDWINSKI, SHELLY HSU, ADITYA NAKAI</div>
-    <div class="meta">W209 SECTION 3  /  SPRING 2018  /  MIDS, UC BERKELEY</div>
-
-    <!-- page content -->
-    <script type='text/javascript' >
-        // global variables for plot
-        var poll_line_plot;
-        var mort_line_plot;
-    </script>
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/d3.v4.js"></script>
-    <script src="js/map.js"></script>
-    <!-- <script src="js/linegraph.js"></script> -->
-    <script src="js/pollution_linegraph.js"></script>
-    <script src="js/buttons.js"></script>
-    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/alasql/0.2.3/alasql.min.js"></script> -->
-
-  </body>
+    </body>
 </html>
