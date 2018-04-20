@@ -10,21 +10,16 @@ $(function() {
         var x = d3.scaleBand()
             .range([0, width])
             .padding(.1)
-            // .rangeRoundBands([0, width], .1, 1);
-
         var y = d3.scaleLinear()
             .range([height, 0]);
 
         var xAxis = d3.axisBottom(x)
-
         var yAxis = d3.axisLeft(y)
 
-
-        // var formatPercent = d3.format(".0%");
         var init = function(init_data){
             pol_city = init_data;
 
-            svg = d3.select("body").append("svg")
+            svg = d3.select("#city_bargraph").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
@@ -32,7 +27,8 @@ $(function() {
         }
         var plot = function(){
             x.domain(pol_city.map(function(d) { return d.key; }))
-            y.domain([0, d3.max(pol_city, function(d) { return d.values; })]);
+            y.domain([0, d3.max(pol_city, function(d) {
+                return d.value; })]);
 
             svg.append("g")
                 .attr("class", "x axis")
@@ -62,8 +58,8 @@ $(function() {
                 .attr("class", "bar")
                 .attr("x", function(d) { return x(d.key); })
                 .attr("width", x.bandwidth())
-                .attr("y", function(d) { return y(d.values); })
-                .attr("height", function(d) { return height - y(d.values); });
+                .attr("y", function(d) { return y(d.value); })
+                .attr("height", function(d) { return height - y(d.value); });
 
             d3.select("input").on("change", change);
 
@@ -76,7 +72,7 @@ $(function() {
 
                 // Copy-on-write since tweens are evaluated after a delay.
                   var x0 = x.domain(pol_city.sort(this.checked
-                    ? function(a, b) { return b.values - a.values; }
+                    ? function(a, b) { return b.value - a.value; }
                     : function(a, b) { return d3.ascending(a.key, b.key); })
                     .map(function(d) { return d.key; }))
                     .copy();
@@ -153,12 +149,6 @@ $(function() {
             .rollup(function(d) {
                 return d3.mean(d, function(g) {return g.aqi; });
             }).entries(data);
-
-        console.log('mortality');
-        console.log(mort_city);
-        console.log('aqi');
-        console.log(pol_city);
-        console.log(data);
 
         // plot the city aggregate pollution data
         mort_line_plot =  my_viz_lib.lineGraph();
