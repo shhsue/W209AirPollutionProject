@@ -41,10 +41,7 @@ $(function() {
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            // x axis
-            xAxis = svg.append("g")
-                    .attr("class", "x axis")
-                    .attr("transform", "translate(0," + height + ")")
+
 
             yAxis = svg.append("g")
                 .attr("class", "y axis")
@@ -63,24 +60,6 @@ $(function() {
             y.domain([0, d3.max(pol_city, function(d) {
                 return d.value; })]);
 
-            // update x axis
-            xAxis.call(xAxisScale)
-                .selectAll("text")
-                .attr("y", 0)
-                .attr("x", 9)
-                .attr("dy", ".35em")
-                .attr("transform", "rotate(-90)")
-                .style("text-anchor", "start");
-
-            // y axis
-            yAxis.call(yAxisScale)
-                .append("text")
-                .attr("transform", "rotate(-90)")
-                .attr("y", 6)
-                .attr("dy", ".71em")
-                .style("text-anchor", "end")
-                .text("AQI");
-
             // enter function
             svg.selectAll(".bar")
                 .data(pol_city)
@@ -92,6 +71,11 @@ $(function() {
                 .attr("y", function(d) { return y(d.value); })
                 .attr("height", function(d) { return height - y(d.value); });
 
+            // x axis
+            xAxis = svg.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + height + ")")
+
             // update function
             svg.selectAll(".bar")
                 .data(pol_city)
@@ -99,6 +83,24 @@ $(function() {
                 .attr("width", x.bandwidth())
                 .attr("y", function(d) { return y(d.value); })
                 .attr("height", function(d) { return height - y(d.value); });
+
+            // update x axis
+            xAxis.call(xAxisScale)
+                .selectAll("text")
+                // .attr("y", 5)
+                .attr("x", 4)
+                .attr("dy", 0)
+                .attr("transform", "rotate(-90)")
+                .style("text-anchor", "start");
+
+            // y axis
+            yAxis.call(yAxisScale)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end")
+                .text("AQI");
 
             d3.select("input").on("change", change);
 
