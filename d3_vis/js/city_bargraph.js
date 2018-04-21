@@ -1,5 +1,7 @@
 $(function() {
     var my_viz_lib = my_viz_lib || {};
+    var highlightcolor = "rgb(19, 193, 182)";
+    var highlightcolor_light = "#99d8d4";
     var noSpaces = function(str){
         var result = str.replace(/\s/g,'');
         return result;
@@ -13,9 +15,25 @@ $(function() {
         poll_line_plot.updateCity(city);
         mort_line_plot.updateCity(city);
     }
+    var onCityHover = function(){
+        d3.select("#"+this.id)
+            .style("fill",highlightcolor_light)
+            .style("cursor", "pointer");
+    }
+    var offCityHover = function(){
+        if(this.id.split('_')[1].replace(/([A-Z])/g, ' $1').trim() == citySelector){
+            d3.select("#"+this.id)
+                .style("fill", highlightcolor)
+                .style("cursor", "default");
+        }
+        else {
+            d3.select("#"+this.id)
+                .style("fill","#dddddd")
+                .style("cursor", "default"); }
+    }
 
     my_viz_lib.barGraph = function() {
-        var highlightcolor = "rgb(19, 193, 182)";
+
         var svg, pol_city, xAxis, yAxis,
             options_selected_arr;
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
@@ -77,7 +95,9 @@ $(function() {
                 .attr("width", x.bandwidth())
                 .attr("y", function(d) { return y(d.value); })
                 .attr("height", function(d) { return height - y(d.value); })
-                .on("click",onCityClick);
+                .on("click",onCityClick)
+                .on("mouseover", onCityHover)
+                .on("mouseout", offCityHover);
 
             // x axis, appended after bars so the text is on top
             xAxis = svg.append("g")
