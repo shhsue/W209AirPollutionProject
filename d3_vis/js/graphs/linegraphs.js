@@ -7,8 +7,9 @@ $(function() {
     var my_viz_lib = my_viz_lib || {};
     my_viz_lib.lineGraph = function() {
         // initialize the data set
-        var data, svg;
-        var options_selected_arr = [1,2,3,4]
+        var data, svg, rangehighlight;
+        var range_ymax = 0;
+        var options_selected_arr = [1,2,3,4];
         var graph_type = ""; // Pollution or Mortality
 
         // set the dimensions and margins of the graph
@@ -59,6 +60,12 @@ $(function() {
                 .attr("transform",
                     "translate(" + margin.left + "," + margin.top + ")");
 
+            // add the range highlighter
+            rangehighlight = svg.append("rect")
+                .attr("class","rangehighlight")
+                .attr("id",graph_type+"_rangehighlight")
+                .style("fill","#eeeeee")
+
             // Add the X Axis
             svg.append("g")
                 .attr("transform", "translate(0," + height + ")")
@@ -95,6 +102,28 @@ $(function() {
             options_selected_arr = input_arr;
             plot();
         }
+        var rangehighlighter = function(min,max){
+            // set a new range to ensure the highlighter is displayed within the graph
+            range_ymax = max;
+
+            // replot with the new range
+            plot();
+
+            // shape & display the range highlighter
+            rangehighlight.attr("x", function() { return 0; })
+                .attr("width", width)
+                .attr("y", function() { return y(max); })
+                .attr("height", function() { return y(min); })
+                .attr("visibility", "visible");
+        }
+        var rangehighlighter_off = function(){
+            // hide the range highlighter
+            rangehighlight.attr("visibility", "hidden");
+
+            // replot the data with the new range (only the lines)
+            range_ymax = 0;
+            plot();
+        }
 
         var plot = function() {
 
@@ -104,7 +133,7 @@ $(function() {
             // Scale the range of the data
             x.domain(d3.extent(dataSubset, function(d) { return d.date; }));
             y.domain([0, d3.max(dataSubset, function(d) {
-                return Math.max(d.var_1, d.var_3, d.var_4, d.var_2);
+                return Math.max(d.var_1, d.var_3, d.var_4, d.var_2, range_ymax);
             })]);
             var getvalue = function(d, index) {
                 var result;
@@ -167,6 +196,8 @@ $(function() {
             "init": init,
             "updateSelections": updateSelections,
             "updateCity": updateCity,
+            "rangehighlighter": rangehighlighter,
+            "rangehighlighter_off":rangehighlighter_off,
             "plot": plot
             // "assignData": assignData
         };
