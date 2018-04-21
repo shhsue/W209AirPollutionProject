@@ -71,7 +71,7 @@ $(function() {
                 .attr("y", function(d) { return y(d.value); })
                 .attr("height", function(d) { return height - y(d.value); });
 
-            // x axis
+            // x axis, appended after bars so the text is on top
             xAxis = svg.append("g")
                     .attr("class", "x axis")
                     .attr("transform", "translate(0," + height + ")")

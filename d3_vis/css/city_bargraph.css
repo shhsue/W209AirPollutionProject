@@ -1,6 +1,5 @@
 .axis text {
   font: 10px sans-serif;
-  z-index: 1;
 }
 .axis path,
 .axis line {
