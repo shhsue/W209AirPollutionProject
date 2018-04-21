@@ -9,7 +9,7 @@ $(function() {
         var highlightcolor = "rgb(19, 193, 182)";
         var svg, pol_city, xAxis, yAxis,
             options_selected_arr;
-        var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        var margin = {top: 20, right: 20, bottom: 30, left: 50},
             width = 1000 - margin.left - margin.right,
             height = 150 - margin.top - margin.bottom;
 
@@ -41,10 +41,18 @@ $(function() {
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-
             yAxis = svg.append("g")
                 .attr("class", "y axis")
+
+            // Add the y axis label
+            svg.append("text")
+                .attr("class","graphlabel")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 0 - margin.left)
+                .attr("x",0 - (height / 2))
+                .attr("dy", "1.5em")
+                .style("text-anchor", "middle")
+                .text("Average AQI");
         }
 
         var updateSelections = function(input_arr){
