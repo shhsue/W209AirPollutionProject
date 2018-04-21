@@ -11,8 +11,12 @@ $(function() {
 
         var svg, pol_city, xAxis, yAxis,
             options_selected_arr;
+        // TODO: make responsive to page size changes after graphing
+        var graphingSpaceWidth = document.getElementById("graphingSpace")
+            .getBoundingClientRect().width;
+
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
-            width = 1000 - margin.left - margin.right,
+            width = graphingSpaceWidth - margin.left - margin.right,
             height = 150 - margin.top - margin.bottom;
 
         // define needed colors
