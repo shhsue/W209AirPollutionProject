@@ -8,37 +8,33 @@ $(function() {
     d3.select("#explore-los-angeles")
         // update maps, line graphs, bar graphs on click
         .on("click", function() {
-            var select = document.getElementById('CitySelection')
-            select.value = "Los Angeles"
-            city_bar_graph.updateSelections(["Los Angeles"])
-            poll_line_plot.updateCity("Los Angeles");
-            mort_line_plot.updateCity("Los Angeles");
+            citySelector = "Los Angeles";
+            city_bar_graph.updateSelections([citySelector]);
+            poll_line_plot.updateCity(citySelector);
+            mort_line_plot.updateCity(citySelector);
         })
     d3.select("#explore-san-francisco")
         // update maps, line graphs, bar graphs on click
         .on("click", function() {
-            var select = document.getElementById('CitySelection')
-            select.value = "San Francisco"
-            city_bar_graph.updateSelections(["San Francisco"])
-            poll_line_plot.updateCity("San Francisco");
-            mort_line_plot.updateCity("San Francisco");
+            citySelector = "San Francisco";
+            city_bar_graph.updateSelections([citySelector]);
+            poll_line_plot.updateCity(citySelector);
+            mort_line_plot.updateCity(citySelector);
         })
     d3.select("#explore-bakersfield")
         // update maps, line graphs, bar graphs on click
         .on("click", function() {
-            var select = document.getElementById('CitySelection')
-            select.value = "Bakersfield"
-            city_bar_graph.updateSelections(["Bakersfield"])
-            poll_line_plot.updateCity("Bakersfield");
-            mort_line_plot.updateCity("Bakersfield");
+            citySelector = "Bakersfield";
+            city_bar_graph.updateSelections([citySelector]);
+            poll_line_plot.updateCity(citySelector);
+            mort_line_plot.updateCity(citySelector);
         })
     d3.select("#explore-eureka")
         // update maps, line graphs, bar graphs on click
         .on("click", function() {
-            var select = document.getElementById('CitySelection')
-            select.value = "Eureka"
-            city_bar_graph.updateSelections(["Eureka"])
-            poll_line_plot.updateCity("Eureka");
-            mort_line_plot.updateCity("Eureka");
+            citySelector = "Eureka";
+            city_bar_graph.updateSelections([citySelector]);
+            poll_line_plot.updateCity(citySelector);
+            mort_line_plot.updateCity(citySelector);
         })
 })

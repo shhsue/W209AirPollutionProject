@@ -4,8 +4,17 @@ $(function() {
         var result = str.replace(/\s/g,'');
         return result;
     }
+    var onCityClick = function(){
+        // get city name with spaces, as before
+        city = this.id.split('_')[1].replace(/([A-Z])/g, ' $1').trim()
+        citySelector = city;
 
-    my_viz_lib.lineGraph = function() {
+        city_bar_graph.updateSelections([city])
+        poll_line_plot.updateCity(city);
+        mort_line_plot.updateCity(city);
+    }
+
+    my_viz_lib.barGraph = function() {
         var highlightcolor = "rgb(19, 193, 182)";
         var svg, pol_city, xAxis, yAxis,
             options_selected_arr;
@@ -22,17 +31,7 @@ $(function() {
         var xAxisScale = d3.axisBottom(x)
         var yAxisScale = d3.axisLeft(y)
 
-        function cityListener(){
-            var e = document.getElementById("CitySelection");
-            if(e.selectedIndex >= 0){
-                citySelector = noSpaces(e.options[e.selectedIndex].value);
-                updateSelections([citySelector])
-            }
-        }
-
         var init = function(init_data){
-            document.getElementById("CitySelection")
-                .addEventListener("click",cityListener);
             pol_city = init_data;
 
             svg = d3.select("#city_bargraph").append("svg")
@@ -59,7 +58,7 @@ $(function() {
             d3.selectAll(".bar").style("fill","#dddddd")
             options_selected_arr = input_arr;
             options_selected_arr.forEach(function(d,i) {
-                d3.select("#"+noSpaces(d)).style("fill",highlightcolor);
+                d3.select("#bar_"+noSpaces(d)).style("fill",highlightcolor);
             })
         }
 
@@ -74,10 +73,11 @@ $(function() {
                 .enter().append("rect")
                 .attr("class", "bar")
                 .attr("x", function(d) { return x(d.key); })
-                .attr("id", function(d) { return noSpaces(d.key); })
+                .attr("id", function(d) { return "bar_"+noSpaces(d.key); })
                 .attr("width", x.bandwidth())
                 .attr("y", function(d) { return y(d.value); })
-                .attr("height", function(d) { return height - y(d.value); });
+                .attr("height", function(d) { return height - y(d.value); })
+                .on("click",onCityClick);
 
             // x axis, appended after bars so the text is on top
             xAxis = svg.append("g")
@@ -88,9 +88,11 @@ $(function() {
             svg.selectAll(".bar")
                 .data(pol_city)
                 .attr("x", function(d) { return x(d.key); })
+                .attr("id", function(d) { return "bar_"+noSpaces(d.key); })
                 .attr("width", x.bandwidth())
                 .attr("y", function(d) { return y(d.value); })
-                .attr("height", function(d) { return height - y(d.value); });
+                .attr("height", function(d) { return height - y(d.value); })
+                .on("click",onCityClick);
 
             // update x axis
             xAxis.call(xAxisScale)
@@ -200,9 +202,9 @@ $(function() {
             }).entries(data);
 
         // plot the city aggregate pollution data
-        city_bar_graph =  my_viz_lib.lineGraph();
+        city_bar_graph =  my_viz_lib.barGraph();
         city_bar_graph.init(pol_city);
         city_bar_graph.plot();
-        city_bar_graph.updateSelections(["Bakersfield"])
+        city_bar_graph.updateSelections(["San Francisco"])
     });
 })

@@ -152,7 +152,6 @@ $(function() {
         updatePollutantButtonAndTooltip(4, data);
 
         d3.select("#aqi1").on("mousover", function(){
-            console.log("moused over aqi 1");
             onAqiButtonHover(1);}
         )
     })
