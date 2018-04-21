@@ -18,23 +18,79 @@
       function unpack(rows, key) {
           return rows.map(function(row) { return row[key]; });
       }
-
+      // select subset for mortality data without duplicates
       var mort_all = alasql('SELECT DISTINCT city, year, latitude, longitude, HTD, CAN, STK, CLD FROM ?', [rows])
-
+      // select subset for pollution
       var pol_all =alasql('SELECT city, date, latitude, longitude, co_aqi_level, o3_aqi_level, no2_aqi_level, so2_aqi_level FROM ?', [rows])
 
       console.log(pol_all);
       var pol_frame=[]
-      var city = unpack(rows, 'city')
-          lat = unpack(rows, 'latitude')
-          long = unpack(rows, 'longitude')
-          date = unpack(rows, 'date')
-          co = unpack(rows, 'co_aqi_level')
-          o3 = unpack(rows, 'o3_aqi_level')
-          no2 = unpack(rows, 'no2_aqi_level')
-          so2 = unpack(rows, 'so2_aqi_level')
+      var allCityNames = unpack(rows, 'city'),
+          allDate = unpack(rows, 'date'),
+          allCO = unpack(rows, 'co_aqi_level'),
+          all03 = unpack(rows, 'o3_aqi_level'),
+          allNO2 = unpack(pol, 'no2_aqi_level'),
+          allSO2 = unpack(rows, 'so2_aqi_level'),
 
+          allYear = unpack(rows, 'year'),
+          allHTD = unpack(rows,'HTD'),
+          allCAN = unpack(rows,'CAN'),
+          allSTK = unpack(rows, 'STK'),
+          allCLD = unpack(rows, 'CLD'),
 
+          allLat = unpack(rows, 'latitude'),
+          allLong = unpack(rows, 'longitude'),
+
+          listofCity = [],
+          currentCity=[],
+          currentCO = [],
+          currentO3=[],
+          currentNO2=[],
+          currentSO2=[],
+          currentCLD = [],
+          currentHTD =[],
+          currentSTK=[],
+          currentCAN=[],
+
+          currentLat=[],
+          currentLong=[],
+
+          currentDate = [],
+          currentYear = [];
+
+    for (var i = 0; i < allCityNames.length; i++ ){
+      if (listofCity.indexOf(allCityNames[i]) === -1 ){
+        listofCity.push(allCityNames[i]);
+      }
+    }
+
+    function getCityData(chosenCity) {
+      currentCity=[];
+      currentCO = [];
+      currentO3=[];
+      currentNO2=[];
+      currentSO2=[];
+      currentCLD = [];
+      currentHTD =[];
+      currentSTK=[];
+      currentCAN=[];
+      currentDate = [];
+      currentYear = [];
+      for (var i = 0 ; i < allCityNames.length ; i++){
+        if ( allCityNames[i] === chosenCity ) {
+          currentCO.push(allCO[i]);
+          currentO3.push(all03[i]);
+          currentNO2.push(allNO2[i]);
+          currentSO2.push(allSO2[i]);
+          currentDate.push(allDate[i]);
+          currentCLD.push(allCLD[i]);
+          currentHTD.push(allHTD[i]);
+          currentSTK.push(allSTK[i]);
+          currentCAN.push(allCAN[i]);
+          currentYear.push(allYear[i])
+        }
+      }
+    };
 
     // Pasted code from https://plot.ly/javascript/map-animations/
     var frames = []
