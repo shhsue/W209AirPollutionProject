@@ -38,8 +38,12 @@ $(function() {
         }
         // click the button, show the rangefinder
         else {
+            if(buttonOn === "") {
+                d3.select("#"+aqi).style("background-color","#bbbbbb")
+            } else {
+                d3.select("#"+buttonOn).style("background-color","#eeeeee") }
+                d3.select("#"+aqi).style("background-color","#bbbbbb")
             buttonOn = aqi;
-            d3.select("#"+aqi).style("background-color","#bbbbbb")
             if(aqi === "aqi1"){
                 poll_line_plot.rangehighlighter(0,50);
             } else if (aqi === "aqi2") {

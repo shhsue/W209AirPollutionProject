@@ -8,7 +8,7 @@ $(function() {
     my_viz_lib.lineGraph = function() {
         // initialize the data set
         var data, svg, rangehighlight;
-        var range_ymax = 0;
+        var range = {ymin:0, ymax:0};
         var options_selected_arr = [1,2,3,4];
         var graph_type = ""; // Pollution or Mortality
 
@@ -64,7 +64,10 @@ $(function() {
             rangehighlight = svg.append("rect")
                 .attr("class","rangehighlight")
                 .attr("id",graph_type+"_rangehighlight")
+                .attr("x", function() { return 0; })
+                .attr("width", width)
                 .style("fill","#eeeeee")
+                .attr("visibility","hidden")
 
             // Add the X Axis
             svg.append("g")
@@ -104,24 +107,19 @@ $(function() {
         }
         var rangehighlighter = function(min,max){
             // set a new range to ensure the highlighter is displayed within the graph
-            range_ymax = max;
-
-            // replot with the new range
+            range.ymax = max;
+            range.ymin = min
             plot();
 
-            // shape & display the range highlighter
-            rangehighlight.attr("x", function() { return 0; })
-                .attr("width", width)
-                .attr("y", function() { return y(max); })
-                .attr("height", function() { return y(min); })
-                .attr("visibility", "visible");
+            rangehighlight.attr("visibility", "visible");
         }
         var rangehighlighter_off = function(){
             // hide the range highlighter
             rangehighlight.attr("visibility", "hidden");
 
             // replot the data with the new range (only the lines)
-            range_ymax = 0;
+            range.ymax = 0;
+            range.ymin = 0;
             plot();
         }
 
@@ -133,8 +131,13 @@ $(function() {
             // Scale the range of the data
             x.domain(d3.extent(dataSubset, function(d) { return d.date; }));
             y.domain([0, d3.max(dataSubset, function(d) {
-                return Math.max(d.var_1, d.var_3, d.var_4, d.var_2, range_ymax);
+                return Math.max(d.var_1, d.var_3, d.var_4, d.var_2, range.ymax, range.ymin);
             })]);
+
+            // shape & display the range highlighter
+            rangehighlight.attr("y", function() { return y(range.ymax); })
+                .attr("height", function() { return y(range.ymin); })
+
             var getvalue = function(d, index) {
                 var result;
                 if(index === 1) {
