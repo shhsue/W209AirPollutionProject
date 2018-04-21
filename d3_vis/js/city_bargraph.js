@@ -1,35 +1,10 @@
 $(function() {
     var my_viz_lib = my_viz_lib || {};
-    var highlightcolor = "rgb(19, 193, 182)";
-    var highlightcolor_light = "#99d8d4";
+
+
     var noSpaces = function(str){
         var result = str.replace(/\s/g,'');
         return result;
-    }
-    var onCityClick = function(){
-        // get city name with spaces, as before
-        city = this.id.split('_')[1].replace(/([A-Z])/g, ' $1').trim()
-        citySelector = city;
-
-        city_bar_graph.updateSelections([city])
-        poll_line_plot.updateCity(city);
-        mort_line_plot.updateCity(city);
-    }
-    var onCityHover = function(){
-        d3.select("#"+this.id)
-            .style("fill",highlightcolor_light)
-            .style("cursor", "pointer");
-    }
-    var offCityHover = function(){
-        if(this.id.split('_')[1].replace(/([A-Z])/g, ' $1').trim() == citySelector){
-            d3.select("#"+this.id)
-                .style("fill", highlightcolor)
-                .style("cursor", "default");
-        }
-        else {
-            d3.select("#"+this.id)
-                .style("fill","#dddddd")
-                .style("cursor", "default"); }
     }
 
     my_viz_lib.barGraph = function() {
@@ -39,6 +14,37 @@ $(function() {
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
             width = 1000 - margin.left - margin.right,
             height = 150 - margin.top - margin.bottom;
+
+        // define needed colors
+        var highlightcolor = "rgb(19, 193, 182)";
+        var highlightcolor_light = "#99d8d4";
+
+        // hover & click effect functions
+        var onCityClick = function(){
+            // get city name with spaces, as before
+            city = this.id.split('_')[1].replace(/([A-Z])/g, ' $1').trim()
+            citySelector = city;
+
+            city_bar_graph.updateSelections([city])
+            poll_line_plot.updateCity(city);
+            mort_line_plot.updateCity(city);
+        }
+        var onCityHover = function(){
+            d3.select("#"+this.id)
+                .style("fill",highlightcolor_light)
+                .style("cursor", "pointer");
+        }
+        var offCityHover = function(){
+            if(this.id.split('_')[1].replace(/([A-Z])/g, ' $1').trim() == citySelector){
+                d3.select("#"+this.id)
+                    .style("fill", highlightcolor)
+                    .style("cursor", "default");
+            }
+            else {
+                d3.select("#"+this.id)
+                    .style("fill","#dddddd")
+                    .style("cursor", "default"); }
+        }
 
         var x = d3.scaleBand()
             .range([0, width])
