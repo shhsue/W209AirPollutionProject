@@ -115,20 +115,21 @@ svg {
 }
 /*SECTION 2 -- ABOUT*/
 #section2{
-    height:500px;
+    /*height:500px;*/
     background-color: #e3f2f1;
 }
 #section2 img{
-    height:500px;
-    width:auto;
-    float:left;
-    /*margin-left: -51%;
-    margin-top: -150px;*/
+    width:40%;
+    min-width:550px;
+    height:auto;
+    display:inline-block;
+    vertical-align: top;
 }
 #section2 .body_text{
     display:inline-block;
-    width:600px;
-    padding:20px;
+    width:60%;
+    min-width: 550px;
+    padding:20px 10% 20px 10%;
     margin: 0;
 }
 /*SECTION 3 -- LEARNING CURVE*/
@@ -138,8 +139,9 @@ svg {
 .pollutant_info{
     display:inline-block;
     vertical-align: top;
-    margin:50px 15px 50px 15px;
-    width:20%;
+    padding:50px 20px 50px 20px;
+    width:25%;
+    min-width:300px;
 }
 #learning-curve h2{
     /*font-size:13px;*/
@@ -273,7 +275,7 @@ svg {
 
 /* sidebar filter styling */
 .filters {
-    width:24%;
+    width:25%;
     height:100%;
     display:inline-block;
     background-color:#fafafa;
@@ -424,18 +426,12 @@ svg {
     width:75%;
     display:inline-block;
     vertical-align: top;
-    position:relative;
-    /*margin-right:30px;*/
 }
 .double_map, .line_graphs{ /* subcontainers for graphs */
-    /*background-color:#bbbbbb;*/
     display:inline-block;
     vertical-align: top;
 }
-.double_map {
-}
 .line_graphs{
-    /*  width:200px;*/
 }
 
 /* individual graph type styles */
