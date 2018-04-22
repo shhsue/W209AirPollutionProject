@@ -183,7 +183,7 @@ svg {
 
 /*SECTION 4 -- CITIES INSIGHTS*/
 #high-low-examples{
-    background-color: white;
+    background-color:#f5f5f5;
     color:white;
 }
 /*#high-low-examples h2*/
@@ -256,6 +256,11 @@ svg {
 
 
 
+#dashboard{
+    height:650px;
+}
+
+
 
 
 /*SECTION 5 -- SOURCES*/
@@ -268,12 +273,16 @@ svg {
 
 /* sidebar filter styling */
 .filters {
-    width:10%;
-    height:600px;
+    width:24%;
+    height:100%;
     display:inline-block;
-    background-color:#dddddd;
+    background-color:#fafafa;
     margin: auto 0 auto auto;
     min-width: 150px;
+    float:right;
+    border-left:solid;
+    border-left-color: #eeeeee;
+    border-left-width:1px;
 }
 .filters h1{
     margin-top: 1em;
