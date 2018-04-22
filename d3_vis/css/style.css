@@ -361,7 +361,7 @@ svg {
     display:block;
     vertical-align: top;
     /*float: left;*/
-    width: 130px;
+    width: 150px;
     /*position:relative;*/
     margin:auto;
 }
@@ -411,7 +411,7 @@ svg {
 /*styling that only applies for aqi buttons*/
 .aqi_button{
     margin:2px auto 0px auto;
-    width:130px;
+    width:150px;
     height:25px;
     display:block;
 }
@@ -436,8 +436,8 @@ svg {
 }
 
 /* individual graph type styles */
-.map_graph{
-    margin:5px;
+.pollutant_map{
+    /*margin:5px;*/
     background-color:white;
     width:240px;
     height:400px;

@@ -44,7 +44,7 @@ $(function() {
                         width: 1,
                         color: 'rgb(102,102,102)'
                     },
-                    color: 'rgb(255,0,0)'
+                    color: 'rgb(19,193,182)'
                 }
             };
             trace2 = {
@@ -70,7 +70,9 @@ $(function() {
             layout = {
                 title: 'AQI Levels in California',
                 showlegend: false,
-                autosize: true,
+                autosize: false,
+                width: 450,
+                height: 450,
                 margin: {l: 0,
                     r: 0,
                     b: 10,
@@ -93,7 +95,7 @@ $(function() {
             Plotly.setPlotConfig({
               mapboxAccessToken: 'pk.eyJ1IjoiYW5ha2FpMyIsImEiOiJjamZsbm53dTUwanljMndzMnR0ZXZiOWUzIn0.tJZ5UpqBKnHl-TbScs7c5A'
             })
-            Plotly.newPlot(myDiv, data, layout, {showLink: false});
+            Plotly.newPlot(pollutant_map, data, layout, {showLink: false});
         } /*End of plot() */
 
 
