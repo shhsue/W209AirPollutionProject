@@ -28,7 +28,6 @@ $(function() {
             // get city name with spaces, as before
             city = this.id.split('_')[1].replace(/([A-Z])/g, ' $1').trim()
             citySelector = city;
-
             city_bar_graph.updateSelections([city])
             poll_line_plot.updateCity(city);
             mort_line_plot.updateCity(city);

@@ -21,11 +21,16 @@ $(function() {
         var plot=function() {
             /* Do filtering*/
             var newData = mydata.filter(function(d){
-                return d.city === citySelector;
+                return d.city == citySelector;
+            })
+
+            var greyData = mydata.filter(function(d){
+                return d.city != citySelector;
             })
 
             /* Plot*/
-            data = [{
+            data=[]
+            trace1 = {
                 type:'scattermapbox',
                 lon: unpack(newData, 'Longitude'),
                 lat: unpack(newData, 'Latitude'),
@@ -33,7 +38,7 @@ $(function() {
                 text:  unpack(newData, 'city'),
                 mode: 'markers',
                 marker: {
-                    size: unpack(newData, '2010'),
+                    size: unpack(newData, 'agg_allyears'),
                     opacity: 0.5,
                     line: {
                         width: 1,
@@ -41,12 +46,37 @@ $(function() {
                     },
                     color: 'rgb(255,0,0)'
                 }
-            }];
+            };
+            trace2 = {
+                type:'scattermapbox',
+                lon: unpack(greyData, 'Longitude'),
+                lat: unpack(greyData, 'Latitude'),
+                hoverinfor:  unpack(greyData, 'city'),
+                text:  unpack(greyData, 'city'),
+                mode: 'markers',
+                marker: {
+                    size: unpack(greyData, 'agg_allyears'),
+                    opacity: 0.5,
+                    line: {
+                        width: 1,
+                        color: 'rgb(169,169,169)'
+                    },
+                    color: 'rgb(169,169,169)'
+                }
+            };
+
+            data=[trace2,trace1]
 
             layout = {
                 title: 'AQI Levels in California',
                 showlegend: false,
                 autosize: true,
+                margin: {l: 0,
+                    r: 0,
+                    b: 10,
+                    t: 30,
+                    pad: 5
+                },
                 hovermode:'closest',
                 mapbox: {
                     bearing:0,
@@ -56,14 +86,14 @@ $(function() {
                     },
                     pitch:0,
                     zoom:4,
-                    style:'dark'
+                    style:'light'
                 },
               };
 
             Plotly.setPlotConfig({
               mapboxAccessToken: 'pk.eyJ1IjoiYW5ha2FpMyIsImEiOiJjamZsbm53dTUwanljMndzMnR0ZXZiOWUzIn0.tJZ5UpqBKnHl-TbScs7c5A'
             })
-            Plotly.plot(myDiv, data, layout, {showLink: false});
+            Plotly.newPlot(myDiv, data, layout, {showLink: false});
         } /*End of plot() */
 
 
