@@ -214,6 +214,7 @@
                 <div class="bargraph" id="city_bargraph"></div>
                 <label><input type="checkbox"> Sort values</label>
                 <div class="double_map">
+                    <div id="myDiv"></div>
                 </div>
                 <div class="line_graphs">
                     <div class="line_graph">
@@ -411,17 +412,19 @@
             var city_bar_graph;
             var poll_line_plot;
             var mort_line_plot;
+            var map_plot_graph;
         </script>
 
         <!-- libraries -->
         <script src="js/libs/jquery-1.11.0.min.js"></script>
         <script src="js/libs/bootstrap.min.js"></script>
         <script src="js/libs/d3.v4.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
         <!-- graphs -->
         <script src="js/graphs/city_bargraph.js"></script>
-        <script src="js/graphs/map.js"></script>
         <script src="js/graphs/linegraphs.js"></script>
+        <script src="js/graphs/map.js"></script>
 
         <!-- activate button interactivity -->
         <script src="js/buttons/dashboard_buttons.js"></script>

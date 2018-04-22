@@ -12,6 +12,7 @@ $(function() {
             city_bar_graph.updateSelections([citySelector]);
             poll_line_plot.updateCity(citySelector);
             mort_line_plot.updateCity(citySelector);
+            map_plot_graph.updatecities(citySelector);
         })
     d3.select("#explore-san-francisco")
         // update maps, line graphs, bar graphs on click
@@ -20,6 +21,7 @@ $(function() {
             city_bar_graph.updateSelections([citySelector]);
             poll_line_plot.updateCity(citySelector);
             mort_line_plot.updateCity(citySelector);
+            map_plot_graph.updatecities(citySelector);
         })
     d3.select("#explore-bakersfield")
         // update maps, line graphs, bar graphs on click
@@ -28,6 +30,7 @@ $(function() {
             city_bar_graph.updateSelections([citySelector]);
             poll_line_plot.updateCity(citySelector);
             mort_line_plot.updateCity(citySelector);
+            map_plot_graph.updatecities(citySelector);
         })
     d3.select("#explore-eureka")
         // update maps, line graphs, bar graphs on click
@@ -36,5 +39,6 @@ $(function() {
             city_bar_graph.updateSelections([citySelector]);
             poll_line_plot.updateCity(citySelector);
             mort_line_plot.updateCity(citySelector);
+            map_plot_graph.updatecities(citySelector);
         })
 })

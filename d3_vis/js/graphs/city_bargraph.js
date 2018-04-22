@@ -32,6 +32,7 @@ $(function() {
             city_bar_graph.updateSelections([city])
             poll_line_plot.updateCity(city);
             mort_line_plot.updateCity(city);
+            map_plot_graph.updatecities(city);
         }
         var onCityHover = function(){
             d3.select("#"+this.id)

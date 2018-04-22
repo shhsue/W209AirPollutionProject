@@ -276,15 +276,16 @@ svg {
 /* sidebar filter styling */
 .filters {
     width:25%;
+    min-width: 150px;
     height:100%;
     display:inline-block;
     background-color:#fafafa;
-    margin: auto 0 auto auto;
-    min-width: 150px;
-    float:right;
+    /*margin: auto 0 auto auto;*/
+    /*float:right;*/
     border-left:solid;
     border-left-color: #eeeeee;
     border-left-width:1px;
+    vertical-align: middle;
 }
 .filters h1{
     margin-top: 1em;
